@@ -12,10 +12,39 @@
   .services__sub {
     max-width: none;
   }
+
+  /* Catalog */
+  .catalog__intro {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .catalog__intro-right {
+    align-items: flex-start;
+    max-width: none;
+  }
+
+  .catalog__sub {
+    text-align: left;
+  }
+
+  /* 2 cards visible on tablet */
+  .server-card {
+    flex: 0 0 calc(50% - 0.75rem);
+  }
 }
 
 /* ── Mobile landscape / small tablet (≤ 900px) ──────────── */
 @media (max-width: 900px) {
+  /* Catalog */
+  .catalog {
+    padding: 5.5rem 2rem;
+  }
+
+  .catalog__scroll-hint {
+    display: none;
+  }
+
   /* Navbar */
   .navbar {
     padding: 1.2rem 2rem;
@@ -114,6 +143,16 @@
 
 /* ── Mobile portrait (≤ 560px) ──────────────────────────── */
 @media (max-width: 560px) {
+  /* Catalog: 1 card visible */
+  .server-card {
+    flex: 0 0 calc(100% - 0px);
+  }
+
+  .catalog__toggle-btn {
+    padding: .6rem 1rem;
+    font-size: .7rem;
+  }
+
   .navbar__links {
     display: none;
   }

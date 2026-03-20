@@ -1,0 +1,312 @@
+/* ============================================================
+   CATALOG — Hardware Rental Listings
+   ============================================================ */
+
+.catalog {
+  padding: 8rem 4rem;
+  background: var(--color-beige);
+}
+
+/* ── Intro ──────────────────────────────────────────────── */
+.catalog__intro {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 4rem;
+  margin-bottom: 5rem;
+}
+
+.catalog__intro-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2rem;
+  max-width: 40ch;
+}
+
+.catalog__sub {
+  font-size: .88rem;
+  font-weight: 300;
+  color: var(--color-mid);
+  line-height: 1.8;
+  text-align: right;
+}
+
+/* ── Toggle ─────────────────────────────────────────────── */
+.catalog__toggle {
+  display: flex;
+  border: 1px solid var(--border-dark);
+}
+
+.catalog__toggle-btn {
+  font-family: var(--font-mono);
+  font-size: .74rem;
+  letter-spacing: .09em;
+  padding: .7rem 1.5rem;
+  background: transparent;
+  border: none;
+  border-right: 1px solid var(--border-dark);
+  cursor: pointer;
+  color: var(--color-mid);
+  transition: background .2s, color .2s;
+  white-space: nowrap;
+}
+
+.catalog__toggle-btn:last-child {
+  border-right: none;
+}
+
+.catalog__toggle-btn.active {
+  background: var(--color-dark);
+  color: var(--color-beige);
+}
+
+.catalog__toggle-btn:not(.active):hover {
+  background: rgba(26, 26, 26, .06);
+  color: var(--color-dark);
+}
+
+/* ── Slider ─────────────────────────────────────────────── */
+.catalog__slider-outer {
+  position: relative;
+}
+
+.catalog__viewport {
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  cursor: grab;
+}
+
+.catalog__viewport:active {
+  cursor: grabbing;
+}
+
+.catalog__viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.catalog__track {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.catalog__track--hidden {
+  display: none;
+}
+
+/* ── Server Card ────────────────────────────────────────── */
+.server-card {
+  flex: 0 0 calc(33.333% - 1rem);
+  min-width: 0;
+  padding: 2.5rem 2.5rem 2rem;
+  border: 1px solid var(--border-dark);
+  background: #EAE4D8;
+  display: flex;
+  flex-direction: column;
+  scroll-snap-align: start;
+  transition: border-color .3s, box-shadow .3s, background .3s;
+}
+
+.server-card:hover {
+  border-color: rgba(26, 26, 26, .24);
+  box-shadow: 0 12px 48px rgba(26, 26, 26, .07);
+  background: #E2DCD0;
+}
+
+/* Header */
+.server-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.server-card__badge {
+  font-family: var(--font-mono);
+  font-size: .64rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: .28rem .75rem;
+  background: var(--color-teal);
+  color: var(--color-beige);
+}
+
+.server-card__badge--flagship {
+  background: var(--color-dark);
+}
+
+.server-card__badge--cpu {
+  background: transparent;
+  border: 1px solid rgba(26, 92, 92, .45);
+  color: var(--color-teal);
+}
+
+.server-card__id {
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  letter-spacing: .06em;
+  color: var(--color-mid);
+  opacity: .5;
+}
+
+/* Name */
+.server-card__name {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 1.45vw, 1.45rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  color: var(--color-dark);
+  margin-bottom: 2rem;
+}
+
+/* Specs */
+.server-card__specs {
+  flex: 1;
+  border-top: 1px solid var(--border-dark);
+  margin-bottom: 1.75rem;
+}
+
+.spec-row {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: .6rem 0;
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.spec-label {
+  font-family: var(--font-mono);
+  font-size: .63rem;
+  letter-spacing: .1em;
+  color: var(--color-teal-mid);
+  width: 4.5rem;
+  flex-shrink: 0;
+}
+
+.spec-value {
+  font-family: var(--font-mono);
+  font-size: .74rem;
+  color: var(--color-dark);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* Pricing */
+.server-card__pricing {
+  display: flex;
+  align-items: baseline;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.price-block {
+  display: flex;
+  align-items: baseline;
+  gap: .3rem;
+}
+
+.price-amount {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 1.65vw, 1.65rem);
+  font-weight: 700;
+  letter-spacing: -.03em;
+  color: var(--color-dark);
+}
+
+.price-block--alt .price-amount {
+  font-size: clamp(.95rem, 1.1vw, 1.1rem);
+  color: var(--color-mid);
+  font-weight: 600;
+}
+
+.price-unit {
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  color: var(--color-mid);
+}
+
+/* CTA link */
+.server-card__cta {
+  font-family: var(--font-mono);
+  font-size: .75rem;
+  letter-spacing: .06em;
+  color: var(--color-teal);
+  display: inline-flex;
+  align-items: center;
+  transition: color .2s, letter-spacing .2s;
+  margin-top: auto;
+}
+
+.server-card__cta:hover {
+  color: var(--color-dark);
+  letter-spacing: .1em;
+}
+
+/* ── Slider Controls ────────────────────────────────────── */
+.catalog__controls-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.catalog__arrow {
+  width: 2.75rem;
+  height: 2.75rem;
+  background: transparent;
+  border: 1px solid var(--border-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background .2s, color .2s, border-color .2s;
+  color: var(--color-dark);
+  flex-shrink: 0;
+}
+
+.catalog__arrow:hover {
+  background: var(--color-dark);
+  color: var(--color-beige);
+  border-color: var(--color-dark);
+}
+
+.catalog__arrow:disabled {
+  opacity: .22;
+  pointer-events: none;
+}
+
+/* Dots */
+.catalog__dots {
+  display: flex;
+  gap: .55rem;
+  align-items: center;
+  flex: 1;
+}
+
+.catalog__dot {
+  height: .4rem;
+  width: .4rem;
+  border-radius: 2px;
+  background: rgba(26, 26, 26, .2);
+  border: none;
+  cursor: pointer;
+  transition: background .25s, width .3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.catalog__dot.is-active {
+  background: var(--color-dark);
+  width: 1.75rem;
+}
+
+.catalog__scroll-hint {
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  letter-spacing: .08em;
+  color: var(--color-mid);
+  opacity: .45;
+  white-space: nowrap;
+  margin-left: auto;
+}

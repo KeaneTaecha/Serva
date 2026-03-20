@@ -131,9 +131,14 @@ a {
 
 /* ── Animations: Scroll Reveal ──────────────────────────── */
 .reveal {
-  opacity: 0;
-  transform: translateY(16px);
+  opacity: 1;
+  transform: none;
   transition: opacity .7s ease, transform .7s ease;
+}
+
+.js .reveal {
+  opacity: 1;
+  transform: none;
 }
 
 .reveal.is-visible {
@@ -142,8 +147,12 @@ a {
 }
 
 .reveal-clip {
-  clip-path: inset(0 0 100% 0);
+  clip-path: inset(0 0 0% 0);
   transition: clip-path .9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.js .reveal-clip {
+  clip-path: inset(0 0 0% 0);
 }
 
 .reveal-clip.is-visible {

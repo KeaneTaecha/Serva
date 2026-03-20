@@ -15,6 +15,10 @@
   margin-bottom: 5.5rem;
 }
 
+.services__title {
+  clip-path: none;
+}
+
 .services__sub {
   max-width: 36ch;
   font-size: .88rem;
