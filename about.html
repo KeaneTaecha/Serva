@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Serva</title>
+  <script>
+    document.documentElement.classList.add('js');
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=Jost:wght@300;400;500&family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/about.css" />
+  <link rel="stylesheet" href="css/services.css" />
+  <link rel="stylesheet" href="css/process.css" />
+  <link rel="stylesheet" href="css/cta.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <!-- ── Navbar ─────────────────────────────────────────── -->
+  <header class="navbar" id="navbar">
+    <a href="index.html" class="navbar__logo" aria-label="Serva home">
+      <img src="logo.png" alt="Serva" class="navbar__logo-img" />
+    </a>
+    <nav aria-label="Main navigation">
+      <ul class="navbar__links">
+        <li class="navbar__dropdown">
+          <a href="index.html#renting" class="navbar__dropdown-trigger">products</a>
+          <ul class="navbar__dropdown-menu">
+            <li><a href="cloud-vps.html">
+              <span class="navbar__dropdown-item-label">Cloud VPS</span>
+              <span class="navbar__dropdown-item-desc">CPU-optimised bare-metal</span>
+            </a></li>
+            <li><a href="dedicated-servers.html">
+              <span class="navbar__dropdown-item-label">Dedicated Servers</span>
+              <span class="navbar__dropdown-item-desc">GPU-accelerated clusters</span>
+            </a></li>
+          </ul>
+        </li>
+        <li><a href="about.html" class="navbar__link--active">about</a></li>
+        <li><a href="index.html#contact">contact</a></li>
+        <li>
+          <button class="lang-btn" id="langBtn" aria-label="Toggle language">
+            <span class="lang-opt is-active" data-l="en">EN</span>
+            <span class="lang-sep" aria-hidden="true">·</span>
+            <span class="lang-opt" data-l="th">ไทย</span>
+          </button>
+        </li>
+        <li><a href="index.html#contact" class="navbar__cta">start project →</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ── About Hero ─────────────────────────────────────── -->
+    <section class="about-hero" id="about-hero">
+
+      <!-- Geometric shapes -->
+      <span class="about-hero__shape about-hero__shape--ring" aria-hidden="true"></span>
+      <span class="about-hero__shape about-hero__shape--diamond" aria-hidden="true"></span>
+
+      <div class="about-hero__body">
+        <div class="about-hero__left">
+          <div class="about-hero__eyebrow fade fade--d1">
+            <span class="label label--dark">// about serva</span>
+          </div>
+          <h1 class="about-hero__heading fade fade--d2">
+            Precision<br>infrastructure,<br>built with <span class="about-hero__accent">purpose.</span>
+          </h1>
+        </div>
+
+        <div class="about-hero__right fade fade--d3">
+          <p class="about-hero__sub">
+            Serva is a Bangkok-based technology company delivering custom AI pipelines and enterprise-grade server rentals. We provision to your exact requirements — no shortcuts, no compromise.
+          </p>
+          <div class="about-hero__meta">
+            <div class="about-hero__meta-item">
+              <span class="about-hero__meta-num">99.97%</span>
+              <span class="about-hero__meta-label">uptime sla</span>
+            </div>
+            <div class="about-hero__meta-item">
+              <span class="about-hero__meta-num">50+</span>
+              <span class="about-hero__meta-label">hardware configs</span>
+            </div>
+            <div class="about-hero__meta-item">
+              <span class="about-hero__meta-num">24/7</span>
+              <span class="about-hero__meta-label">active monitoring</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Values -->
+      <div class="about-hero__values fade fade--d4">
+        <div class="about-hero__value">
+          <span class="about-hero__value-num">// 01</span>
+          <h3 class="about-hero__value-title">Precision</h3>
+          <p>Every component chosen deliberately — hardware, model, config. Nothing guessed, everything earned.</p>
+        </div>
+        <div class="about-hero__value">
+          <span class="about-hero__value-num">// 02</span>
+          <h3 class="about-hero__value-title">Reliability</h3>
+          <p>99.97% uptime SLA. 24/7 monitoring. We remain accountable long after the first deployment.</p>
+        </div>
+        <div class="about-hero__value">
+          <span class="about-hero__value-num">// 03</span>
+          <h3 class="about-hero__value-title">Transparency</h3>
+          <p>No hidden costs, no noisy neighbors, no lock-in. Your stack, your rules — always.</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ── Services ───────────────────────────────────────── -->
+    <section class="services" id="services">
+      <div class="section-header reveal">
+        <span class="label">// 01 — what we do</span>
+        <hr />
+      </div>
+
+      <div class="services__intro">
+        <h2 class="section-title services__title" data-i18n="services.title" data-i18n-html>
+          Two offerings.<br>One principle.
+        </h2>
+        <p class="services__sub reveal" data-i18n="services.sub">
+          Your stack, your rules. Whether you need a bespoke AI workflow or reliable bare-metal hardware — we deliver both with precision and no compromise.
+        </p>
+      </div>
+
+      <div class="services__grid">
+        <article class="service-card reveal">
+          <span class="service-card__num" aria-hidden="true">01</span>
+          <h3 class="service-card__name" data-i18n="service1.name" data-i18n-html>Custom AI<br>Pipelines</h3>
+          <p class="service-card__desc" data-i18n="service1.desc">
+            End-to-end AI workflows tailored to your data, your models, and your throughput requirements — from ingestion to inference to output.
+          </p>
+          <div class="service-card__detail">
+            <ul>
+              <li>data ingestion &amp; preprocessing</li>
+              <li>model selection &amp; fine-tuning</li>
+              <li>orchestration &amp; monitoring</li>
+              <li>api integration &amp; deployment</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="service-card reveal">
+          <span class="service-card__num" aria-hidden="true">02</span>
+          <h3 class="service-card__name" data-i18n="service2.name" data-i18n-html>Dedicated<br>Server Rentals</h3>
+          <p class="service-card__desc" data-i18n="service2.desc">
+            Bare-metal and GPU-accelerated servers rented on your terms — hourly, monthly, or long-term. No noisy neighbors. Full hardware access.
+          </p>
+          <div class="service-card__detail">
+            <ul>
+              <li>gpu &amp; cpu-optimized hardware</li>
+              <li>flexible rental periods</li>
+              <li>network &amp; storage configuration</li>
+              <li>24/7 uptime monitoring</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ── Process ─────────────────────────────────────────── -->
+    <section class="process" id="how">
+      <div class="section-header section-header--dark reveal">
+        <span class="label label--dark">// 02 — process</span>
+        <hr />
+      </div>
+      <h2 class="section-title reveal-clip" data-i18n="process.title">How we work.</h2>
+
+      <div class="process__steps">
+        <div class="process__step reveal">
+          <span class="process__step-label">01 / scope and discovery</span>
+          <h3 class="process__step-title">Scope &amp; Discovery</h3>
+          <p class="process__step-desc" data-i18n="process.step1.desc">
+            We begin with your requirements — workloads, data sources, latency targets, and budget. No assumptions, just listening.
+          </p>
+        </div>
+
+        <div class="process__step reveal">
+          <span class="process__step-label">02 / design and provision</span>
+          <h3 class="process__step-title">Design &amp; Provision</h3>
+          <p class="process__step-desc" data-i18n="process.step2.desc">
+            We architect the pipeline or provision the hardware to spec. Every component chosen deliberately, with room to scale.
+          </p>
+        </div>
+
+        <div class="process__step reveal">
+          <span class="process__step-label">03 / deploy and support</span>
+          <h3 class="process__step-title">Deploy &amp; Support</h3>
+          <p class="process__step-desc" data-i18n="process.step3.desc">
+            We ship, monitor, and remain available. Ongoing support, performance reviews, and adjustments as your needs evolve.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA ─────────────────────────────────────────────── -->
+    <section class="cta" id="contact">
+      <div class="cta__left reveal">
+        <p class="label cta__label">ready to build</p>
+        <h2 class="cta__heading" data-i18n="cta.heading">
+          Let's scope your next project.
+        </h2>
+      </div>
+      <div class="cta__right reveal">
+        <a href="mailto:hello@serva.io" class="btn btn--outline">
+          get in touch →
+        </a>
+        <p class="cta__email" data-i18n="cta.email" data-i18n-html>or email <a href="mailto:hello@serva.io">hello@serva.io</a></p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ─────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div>
+        <p class="footer__brand">Serva</p>
+        <p class="footer__statement" data-i18n="footer.statement">Built for teams that demand precision.</p>
+        <p class="footer__tagline">// servers and services</p>
+      </div>
+      <nav class="footer__nav" aria-label="Footer navigation">
+        <div class="footer__col">
+          <h4 data-i18n="footer.col1.title">services</h4>
+          <ul>
+            <li><a href="#services">AI Pipelines</a></li>
+            <li><a href="#services">Server Rentals</a></li>
+            <li><a href="#contact" data-i18n="footer.col1.custom">Custom Projects</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4 data-i18n="footer.col2.title">company</h4>
+          <ul>
+            <li><a href="about.html" data-i18n="footer.col2.about">About</a></li>
+            <li><a href="#how" data-i18n="footer.col2.process">Process</a></li>
+            <li><a href="#contact" data-i18n="footer.col2.contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy" data-i18n="footer.copy" data-i18n-html>&copy; 2026 Serva. All rights reserved.</p>
+      <div class="footer__links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/about.js"></script>
+
+</body>
+</html>

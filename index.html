@@ -18,9 +18,7 @@
   <link rel="stylesheet" href="css/navbar.css" />
   <link rel="stylesheet" href="css/hero.css" />
   <link rel="stylesheet" href="css/ticker.css" />
-  <link rel="stylesheet" href="css/services.css" />
   <link rel="stylesheet" href="css/catalog.css" />
-  <link rel="stylesheet" href="css/process.css" />
   <link rel="stylesheet" href="css/cta.css" />
   <link rel="stylesheet" href="css/footer.css" />
   <link rel="stylesheet" href="css/responsive.css" />
@@ -34,10 +32,21 @@
     </a>
     <nav aria-label="Main navigation">
       <ul class="navbar__links">
-        <li><a href="#services" data-i18n="nav.services">services</a></li>
-        <li><a href="#renting">renting</a></li>
-        <li><a href="#how" data-i18n="nav.process">process</a></li>
-        <li><a href="#contact" data-i18n="nav.contact">contact</a></li>
+        <li class="navbar__dropdown">
+          <a href="#renting" class="navbar__dropdown-trigger">products</a>
+          <ul class="navbar__dropdown-menu">
+            <li><a href="cloud-vps.html">
+              <span class="navbar__dropdown-item-label">Cloud VPS</span>
+              <span class="navbar__dropdown-item-desc">CPU-optimised bare-metal</span>
+            </a></li>
+            <li><a href="dedicated-servers.html">
+              <span class="navbar__dropdown-item-label">Dedicated Servers</span>
+              <span class="navbar__dropdown-item-desc">GPU-accelerated clusters</span>
+            </a></li>
+          </ul>
+        </li>
+        <li><a href="about.html">about</a></li>
+        <li><a href="#contact">contact</a></li>
         <li>
           <button class="lang-btn" id="langBtn" aria-label="Toggle language">
             <span class="lang-opt is-active" data-l="en">EN</span>
@@ -60,12 +69,10 @@
           <!-- Geometric background shapes -->
           <span class="hero__shape hero__shape--ring" aria-hidden="true"></span>
           <span class="hero__shape hero__shape--diamond" aria-hidden="true"></span>
-          <span class="hero__shape hero__shape--bracket-tl" aria-hidden="true"></span>
-          <span class="hero__shape hero__shape--bracket-br" aria-hidden="true"></span>
           <img src="server.png" alt="Serva dedicated server hardware" class="hero__server-img" />
           <div class="hero__price-badge fade fade--d3">
             <span class="hero__price-badge-label">rent from</span>
-            <span class="hero__price-badge-value">$0.95<span class="hero__price-badge-unit">/hr</span></span>
+            <span class="hero__price-badge-value">฿349<span class="hero__price-badge-unit">/mo</span></span>
           </div>
         </div>
       </div>
@@ -75,7 +82,7 @@
           <span class="label label--dark">// Servers and Services</span>
         </div>
         <h1 class="hero__heading fade fade--d2" data-i18n="hero.heading" data-i18n-html>
-          Yours to rent,<br>from <span class="accent">$0.95</span>/hr.
+          Yours to rent,<br>from <span class="accent">฿349</span>/mo.
         </h1>
 
         <div class="hero__stats fade fade--d3" aria-label="Key statistics">
@@ -108,61 +115,10 @@
       </div>
     </section>
 
-    <!-- ── Services ───────────────────────────────────── -->
-    <section class="services" id="services">
-      <div class="section-header reveal">
-        <span class="label">// 01 — what we do</span>
-        <hr />
-      </div>
-
-      <div class="services__intro">
-        <h2 class="section-title services__title" data-i18n="services.title" data-i18n-html>
-          Two offerings.<br>One principle.
-        </h2>
-        <p class="services__sub reveal" data-i18n="services.sub">
-          Your stack, your rules. Whether you need a bespoke AI workflow or reliable bare-metal hardware — we deliver both with precision and no compromise.
-        </p>
-      </div>
-
-      <div class="services__grid">
-        <article class="service-card reveal">
-          <span class="service-card__num" aria-hidden="true">01</span>
-          <h3 class="service-card__name" data-i18n="service1.name" data-i18n-html>Custom AI<br>Pipelines</h3>
-          <p class="service-card__desc" data-i18n="service1.desc">
-            End-to-end AI workflows tailored to your data, your models, and your throughput requirements — from ingestion to inference to output.
-          </p>
-          <div class="service-card__detail">
-            <ul>
-              <li>data ingestion &amp; preprocessing</li>
-              <li>model selection &amp; fine-tuning</li>
-              <li>orchestration &amp; monitoring</li>
-              <li>api integration &amp; deployment</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="service-card reveal">
-          <span class="service-card__num" aria-hidden="true">02</span>
-          <h3 class="service-card__name" data-i18n="service2.name" data-i18n-html>Dedicated<br>Server Rentals</h3>
-          <p class="service-card__desc" data-i18n="service2.desc">
-            Bare-metal and GPU-accelerated servers rented on your terms — hourly, monthly, or long-term. No noisy neighbors. Full hardware access.
-          </p>
-          <div class="service-card__detail">
-            <ul>
-              <li>gpu &amp; cpu-optimized hardware</li>
-              <li>flexible rental periods</li>
-              <li>network &amp; storage configuration</li>
-              <li>24/7 uptime monitoring</li>
-            </ul>
-          </div>
-        </article>
-      </div>
-    </section>
-
     <!-- ── Hardware Catalog ──────────────────────────────── -->
     <section class="catalog" id="renting">
       <div class="section-header reveal">
-        <span class="label">// 02 — renting</span>
+        <span class="label">// 01 — renting</span>
         <hr />
       </div>
 
@@ -177,8 +133,8 @@
             Choose from our fleet of GPU-accelerated and CPU-optimised bare-metal servers. All rentals include full hardware access, 24/7 uptime monitoring, and flexible billing — hourly or monthly.
           </p>
           <div class="catalog__toggle" role="tablist" aria-label="Server category">
-            <button class="catalog__toggle-btn active" data-tab="gpu" role="tab" aria-selected="true">GPU Servers</button>
-            <button class="catalog__toggle-btn" data-tab="cpu" role="tab" aria-selected="false">CPU Servers</button>
+            <button class="catalog__toggle-btn active" data-tab="gpu" role="tab" aria-selected="true">Dedicated Servers</button>
+            <button class="catalog__toggle-btn" data-tab="cpu" role="tab" aria-selected="false">Cloud VPS</button>
           </div>
         </div>
       </div>
@@ -186,45 +142,24 @@
       <div class="catalog__slider-outer">
         <div class="catalog__viewport" id="catalogViewport">
 
-          <!-- ── GPU Track ── -->
+          <!-- ── Dedicated Servers Track ── -->
           <div class="catalog__track" id="gpuTrack">
 
             <article class="server-card">
               <div class="server-card__header">
-                <span class="server-card__badge">GPU</span>
-                <span class="server-card__id">SRV-G01</span>
+                <span class="server-card__badge">DEDICATED</span>
+                <span class="server-card__id">SRV-D01</span>
               </div>
-              <h3 class="server-card__name">RTX 4090<br>Workstation</h3>
+              <h3 class="server-card__name">Dedicated<br>Standard</h3>
               <div class="server-card__specs">
-                <div class="spec-row"><span class="spec-label">gpu</span><span class="spec-value">NVIDIA RTX 4090 · 24 GB VRAM</span></div>
-                <div class="spec-row"><span class="spec-label">cpu</span><span class="spec-value">AMD Ryzen 9 7950X · 16c / 32t</span></div>
-                <div class="spec-row"><span class="spec-label">ram</span><span class="spec-value">128 GB DDR5</span></div>
-                <div class="spec-row"><span class="spec-label">storage</span><span class="spec-value">4 TB NVMe</span></div>
-                <div class="spec-row"><span class="spec-label">network</span><span class="spec-value">10 Gbps</span></div>
+                <div class="spec-row"><span class="spec-label">gpu</span><span class="spec-value">NVIDIA RTX 3060 12 GB</span></div>
+                <div class="spec-row"><span class="spec-label">cpu</span><span class="spec-value">8 vCore CPU</span></div>
+                <div class="spec-row"><span class="spec-label">ram</span><span class="spec-value">12 GB RAM</span></div>
+                <div class="spec-row"><span class="spec-label">storage</span><span class="spec-value">60 GB SSD</span></div>
+                <div class="spec-row"><span class="spec-label">ip</span><span class="spec-value">1 IP Address</span></div>
               </div>
               <div class="server-card__pricing">
-                <div class="price-block"><span class="price-amount">$3.20</span><span class="price-unit">/hr</span></div>
-                <div class="price-block price-block--alt"><span class="price-amount">$899</span><span class="price-unit">/mo</span></div>
-              </div>
-              <a href="#contact" class="server-card__cta">rent this →</a>
-            </article>
-
-            <article class="server-card">
-              <div class="server-card__header">
-                <span class="server-card__badge">GPU</span>
-                <span class="server-card__id">SRV-G02</span>
-              </div>
-              <h3 class="server-card__name">A100<br>Inference Node</h3>
-              <div class="server-card__specs">
-                <div class="spec-row"><span class="spec-label">gpu</span><span class="spec-value">NVIDIA A100 80 GB SXM</span></div>
-                <div class="spec-row"><span class="spec-label">cpu</span><span class="spec-value">AMD EPYC 7763 · 64c / 128t</span></div>
-                <div class="spec-row"><span class="spec-label">ram</span><span class="spec-value">512 GB DDR4 ECC</span></div>
-                <div class="spec-row"><span class="spec-label">storage</span><span class="spec-value">8 TB NVMe RAID</span></div>
-                <div class="spec-row"><span class="spec-label">network</span><span class="spec-value">100 Gbps InfiniBand</span></div>
-              </div>
-              <div class="server-card__pricing">
-                <div class="price-block"><span class="price-amount">$12.50</span><span class="price-unit">/hr</span></div>
-                <div class="price-block price-block--alt"><span class="price-amount">$3,499</span><span class="price-unit">/mo</span></div>
+                <div class="price-block"><span class="price-amount">฿5,499</span><span class="price-unit">/mo</span></div>
               </div>
               <a href="#contact" class="server-card__cta">rent this →</a>
             </article>
@@ -232,124 +167,114 @@
             <article class="server-card">
               <div class="server-card__header">
                 <span class="server-card__badge server-card__badge--flagship">flagship</span>
-                <span class="server-card__id">SRV-G03</span>
+                <span class="server-card__id">SRV-D02</span>
               </div>
-              <h3 class="server-card__name">H100<br>Training Cluster</h3>
+              <h3 class="server-card__name">Dedicated<br>Pro</h3>
               <div class="server-card__specs">
-                <div class="spec-row"><span class="spec-label">gpu</span><span class="spec-value">8× NVIDIA H100 80 GB NVLink</span></div>
-                <div class="spec-row"><span class="spec-label">cpu</span><span class="spec-value">2× Xeon Platinum 8480+</span></div>
-                <div class="spec-row"><span class="spec-label">ram</span><span class="spec-value">2 TB DDR5 ECC</span></div>
-                <div class="spec-row"><span class="spec-label">storage</span><span class="spec-value">30 TB NVMe</span></div>
-                <div class="spec-row"><span class="spec-label">network</span><span class="spec-value">400 Gbps HDR InfiniBand</span></div>
+                <div class="spec-row"><span class="spec-label">gpu</span><span class="spec-value">NVIDIA RTX 3060 12 GB</span></div>
+                <div class="spec-row"><span class="spec-label">cpu</span><span class="spec-value">16 vCore CPU</span></div>
+                <div class="spec-row"><span class="spec-label">ram</span><span class="spec-value">24 GB RAM</span></div>
+                <div class="spec-row"><span class="spec-label">storage</span><span class="spec-value">120 GB SSD</span></div>
+                <div class="spec-row"><span class="spec-label">ip</span><span class="spec-value">1 IP Address</span></div>
               </div>
               <div class="server-card__pricing">
-                <div class="price-block"><span class="price-amount">$89</span><span class="price-unit">/hr</span></div>
-                <div class="price-block price-block--alt"><span class="price-amount">$24,900</span><span class="price-unit">/mo</span></div>
-              </div>
-              <a href="#contact" class="server-card__cta">rent this →</a>
-            </article>
-
-            <article class="server-card">
-              <div class="server-card__header">
-                <span class="server-card__badge">GPU</span>
-                <span class="server-card__id">SRV-G04</span>
-              </div>
-              <h3 class="server-card__name">3090 Quad<br>Dev Box</h3>
-              <div class="server-card__specs">
-                <div class="spec-row"><span class="spec-label">gpu</span><span class="spec-value">4× NVIDIA RTX 3090 · 24 GB</span></div>
-                <div class="spec-row"><span class="spec-label">cpu</span><span class="spec-value">Threadripper PRO 5965WX</span></div>
-                <div class="spec-row"><span class="spec-label">ram</span><span class="spec-value">256 GB DDR4 ECC</span></div>
-                <div class="spec-row"><span class="spec-label">storage</span><span class="spec-value">12 TB NVMe</span></div>
-                <div class="spec-row"><span class="spec-label">network</span><span class="spec-value">25 Gbps</span></div>
-              </div>
-              <div class="server-card__pricing">
-                <div class="price-block"><span class="price-amount">$8.40</span><span class="price-unit">/hr</span></div>
-                <div class="price-block price-block--alt"><span class="price-amount">$2,350</span><span class="price-unit">/mo</span></div>
+                <div class="price-block"><span class="price-amount">฿6,999</span><span class="price-unit">/mo</span></div>
               </div>
               <a href="#contact" class="server-card__cta">rent this →</a>
             </article>
 
           </div><!-- /gpuTrack -->
 
-          <!-- ── CPU Track ── -->
+          <!-- ── Cloud VPS Track ── -->
           <div class="catalog__track catalog__track--hidden" id="cpuTrack">
 
             <article class="server-card">
+              <div class="server-card__ribbon">popular</div>
               <div class="server-card__header">
-                <span class="server-card__badge server-card__badge--cpu">CPU</span>
-                <span class="server-card__id">SRV-C01</span>
+                <span class="server-card__badge server-card__badge--cpu">VPS</span>
+                <span class="server-card__id">PKG-01</span>
               </div>
-              <h3 class="server-card__name">General<br>Compute</h3>
+              <h3 class="server-card__name">Package 1</h3>
               <div class="server-card__specs">
-                <div class="spec-row"><span class="spec-label">cpu</span><span class="spec-value">AMD EPYC 7543 · 32c / 64t</span></div>
-                <div class="spec-row"><span class="spec-label">ram</span><span class="spec-value">256 GB DDR4 ECC</span></div>
-                <div class="spec-row"><span class="spec-label">storage</span><span class="spec-value">4 TB NVMe</span></div>
-                <div class="spec-row"><span class="spec-label">network</span><span class="spec-value">25 Gbps</span></div>
-                <div class="spec-row"><span class="spec-label">uptime</span><span class="spec-value">99.95% SLA</span></div>
+                <div class="spec-row"><span class="spec-label">cpu</span><span class="spec-value">2 vCore CPU</span></div>
+                <div class="spec-row"><span class="spec-label">ram</span><span class="spec-value">4 GB RAM</span></div>
+                <div class="spec-row"><span class="spec-label">storage</span><span class="spec-value">60 GB SSD</span></div>
+                <div class="spec-row"><span class="spec-label">ip</span><span class="spec-value">1 IP Address</span></div>
               </div>
               <div class="server-card__pricing">
-                <div class="price-block"><span class="price-amount">$1.80</span><span class="price-unit">/hr</span></div>
-                <div class="price-block price-block--alt"><span class="price-amount">$499</span><span class="price-unit">/mo</span></div>
+                <div class="price-block"><span class="price-amount">฿349</span><span class="price-unit">/mo</span></div>
               </div>
               <a href="#contact" class="server-card__cta">rent this →</a>
             </article>
 
             <article class="server-card">
               <div class="server-card__header">
-                <span class="server-card__badge server-card__badge--cpu">CPU</span>
-                <span class="server-card__id">SRV-C02</span>
+                <span class="server-card__badge server-card__badge--cpu">VPS</span>
+                <span class="server-card__id">PKG-02</span>
               </div>
-              <h3 class="server-card__name">High-Memory<br>Workload</h3>
+              <h3 class="server-card__name">Package 2</h3>
               <div class="server-card__specs">
-                <div class="spec-row"><span class="spec-label">cpu</span><span class="spec-value">2× Xeon Gold 6348 · 56c total</span></div>
-                <div class="spec-row"><span class="spec-label">ram</span><span class="spec-value">1.5 TB DDR4 ECC</span></div>
-                <div class="spec-row"><span class="spec-label">storage</span><span class="spec-value">8 TB NVMe</span></div>
-                <div class="spec-row"><span class="spec-label">network</span><span class="spec-value">25 Gbps</span></div>
-                <div class="spec-row"><span class="spec-label">uptime</span><span class="spec-value">99.99% SLA</span></div>
+                <div class="spec-row"><span class="spec-label">cpu</span><span class="spec-value">4 vCore CPU</span></div>
+                <div class="spec-row"><span class="spec-label">ram</span><span class="spec-value">8 GB RAM</span></div>
+                <div class="spec-row"><span class="spec-label">storage</span><span class="spec-value">100 GB SSD</span></div>
+                <div class="spec-row"><span class="spec-label">ip</span><span class="spec-value">1 IP Address</span></div>
               </div>
               <div class="server-card__pricing">
-                <div class="price-block"><span class="price-amount">$4.20</span><span class="price-unit">/hr</span></div>
-                <div class="price-block price-block--alt"><span class="price-amount">$1,199</span><span class="price-unit">/mo</span></div>
+                <div class="price-block"><span class="price-amount">฿599</span><span class="price-unit">/mo</span></div>
               </div>
               <a href="#contact" class="server-card__cta">rent this →</a>
             </article>
 
             <article class="server-card">
               <div class="server-card__header">
-                <span class="server-card__badge server-card__badge--cpu">CPU</span>
-                <span class="server-card__id">SRV-C03</span>
+                <span class="server-card__badge server-card__badge--cpu">VPS</span>
+                <span class="server-card__id">PKG-03</span>
               </div>
-              <h3 class="server-card__name">Storage-Dense<br>NAS Node</h3>
+              <h3 class="server-card__name">Package 3</h3>
               <div class="server-card__specs">
-                <div class="spec-row"><span class="spec-label">cpu</span><span class="spec-value">Intel Xeon E-2388G · 8c / 16t</span></div>
-                <div class="spec-row"><span class="spec-label">ram</span><span class="spec-value">64 GB DDR4 ECC</span></div>
-                <div class="spec-row"><span class="spec-label">storage</span><span class="spec-value">240 TB HDD + 4 TB NVMe cache</span></div>
-                <div class="spec-row"><span class="spec-label">network</span><span class="spec-value">10 Gbps</span></div>
-                <div class="spec-row"><span class="spec-label">uptime</span><span class="spec-value">99.9% SLA</span></div>
+                <div class="spec-row"><span class="spec-label">cpu</span><span class="spec-value">6 vCore CPU</span></div>
+                <div class="spec-row"><span class="spec-label">ram</span><span class="spec-value">12 GB RAM</span></div>
+                <div class="spec-row"><span class="spec-label">storage</span><span class="spec-value">180 GB SSD</span></div>
+                <div class="spec-row"><span class="spec-label">ip</span><span class="spec-value">1 IP Address</span></div>
               </div>
               <div class="server-card__pricing">
-                <div class="price-block"><span class="price-amount">$2.10</span><span class="price-unit">/hr</span></div>
-                <div class="price-block price-block--alt"><span class="price-amount">$599</span><span class="price-unit">/mo</span></div>
+                <div class="price-block"><span class="price-amount">฿1,299</span><span class="price-unit">/mo</span></div>
               </div>
               <a href="#contact" class="server-card__cta">rent this →</a>
             </article>
 
             <article class="server-card">
               <div class="server-card__header">
-                <span class="server-card__badge server-card__badge--cpu">CPU</span>
-                <span class="server-card__id">SRV-C04</span>
+                <span class="server-card__badge server-card__badge--cpu">VPS</span>
+                <span class="server-card__id">PKG-04</span>
               </div>
-              <h3 class="server-card__name">Web / API<br>Tier</h3>
+              <h3 class="server-card__name">Package 4</h3>
               <div class="server-card__specs">
-                <div class="spec-row"><span class="spec-label">cpu</span><span class="spec-value">AMD EPYC 7302P · 16c / 32t</span></div>
-                <div class="spec-row"><span class="spec-label">ram</span><span class="spec-value">128 GB DDR4 ECC</span></div>
-                <div class="spec-row"><span class="spec-label">storage</span><span class="spec-value">2 TB NVMe</span></div>
-                <div class="spec-row"><span class="spec-label">network</span><span class="spec-value">10 Gbps</span></div>
-                <div class="spec-row"><span class="spec-label">uptime</span><span class="spec-value">99.95% SLA</span></div>
+                <div class="spec-row"><span class="spec-label">cpu</span><span class="spec-value">8 vCore CPU</span></div>
+                <div class="spec-row"><span class="spec-label">ram</span><span class="spec-value">16 GB RAM</span></div>
+                <div class="spec-row"><span class="spec-label">storage</span><span class="spec-value">220 GB SSD</span></div>
+                <div class="spec-row"><span class="spec-label">ip</span><span class="spec-value">1 IP Address</span></div>
               </div>
               <div class="server-card__pricing">
-                <div class="price-block"><span class="price-amount">$0.95</span><span class="price-unit">/hr</span></div>
-                <div class="price-block price-block--alt"><span class="price-amount">$269</span><span class="price-unit">/mo</span></div>
+                <div class="price-block"><span class="price-amount">฿1,599</span><span class="price-unit">/mo</span></div>
+              </div>
+              <a href="#contact" class="server-card__cta">rent this →</a>
+            </article>
+
+            <article class="server-card">
+              <div class="server-card__header">
+                <span class="server-card__badge server-card__badge--cpu">VPS</span>
+                <span class="server-card__id">PKG-05</span>
+              </div>
+              <h3 class="server-card__name">Package 5</h3>
+              <div class="server-card__specs">
+                <div class="spec-row"><span class="spec-label">cpu</span><span class="spec-value">10 vCore CPU</span></div>
+                <div class="spec-row"><span class="spec-label">ram</span><span class="spec-value">24 GB RAM</span></div>
+                <div class="spec-row"><span class="spec-label">storage</span><span class="spec-value">300 GB SSD</span></div>
+                <div class="spec-row"><span class="spec-label">ip</span><span class="spec-value">1 IP Address</span></div>
+              </div>
+              <div class="server-card__pricing">
+                <div class="price-block"><span class="price-amount">฿2,399</span><span class="price-unit">/mo</span></div>
               </div>
               <a href="#contact" class="server-card__cta">rent this →</a>
             </article>
@@ -374,41 +299,6 @@
         <p class="catalog__scroll-hint" data-i18n="catalog.hint">drag or swipe to explore</p>
       </div>
 
-    </section>
-
-    <!-- ── Process ─────────────────────────────────────── -->
-    <section class="process" id="how">
-      <div class="section-header section-header--dark reveal">
-        <span class="label label--dark">// 03 — process</span>
-        <hr />
-      </div>
-      <h2 class="section-title reveal-clip" data-i18n="process.title">How we work.</h2>
-
-      <div class="process__steps">
-        <div class="process__step reveal">
-          <span class="process__step-label">01 / scope and discovery</span>
-          <h3 class="process__step-title">Scope &amp; Discovery</h3>
-          <p class="process__step-desc" data-i18n="process.step1.desc">
-            We begin with your requirements — workloads, data sources, latency targets, and budget. No assumptions, just listening.
-          </p>
-        </div>
-
-        <div class="process__step reveal">
-          <span class="process__step-label">02 / design and provision</span>
-          <h3 class="process__step-title">Design &amp; Provision</h3>
-          <p class="process__step-desc" data-i18n="process.step2.desc">
-            We architect the pipeline or provision the hardware to spec. Every component chosen deliberately, with room to scale.
-          </p>
-        </div>
-
-        <div class="process__step reveal">
-          <span class="process__step-label">03 / deploy and support</span>
-          <h3 class="process__step-title">Deploy &amp; Support</h3>
-          <p class="process__step-desc" data-i18n="process.step3.desc">
-            We ship, monitor, and remain available. Ongoing support, performance reviews, and adjustments as your needs evolve.
-          </p>
-        </div>
-      </div>
     </section>
 
     <!-- ── CTA ─────────────────────────────────────────── -->
@@ -449,8 +339,8 @@
         <div class="footer__col">
           <h4 data-i18n="footer.col2.title">company</h4>
           <ul>
-            <li><a href="#" data-i18n="footer.col2.about">About</a></li>
-            <li><a href="#how" data-i18n="footer.col2.process">Process</a></li>
+            <li><a href="about.html" data-i18n="footer.col2.about">About</a></li>
+            <li><a href="about.html#how" data-i18n="footer.col2.process">Process</a></li>
             <li><a href="#contact" data-i18n="footer.col2.contact">Contact</a></li>
           </ul>
         </div>

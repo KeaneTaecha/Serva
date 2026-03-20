@@ -124,7 +124,141 @@
   line-height: 1;
 }
 
-/* Light navbar overrides */
+/* ── Products Dropdown ──────────────────────────────────── */
+.navbar__dropdown {
+  position: relative;
+}
+
+/* Extend the <li> hover zone to fill the gap between trigger and menu */
+.navbar__dropdown::after {
+  content: '';
+  position: absolute;
+  bottom: -1.2rem;
+  left: 0;
+  right: 0;
+  height: 1.2rem;
+}
+
+.navbar__dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  cursor: pointer;
+}
+
+.navbar__dropdown-trigger::after {
+  content: '↓';
+  font-size: .65rem;
+  opacity: .6;
+  transition: transform .25s cubic-bezier(0.16, 1, 0.3, 1), opacity .2s;
+  display: inline-block;
+}
+
+.navbar__dropdown:hover .navbar__dropdown-trigger::after {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+.navbar__dropdown-menu {
+  position: absolute;
+  top: calc(100% + 1.2rem);
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  min-width: 16rem;
+  background: var(--color-dark);
+  border: 1px solid var(--border-light);
+  list-style: none;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s .2s;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, .35);
+}
+
+.navbar__dropdown:hover .navbar__dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+  transition: opacity .2s ease, transform .2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s;
+}
+
+.navbar__dropdown-menu li {
+  border-bottom: 1px solid var(--border-light);
+}
+
+.navbar__dropdown-menu li:last-child {
+  border-bottom: none;
+}
+
+.navbar__dropdown-menu li a {
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+  padding: 1rem 1.4rem;
+  color: rgba(245, 240, 232, .7);
+  transition: background .18s, color .18s;
+}
+
+.navbar__dropdown-menu li a:hover {
+  background: rgba(245, 240, 232, .06);
+  color: var(--color-beige);
+}
+
+.navbar__dropdown-item-label {
+  font-family: var(--font-mono);
+  font-size: .83rem;
+  font-weight: 500;
+  letter-spacing: .06em;
+  color: var(--color-beige);
+  transition: color .18s;
+}
+
+.navbar__dropdown-item-desc {
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  letter-spacing: .04em;
+  color: var(--color-teal-mid);
+  opacity: .75;
+  font-weight: 400;
+}
+
+.navbar__dropdown-menu li a:hover .navbar__dropdown-item-label {
+  color: var(--color-beige);
+}
+
+/* Light theme overrides for dropdown trigger */
+.navbar--light .navbar__dropdown-trigger {
+  color: var(--color-dark);
+}
+
+.navbar--light .navbar__dropdown-trigger::after {
+  opacity: .5;
+}
+
+/* Light theme: menu stays dark (overlay style) */
+
+/* ── Active page link ───────────────────────────────────── */
+.navbar__links .navbar__link--active {
+  color: var(--color-beige);
+  position: relative;
+}
+
+.navbar__links .navbar__link--active::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--color-teal-mid);
+}
+
+.navbar--light .navbar__links .navbar__link--active {
+  color: var(--color-dark);
+}
+
+/* ── Light navbar overrides */
 .navbar--light .lang-opt {
   color: rgba(26, 26, 26, .4);
 }
