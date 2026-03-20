@@ -11,7 +11,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=Jost:wght@300;400;500&family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet" />
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/base.css" />
@@ -34,11 +34,18 @@
     </a>
     <nav aria-label="Main navigation">
       <ul class="navbar__links">
-        <li><a href="#services">services</a></li>
+        <li><a href="#services" data-i18n="nav.services">services</a></li>
         <li><a href="#renting">renting</a></li>
-        <li><a href="#how">process</a></li>
-        <li><a href="#contact">contact</a></li>
-        <li><a href="#contact" class="navbar__cta">start_project →</a></li>
+        <li><a href="#how" data-i18n="nav.process">process</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">contact</a></li>
+        <li>
+          <button class="lang-btn" id="langBtn" aria-label="Toggle language">
+            <span class="lang-opt is-active" data-l="en">EN</span>
+            <span class="lang-sep" aria-hidden="true">·</span>
+            <span class="lang-opt" data-l="th">ไทย</span>
+          </button>
+        </li>
+        <li><a href="#contact" class="navbar__cta">start project →</a></li>
       </ul>
     </nav>
   </header>
@@ -47,21 +54,55 @@
 
     <!-- ── Hero ───────────────────────────────────────── -->
     <section class="hero" id="hero">
-      <div class="hero__corner" aria-hidden="true"></div>
+      <!-- Server image — right-side visual focus -->
+      <div class="hero__visual" aria-hidden="true">
+        <div class="hero__server-frame">
+          <!-- Geometric background shapes -->
+          <span class="hero__shape hero__shape--ring" aria-hidden="true"></span>
+          <span class="hero__shape hero__shape--diamond" aria-hidden="true"></span>
+          <span class="hero__shape hero__shape--bracket-tl" aria-hidden="true"></span>
+          <span class="hero__shape hero__shape--bracket-br" aria-hidden="true"></span>
+          <img src="server.png" alt="Serva dedicated server hardware" class="hero__server-img" />
+          <div class="hero__price-badge fade fade--d3">
+            <span class="hero__price-badge-label">rent from</span>
+            <span class="hero__price-badge-value">$0.95<span class="hero__price-badge-unit">/hr</span></span>
+          </div>
+        </div>
+      </div>
 
       <div class="hero__content">
         <div class="hero__eyebrow fade fade--d1">
           <span class="label label--dark">// Servers and Services</span>
         </div>
-        <h1 class="hero__heading fade fade--d2">
-          Infrastructure<br>for <span class="accent">intelligent</span><br>systems.
+        <h1 class="hero__heading fade fade--d2" data-i18n="hero.heading" data-i18n-html>
+          Yours to rent,<br>from <span class="accent">$0.95</span>/hr.
         </h1>
-        <div class="hero__bottom fade fade--d3">
-          <p class="hero__sub">
-            Serva designs and deploys custom AI pipelines, and provides dedicated server rentals for teams that need performance without compromise.
+
+        <div class="hero__stats fade fade--d3" aria-label="Key statistics">
+          <div class="hero__stat">
+            <span class="hero__stat-num" id="stat-uptime">99.97%</span>
+            <span class="hero__stat-label">uptime sla</span>
+          </div>
+          <div class="hero__stat">
+            <span class="hero__stat-num">&lt;15ms</span>
+            <span class="hero__stat-label">avg latency</span>
+          </div>
+          <div class="hero__stat">
+            <span class="hero__stat-num" id="stat-configs">50+</span>
+            <span class="hero__stat-label">hardware configs</span>
+          </div>
+          <div class="hero__stat">
+            <span class="hero__stat-num">24/7</span>
+            <span class="hero__stat-label">active monitoring</span>
+          </div>
+        </div>
+
+        <div class="hero__bottom fade fade--d4">
+          <p class="hero__sub" data-i18n="hero.sub">
+            From bare-metal CPU nodes to 8× H100 training clusters — provisioned and ready. No contracts, no noisy neighbors, full hardware access.
           </p>
-          <a href="#services" class="hero__cta">
-            explore_services →
+          <a href="#renting" class="hero__cta">
+            view all configs →
           </a>
         </div>
       </div>
@@ -70,15 +111,15 @@
     <!-- ── Services ───────────────────────────────────── -->
     <section class="services" id="services">
       <div class="section-header reveal">
-        <span class="label">// 01 — what_we_do</span>
+        <span class="label">// 01 — what we do</span>
         <hr />
       </div>
 
       <div class="services__intro">
-        <h2 class="section-title services__title">
+        <h2 class="section-title services__title" data-i18n="services.title" data-i18n-html>
           Two offerings.<br>One principle.
         </h2>
-        <p class="services__sub reveal">
+        <p class="services__sub reveal" data-i18n="services.sub">
           Your stack, your rules. Whether you need a bespoke AI workflow or reliable bare-metal hardware — we deliver both with precision and no compromise.
         </p>
       </div>
@@ -86,30 +127,30 @@
       <div class="services__grid">
         <article class="service-card reveal">
           <span class="service-card__num" aria-hidden="true">01</span>
-          <h3 class="service-card__name">Custom AI<br>Pipelines</h3>
-          <p class="service-card__desc">
+          <h3 class="service-card__name" data-i18n="service1.name" data-i18n-html>Custom AI<br>Pipelines</h3>
+          <p class="service-card__desc" data-i18n="service1.desc">
             End-to-end AI workflows tailored to your data, your models, and your throughput requirements — from ingestion to inference to output.
           </p>
           <div class="service-card__detail">
             <ul>
-              <li>data_ingestion &amp; preprocessing</li>
-              <li>model_selection &amp; fine-tuning</li>
+              <li>data ingestion &amp; preprocessing</li>
+              <li>model selection &amp; fine-tuning</li>
               <li>orchestration &amp; monitoring</li>
-              <li>api_integration &amp; deployment</li>
+              <li>api integration &amp; deployment</li>
             </ul>
           </div>
         </article>
 
         <article class="service-card reveal">
           <span class="service-card__num" aria-hidden="true">02</span>
-          <h3 class="service-card__name">Dedicated<br>Server Rentals</h3>
-          <p class="service-card__desc">
+          <h3 class="service-card__name" data-i18n="service2.name" data-i18n-html>Dedicated<br>Server Rentals</h3>
+          <p class="service-card__desc" data-i18n="service2.desc">
             Bare-metal and GPU-accelerated servers rented on your terms — hourly, monthly, or long-term. No noisy neighbors. Full hardware access.
           </p>
           <div class="service-card__detail">
             <ul>
               <li>gpu &amp; cpu-optimized hardware</li>
-              <li>flexible_rental periods</li>
+              <li>flexible rental periods</li>
               <li>network &amp; storage configuration</li>
               <li>24/7 uptime monitoring</li>
             </ul>
@@ -127,17 +168,17 @@
 
       <div class="catalog__intro">
         <div class="catalog__intro-left">
-          <h2 class="section-title reveal-clip">
+          <h2 class="section-title reveal-clip" data-i18n="catalog.title" data-i18n-html>
             Rent the<br>right hardware.
           </h2>
         </div>
         <div class="catalog__intro-right reveal">
-          <p class="catalog__sub">
+          <p class="catalog__sub" data-i18n="catalog.sub">
             Choose from our fleet of GPU-accelerated and CPU-optimised bare-metal servers. All rentals include full hardware access, 24/7 uptime monitoring, and flexible billing — hourly or monthly.
           </p>
           <div class="catalog__toggle" role="tablist" aria-label="Server category">
-            <button class="catalog__toggle-btn active" data-tab="gpu" role="tab" aria-selected="true">GPU_Servers</button>
-            <button class="catalog__toggle-btn" data-tab="cpu" role="tab" aria-selected="false">CPU_Servers</button>
+            <button class="catalog__toggle-btn active" data-tab="gpu" role="tab" aria-selected="true">GPU Servers</button>
+            <button class="catalog__toggle-btn" data-tab="cpu" role="tab" aria-selected="false">CPU Servers</button>
           </div>
         </div>
       </div>
@@ -165,7 +206,7 @@
                 <div class="price-block"><span class="price-amount">$3.20</span><span class="price-unit">/hr</span></div>
                 <div class="price-block price-block--alt"><span class="price-amount">$899</span><span class="price-unit">/mo</span></div>
               </div>
-              <a href="#contact" class="server-card__cta">rent_this →</a>
+              <a href="#contact" class="server-card__cta">rent this →</a>
             </article>
 
             <article class="server-card">
@@ -185,7 +226,7 @@
                 <div class="price-block"><span class="price-amount">$12.50</span><span class="price-unit">/hr</span></div>
                 <div class="price-block price-block--alt"><span class="price-amount">$3,499</span><span class="price-unit">/mo</span></div>
               </div>
-              <a href="#contact" class="server-card__cta">rent_this →</a>
+              <a href="#contact" class="server-card__cta">rent this →</a>
             </article>
 
             <article class="server-card">
@@ -205,7 +246,7 @@
                 <div class="price-block"><span class="price-amount">$89</span><span class="price-unit">/hr</span></div>
                 <div class="price-block price-block--alt"><span class="price-amount">$24,900</span><span class="price-unit">/mo</span></div>
               </div>
-              <a href="#contact" class="server-card__cta">rent_this →</a>
+              <a href="#contact" class="server-card__cta">rent this →</a>
             </article>
 
             <article class="server-card">
@@ -225,7 +266,7 @@
                 <div class="price-block"><span class="price-amount">$8.40</span><span class="price-unit">/hr</span></div>
                 <div class="price-block price-block--alt"><span class="price-amount">$2,350</span><span class="price-unit">/mo</span></div>
               </div>
-              <a href="#contact" class="server-card__cta">rent_this →</a>
+              <a href="#contact" class="server-card__cta">rent this →</a>
             </article>
 
           </div><!-- /gpuTrack -->
@@ -250,7 +291,7 @@
                 <div class="price-block"><span class="price-amount">$1.80</span><span class="price-unit">/hr</span></div>
                 <div class="price-block price-block--alt"><span class="price-amount">$499</span><span class="price-unit">/mo</span></div>
               </div>
-              <a href="#contact" class="server-card__cta">rent_this →</a>
+              <a href="#contact" class="server-card__cta">rent this →</a>
             </article>
 
             <article class="server-card">
@@ -270,7 +311,7 @@
                 <div class="price-block"><span class="price-amount">$4.20</span><span class="price-unit">/hr</span></div>
                 <div class="price-block price-block--alt"><span class="price-amount">$1,199</span><span class="price-unit">/mo</span></div>
               </div>
-              <a href="#contact" class="server-card__cta">rent_this →</a>
+              <a href="#contact" class="server-card__cta">rent this →</a>
             </article>
 
             <article class="server-card">
@@ -290,7 +331,7 @@
                 <div class="price-block"><span class="price-amount">$2.10</span><span class="price-unit">/hr</span></div>
                 <div class="price-block price-block--alt"><span class="price-amount">$599</span><span class="price-unit">/mo</span></div>
               </div>
-              <a href="#contact" class="server-card__cta">rent_this →</a>
+              <a href="#contact" class="server-card__cta">rent this →</a>
             </article>
 
             <article class="server-card">
@@ -310,7 +351,7 @@
                 <div class="price-block"><span class="price-amount">$0.95</span><span class="price-unit">/hr</span></div>
                 <div class="price-block price-block--alt"><span class="price-amount">$269</span><span class="price-unit">/mo</span></div>
               </div>
-              <a href="#contact" class="server-card__cta">rent_this →</a>
+              <a href="#contact" class="server-card__cta">rent this →</a>
             </article>
 
           </div><!-- /cpuTrack -->
@@ -330,7 +371,7 @@
           </svg>
         </button>
         <div class="catalog__dots" id="catalogDots"></div>
-        <p class="catalog__scroll-hint">drag or swipe to explore</p>
+        <p class="catalog__scroll-hint" data-i18n="catalog.hint">drag or swipe to explore</p>
       </div>
 
     </section>
@@ -341,29 +382,29 @@
         <span class="label label--dark">// 03 — process</span>
         <hr />
       </div>
-      <h2 class="section-title reveal-clip">How we work.</h2>
+      <h2 class="section-title reveal-clip" data-i18n="process.title">How we work.</h2>
 
       <div class="process__steps">
         <div class="process__step reveal">
-          <span class="process__step-label">01 / scope_and_discovery</span>
+          <span class="process__step-label">01 / scope and discovery</span>
           <h3 class="process__step-title">Scope &amp; Discovery</h3>
-          <p class="process__step-desc">
+          <p class="process__step-desc" data-i18n="process.step1.desc">
             We begin with your requirements — workloads, data sources, latency targets, and budget. No assumptions, just listening.
           </p>
         </div>
 
         <div class="process__step reveal">
-          <span class="process__step-label">02 / design_and_provision</span>
+          <span class="process__step-label">02 / design and provision</span>
           <h3 class="process__step-title">Design &amp; Provision</h3>
-          <p class="process__step-desc">
+          <p class="process__step-desc" data-i18n="process.step2.desc">
             We architect the pipeline or provision the hardware to spec. Every component chosen deliberately, with room to scale.
           </p>
         </div>
 
         <div class="process__step reveal">
-          <span class="process__step-label">03 / deploy_and_support</span>
+          <span class="process__step-label">03 / deploy and support</span>
           <h3 class="process__step-title">Deploy &amp; Support</h3>
-          <p class="process__step-desc">
+          <p class="process__step-desc" data-i18n="process.step3.desc">
             We ship, monitor, and remain available. Ongoing support, performance reviews, and adjustments as your needs evolve.
           </p>
         </div>
@@ -373,16 +414,16 @@
     <!-- ── CTA ─────────────────────────────────────────── -->
     <section class="cta" id="contact">
       <div class="cta__left reveal">
-        <p class="label cta__label">ready_to_build</p>
-        <h2 class="cta__heading">
+        <p class="label cta__label">ready to build</p>
+        <h2 class="cta__heading" data-i18n="cta.heading">
           Let's scope your next project.
         </h2>
       </div>
       <div class="cta__right reveal">
         <a href="mailto:hello@serva.io" class="btn btn--outline">
-          get_in_touch →
+          get in touch →
         </a>
-        <p class="cta__email">or email <a href="mailto:hello@serva.io">hello@serva.io</a></p>
+        <p class="cta__email" data-i18n="cta.email" data-i18n-html>or email <a href="mailto:hello@serva.io">hello@serva.io</a></p>
       </div>
     </section>
 
@@ -393,30 +434,30 @@
     <div class="footer__top">
       <div>
         <p class="footer__brand">Serva</p>
-        <p class="footer__statement">Built for teams that demand precision.</p>
-        <p class="footer__tagline">// servers_and_services</p>
+        <p class="footer__statement" data-i18n="footer.statement">Built for teams that demand precision.</p>
+        <p class="footer__tagline">// servers and services</p>
       </div>
       <nav class="footer__nav" aria-label="Footer navigation">
         <div class="footer__col">
-          <h4>services</h4>
+          <h4 data-i18n="footer.col1.title">services</h4>
           <ul>
             <li><a href="#services">AI Pipelines</a></li>
             <li><a href="#services">Server Rentals</a></li>
-            <li><a href="#contact">Custom Projects</a></li>
+            <li><a href="#contact" data-i18n="footer.col1.custom">Custom Projects</a></li>
           </ul>
         </div>
         <div class="footer__col">
-          <h4>company</h4>
+          <h4 data-i18n="footer.col2.title">company</h4>
           <ul>
-            <li><a href="#">About</a></li>
-            <li><a href="#how">Process</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#" data-i18n="footer.col2.about">About</a></li>
+            <li><a href="#how" data-i18n="footer.col2.process">Process</a></li>
+            <li><a href="#contact" data-i18n="footer.col2.contact">Contact</a></li>
           </ul>
         </div>
       </nav>
     </div>
     <div class="footer__bottom">
-      <p class="footer__copy">&copy; 2026 Serva. All rights reserved.</p>
+      <p class="footer__copy" data-i18n="footer.copy" data-i18n-html>&copy; 2026 Serva. All rights reserved.</p>
       <div class="footer__links">
         <a href="#">Privacy</a>
         <a href="#">Terms</a>

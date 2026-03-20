@@ -24,23 +24,103 @@
   z-index: 0;
 }
 
-/* ── Corner accent ──────────────────────────────────────── */
-.hero__corner {
+/* ── Server image — right-side visual ──────────────────── */
+.hero__visual {
   position: absolute;
-  top: 9rem;
-  right: 4rem;
-  width: 60px;
-  height: 60px;
-  border-top: 1px solid var(--color-teal);
-  border-right: 1px solid var(--color-teal);
-  opacity: .4;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 52%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Fade image into dark background on the left edge */
+.hero__visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, var(--color-dark) 0%, transparent 38%);
   z-index: 1;
 }
+
+/* Subtle vignette top & bottom */
+.hero__visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, var(--color-dark) 0%, transparent 18%),
+    linear-gradient(to top,    var(--color-dark) 0%, transparent 18%);
+  z-index: 1;
+}
+
+/* ── Server frame ───────────────────────────────────────── */
+.hero__server-frame {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4rem;
+  z-index: 0; /* creates stacking context so shapes stay within */
+}
+
+/* ── Price badge ────────────────────────────────────────── */
+.hero__price-badge {
+  position: absolute;
+  bottom:1rem;
+  left: 7rem;
+  background: rgba(18, 18, 18, .35);
+  border: 1px solid var(--color-teal);
+  padding: .8rem 1.2rem;
+  backdrop-filter: blur(10px);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.hero__price-badge-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  letter-spacing: .1em;
+  color: var(--color-teal-mid);
+  margin-bottom: .3rem;
+}
+
+.hero__price-badge-value {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -.03em;
+  color: var(--color-beige);
+  line-height: 1;
+}
+
+.hero__price-badge-unit {
+  font-size: .68em;
+  font-weight: 600;
+  color: var(--color-teal-mid);
+  margin-left: .06em;
+}
+
+.hero__server-img {
+  width: 75%;
+  max-height: 75vh;
+  object-fit: contain;
+  position: relative;
+  z-index: 2; /* above background shapes */
+  filter: drop-shadow(0 28px 40px rgba(0, 0, 0, .85));
+}
+
 
 /* ── Content ────────────────────────────────────────────── */
 .hero__content {
   position: relative;
   z-index: 1;
+  max-width: 52%;
 }
 
 .hero__eyebrow {
@@ -61,12 +141,12 @@
 
 .hero__heading {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 3.8vw, 4rem);
-  font-weight: 800;
+  font-size: clamp(2.4rem, 4.2vw, 4.6rem);
+  font-weight: 700;
   line-height: 1.0;
   letter-spacing: -.02em;
   color: var(--color-beige);
-  margin-bottom: 3rem;
+  margin-bottom: 1.75rem;
 }
 
 .hero__heading .accent {
@@ -83,7 +163,7 @@
 }
 
 .hero__sub {
-  max-width: 42ch;
+  max-width: 40ch;
   font-size: 1rem;
   font-weight: 300;
   color: rgba(245, 240, 232, .5);
@@ -107,4 +187,97 @@
 
 .hero__cta:hover {
   gap: 1.1rem;
+}
+
+/* ── Stats strip ────────────────────────────────────────── */
+.hero__stats {
+  display: flex;
+  gap: 0;
+  padding: 1.1rem 0 2.5rem;
+}
+
+.hero__stat {
+  padding-right: 2.75rem;
+  margin-right: 2.75rem;
+  border-right: 1px solid var(--border-light);
+}
+
+.hero__stat:last-child {
+  border-right: none;
+  padding-right: 0;
+  margin-right: 0;
+}
+
+.hero__stat-num {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 1.24rem;
+  font-weight: 500;
+  letter-spacing: .04em;
+  color: rgba(245, 240, 232, .9);
+  line-height: 1;
+  margin-bottom: .5rem;
+}
+
+.hero__stat-unit {
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  margin-left: 0;
+}
+
+.hero__stat-label {
+  font-family: var(--font-mono);
+  font-size: .8rem;
+  letter-spacing: .06em;
+  color: rgba(245, 240, 232, .4);
+  display: block;
+}
+
+/* ── Background geometric shapes ───────────────────────── */
+.hero__shape {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Circle ring */
+.hero__shape--ring {
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  border: 1px solid rgba(42, 128, 128, .18);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Rotated diamond */
+.hero__shape--diamond {
+  width: 260px;
+  height: 260px;
+  border: 1px solid rgba(245, 240, 232, .07);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* Corner bracket — top left */
+.hero__shape--bracket-tl {
+  width: 28px;
+  height: 28px;
+  border-top: 1px solid rgba(42, 128, 128, .5);
+  border-left: 1px solid rgba(42, 128, 128, .5);
+  top: 10%;
+  left: 10%;
+}
+
+/* Corner bracket — bottom right */
+.hero__shape--bracket-br {
+  width: 28px;
+  height: 28px;
+  border-bottom: 1px solid rgba(42, 128, 128, .5);
+  border-right: 1px solid rgba(42, 128, 128, .5);
+  bottom: 10%;
+  right: 8%;
 }
