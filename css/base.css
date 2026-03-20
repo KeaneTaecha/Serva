@@ -1,0 +1,151 @@
+/* ============================================================
+   BASE — Reset · Tokens · Typography · Shared Utilities
+   ============================================================ */
+
+/* ── Reset ──────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+/* ── Design Tokens ──────────────────────────────────────── */
+:root {
+  /* Color palette */
+  --color-dark:     #1A1A1A;
+  --color-beige:    #F5F0E8;
+  --color-teal:     #1A5C5C;
+  --color-teal-mid: #2A8080;
+  --color-mid:      #6B6560;
+
+  /* Border colors */
+  --border-dark:  rgba(26, 26, 26, .1);
+  --border-light: rgba(245, 240, 232, .09);
+
+  /* Typography */
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'Jost', sans-serif;
+  --font-mono:    'DM Mono', monospace;
+}
+
+/* ── Base ───────────────────────────────────────────────── */
+body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  background: var(--color-beige);
+  color: var(--color-dark);
+  font-size: 1rem;
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ── Utility: Label ─────────────────────────────────────── */
+.label {
+  font-family: var(--font-mono);
+  font-size: .78rem;
+  font-weight: 400;
+  letter-spacing: .08em;
+  color: var(--color-teal-mid);
+}
+
+.label--dark {
+  color: rgba(245, 240, 232, .42);
+}
+
+/* ── Utility: Section Header ────────────────────────────── */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 4.5rem;
+}
+
+.section-header hr {
+  flex: 1;
+  border: none;
+  border-top: 1px solid var(--border-dark);
+}
+
+.section-header--dark hr {
+  border-color: var(--border-light);
+}
+
+/* ── Utility: Section Title ─────────────────────────────── */
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -.02em;
+}
+
+/* ── Utility: Button ────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .75rem;
+  font-family: var(--font-mono);
+  font-size: .82rem;
+  font-weight: 500;
+  letter-spacing: .08em;
+  transition: background .2s, border-color .2s, color .2s;
+}
+
+.btn svg { transition: transform .25s; }
+.btn:hover svg { transform: translateX(4px); }
+
+.btn--outline {
+  color: var(--color-beige);
+  border: 1px solid rgba(245, 240, 232, .35);
+  padding: 1rem 2rem;
+}
+
+.btn--outline:hover {
+  background: rgba(245, 240, 232, .1);
+  border-color: rgba(245, 240, 232, .7);
+}
+
+/* ── Animations: Load ───────────────────────────────────── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade {
+  opacity: 0;
+  animation: fade-up .8s ease forwards;
+}
+
+.fade--d1 { animation-delay: .05s; }
+.fade--d2 { animation-delay: .2s;  }
+.fade--d3 { animation-delay: .38s; }
+.fade--d4 { animation-delay: .55s; }
+
+/* ── Animations: Scroll Reveal ──────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal-clip {
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path .9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-clip.is-visible {
+  clip-path: inset(0 0 0% 0);
+}

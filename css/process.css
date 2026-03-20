@@ -1,0 +1,63 @@
+/* ============================================================
+   PROCESS (How It Works)
+   ============================================================ */
+
+.process {
+  background: var(--color-dark);
+  color: var(--color-beige);
+  padding: 8rem 4rem;
+}
+
+.process .section-title {
+  color: var(--color-beige);
+}
+
+/* ── Steps grid ─────────────────────────────────────────── */
+.process__steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--border-light);
+  margin-top: 4rem;
+}
+
+.process__step {
+  padding: 3.5rem 3rem 3.5rem 0;
+  border-right: 1px solid var(--border-light);
+}
+
+.process__step:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
+.process__step:not(:first-child) {
+  padding-left: 3rem;
+}
+
+/* ── Step elements ──────────────────────────────────────── */
+.process__step-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: .8rem;
+  font-weight: 500;
+  letter-spacing: .08em;
+  color: var(--color-teal-mid);
+  margin-bottom: 1.8rem;
+}
+
+.process__step-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -.02em;
+  color: var(--color-beige);
+  margin-bottom: .8rem;
+  line-height: 1.2;
+}
+
+.process__step-desc {
+  font-size: .93rem;
+  font-weight: 300;
+  color: rgba(245, 240, 232, .45);
+  line-height: 1.82;
+}

@@ -1,0 +1,37 @@
+/* ============================================================
+   TICKER
+   ============================================================ */
+
+.ticker {
+  background: var(--color-teal);
+  padding: .75rem 0;
+  overflow: hidden;
+}
+
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.ticker__track {
+  display: flex;
+  width: max-content;
+  animation: ticker-scroll 35s linear infinite;
+  will-change: transform;
+}
+
+.ticker__item {
+  font-family: var(--font-mono);
+  font-size: .6rem;
+  font-weight: 400;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: rgba(245, 240, 232, .6);
+  white-space: nowrap;
+  padding: 0 2rem;
+}
+
+.ticker__item--sep {
+  color: rgba(245, 240, 232, .25);
+  padding: 0 .5rem;
+}

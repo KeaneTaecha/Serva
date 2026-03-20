@@ -1,0 +1,115 @@
+/* ============================================================
+   SERVICES
+   ============================================================ */
+
+.services {
+  padding: 8rem 4rem;
+  background: var(--color-beige);
+}
+
+.services__intro {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 4rem;
+  margin-bottom: 5.5rem;
+}
+
+.services__sub {
+  max-width: 36ch;
+  font-size: .88rem;
+  font-weight: 300;
+  color: var(--color-mid);
+  line-height: 1.8;
+  flex-shrink: 0;
+}
+
+.services__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+}
+
+/* ── Service Card ───────────────────────────────────────── */
+.service-card {
+  position: relative;
+  padding: 3.5rem 4.5rem 4rem 0;
+  border-right: 1px solid var(--border-dark);
+  transition: background .3s;
+}
+
+.service-card:last-child {
+  border-right: none;
+  padding: 3.5rem 0 4rem 4.5rem;
+}
+
+.service-card:hover {
+  background: rgba(26, 26, 26, .018);
+}
+
+.service-card__num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 6.5rem;
+  font-weight: 800;
+  line-height: .85;
+  letter-spacing: -.04em;
+  color: var(--color-dark);
+  opacity: .07;
+  margin-bottom: 2rem;
+  transition: opacity .35s;
+}
+
+.service-card:hover .service-card__num {
+  opacity: .13;
+}
+
+.service-card__name {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 1.8vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -.02em;
+  margin-bottom: 1.1rem;
+  color: var(--color-dark);
+}
+
+.service-card__desc {
+  font-size: .93rem;
+  font-weight: 300;
+  color: var(--color-mid);
+  line-height: 1.82;
+  max-width: 42ch;
+}
+
+.service-card__detail {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-dark);
+}
+
+.service-card__detail ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .55rem;
+}
+
+.service-card__detail li {
+  font-family: var(--font-mono);
+  font-size: .8rem;
+  font-weight: 400;
+  letter-spacing: .04em;
+  color: var(--color-dark);
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+}
+
+.service-card__detail li::before {
+  content: '';
+  width: 1rem;
+  height: 1px;
+  background: var(--color-teal);
+  flex-shrink: 0;
+}

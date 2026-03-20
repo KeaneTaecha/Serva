@@ -1,0 +1,126 @@
+/* ============================================================
+   RESPONSIVE — mobile-first breakpoints
+   ============================================================ */
+
+/* ── Tablet (≤ 1024px) ──────────────────────────────────── */
+@media (max-width: 1024px) {
+  .services__intro {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .services__sub {
+    max-width: none;
+  }
+}
+
+/* ── Mobile landscape / small tablet (≤ 900px) ──────────── */
+@media (max-width: 900px) {
+  /* Navbar */
+  .navbar {
+    padding: 1.2rem 2rem;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 0 2rem 4.5rem;
+  }
+
+  .hero__corner {
+    display: none;
+  }
+
+  .hero__heading {
+    font-size: clamp(3rem, 12vw, 5.5rem);
+  }
+
+  .hero__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Services */
+  .services {
+    padding: 5.5rem 2rem;
+  }
+
+  .services__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card,
+  .service-card:last-child {
+    padding: 2.5rem 0 3.5rem;
+    margin-top: 0;
+    border-right: none;
+    border-bottom: 1px solid var(--border-dark);
+  }
+
+  .service-card:last-child {
+    border-bottom: none;
+  }
+
+  /* Process */
+  .process {
+    padding: 5.5rem 2rem;
+  }
+
+  .process__steps {
+    grid-template-columns: 1fr;
+  }
+
+  .process__step,
+  .process__step:not(:first-child) {
+    border-right: none;
+    border-bottom: 1px solid var(--border-light);
+    padding: 2.5rem 0;
+  }
+
+  .process__step:last-child {
+    border-bottom: none;
+  }
+
+  /* CTA */
+  .cta {
+    grid-template-columns: 1fr;
+    padding: 5.5rem 2rem;
+    gap: 3rem;
+  }
+
+  .cta__right {
+    align-items: flex-start;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 4rem 2rem 3rem;
+  }
+
+  .footer__top {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .footer__nav {
+    gap: 3rem;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+/* ── Mobile portrait (≤ 560px) ──────────────────────────── */
+@media (max-width: 560px) {
+  .navbar__links {
+    display: none;
+  }
+
+  .footer__nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
