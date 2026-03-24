@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services — Serva</title>
+  <script>
+    document.documentElement.classList.add('js');
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=Jost:wght@300;400;500&family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/services.css" />
+  <link rel="stylesheet" href="css/process.css" />
+  <link rel="stylesheet" href="css/cta.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+
+  <style>
+    /* ── Services Page Hero ─────────────────────────────────── */
+    .svc-hero {
+      padding: 10rem 4rem 7rem;
+      background: var(--color-dark);
+      color: var(--color-beige);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Dot-grid texture */
+    .svc-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle, rgba(245, 240, 232, .055) 1px, transparent 1px);
+      background-size: 30px 30px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .svc-hero__inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 4rem;
+    }
+
+    .svc-hero__eyebrow {
+      margin-bottom: 1.75rem;
+    }
+
+    .svc-hero__heading {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -.03em;
+      color: var(--color-beige);
+    }
+
+    .svc-hero__heading em {
+      font-style: normal;
+      color: var(--color-teal-mid);
+    }
+
+    .svc-hero__right {
+      max-width: 38ch;
+      flex-shrink: 0;
+      padding-bottom: .5rem;
+    }
+
+    .svc-hero__sub {
+      font-size: .93rem;
+      font-weight: 300;
+      color: rgba(245, 240, 232, .5);
+      line-height: 1.85;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Service tags row */
+    .svc-hero__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+    }
+
+    .svc-hero__tag {
+      font-family: var(--font-mono);
+      font-size: .75rem;
+      font-weight: 500;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      color: var(--color-teal-mid);
+      border: 1px solid rgba(42, 128, 128, .35);
+      padding: .45rem 1rem;
+      transition: background .2s, color .2s, border-color .2s;
+    }
+
+    .svc-hero__tag:hover {
+      background: rgba(42, 128, 128, .1);
+      border-color: rgba(42, 128, 128, .6);
+    }
+
+    /* ── 3-col services grid override ───────────────────────── */
+    .services__grid--three {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .services__grid--three .service-card {
+      padding: 2.25rem 3rem 4rem 0;
+    }
+
+    .services__grid--three .service-card:not(:first-child) {
+      padding-left: 3rem;
+    }
+
+    .services__grid--three .service-card:last-child {
+      border-right: none;
+      padding-right: 0;
+    }
+
+    /* Clawbot badge */
+    .service-card__badge {
+      display: inline-flex;
+      align-self: flex-start;
+      align-items: center;
+      gap: .5rem;
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--color-beige);
+      background: var(--color-teal);
+      padding: .3rem .75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── Responsive ─────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .svc-hero__inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2.5rem;
+      }
+      .svc-hero__right {
+        max-width: none;
+      }
+      .services__grid--three {
+        grid-template-columns: 1fr;
+      }
+      .services__grid--three .service-card,
+      .services__grid--three .service-card:not(:first-child),
+      .services__grid--three .service-card:last-child {
+        padding: 2.5rem 0 3.5rem;
+        border-right: none;
+        border-bottom: 1px solid var(--border-dark);
+      }
+      .services__grid--three .service-card:last-child {
+        border-bottom: none;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .svc-hero {
+        padding: 7rem 2rem 5rem;
+      }
+    }
+
+    /* ── Fastwork listing preview card ──────────────────────── */
+    .fw-card {
+      display: block;
+      margin-top: 2.5rem;
+      border: 1px solid var(--border-light, rgba(0,0,0,.12));
+      text-decoration: none;
+      color: inherit;
+      overflow: hidden;
+      transition: border-color .2s, box-shadow .2s, transform .2s;
+      background: var(--color-beige, #f5f0e8);
+    }
+
+    .fw-card:hover {
+      border-color: var(--color-teal, #2a8080);
+      box-shadow: 0 6px 28px rgba(42,128,128,.13);
+      transform: translateY(-2px);
+    }
+
+    .fw-card__img-wrap {
+      position: relative;
+      aspect-ratio: 16 / 7;
+      overflow: hidden;
+    }
+
+    .fw-card__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .4s ease;
+    }
+
+    .fw-card:hover .fw-card__img {
+      transform: scale(1.04);
+    }
+
+    .fw-card__platform {
+      position: absolute;
+      top: .75rem;
+      left: .75rem;
+      font-family: var(--font-mono);
+      font-size: .65rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--color-beige, #f5f0e8);
+      background: var(--color-teal, #2a8080);
+      padding: .25rem .6rem;
+    }
+
+    .fw-card__body {
+      padding: 1rem 1.25rem 1.1rem;
+      background: var(--color-beige, #f5f0e8);
+    }
+
+    .fw-card__title {
+      font-family: var(--font-display);
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--color-dark, #1a1a1a);
+      line-height: 1.4;
+      margin: 0 0 .65rem;
+    }
+
+    .fw-card__meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .fw-card__price {
+      font-family: var(--font-mono);
+      font-size: .78rem;
+      font-weight: 500;
+      color: var(--color-teal, #2a8080);
+      letter-spacing: .04em;
+    }
+
+    .fw-card__cta {
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      letter-spacing: .07em;
+      color: var(--color-dark, #1a1a1a);
+      opacity: .5;
+      transition: opacity .2s;
+    }
+
+    .fw-card:hover .fw-card__cta {
+      opacity: 1;
+      color: var(--color-teal, #2a8080);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navbar ─────────────────────────────────────────── -->
+  <header class="navbar" id="navbar">
+    <a href="index.html" class="navbar__logo" aria-label="Serva home">
+      <img src="assets/images/logo.png" alt="Serva" class="navbar__logo-img" />
+    </a>
+    <nav aria-label="Main navigation">
+      <ul class="navbar__links">
+        <li class="navbar__dropdown">
+          <a href="cloud-vps.html" class="navbar__dropdown-trigger">products</a>
+          <ul class="navbar__dropdown-menu">
+            <li><a href="cloud-vps.html">
+              <span class="navbar__dropdown-item-label">Cloud VPS</span>
+              <span class="navbar__dropdown-item-desc">CPU-optimised bare-metal</span>
+            </a></li>
+            <li><a href="dedicated-servers.html">
+              <span class="navbar__dropdown-item-label">Dedicated Servers</span>
+              <span class="navbar__dropdown-item-desc">GPU-accelerated clusters</span>
+            </a></li>
+          </ul>
+        </li>
+        <li><a href="services.html" class="navbar__link--active">services</a></li>
+        <li><a href="about.html">about</a></li>
+        <li><a href="index.html#contact">contact</a></li>
+        <li>
+          <button class="lang-btn" id="langBtn" aria-label="Toggle language">
+            <span class="lang-opt is-active" data-l="en">EN</span>
+            <span class="lang-sep" aria-hidden="true">·</span>
+            <span class="lang-opt" data-l="th">ไทย</span>
+          </button>
+        </li>
+        <li><a href="index.html#contact" class="navbar__cta">start project →</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ── Services Hero ──────────────────────────────────── -->
+    <section class="svc-hero" id="svc-hero">
+      <div class="svc-hero__inner">
+        <div class="svc-hero__left">
+          <div class="svc-hero__eyebrow fade fade--d1">
+            <span class="label label--dark">// what we build</span>
+          </div>
+          <h1 class="svc-hero__heading fade fade--d2">
+            Built for<br>your <em>stack.</em>
+          </h1>
+        </div>
+
+        <div class="svc-hero__right fade fade--d3">
+          <p class="svc-hero__sub">
+            From bare-metal provisioning to full AI pipelines and intelligent automation — Serva delivers production-grade solutions tailored to your exact requirements.
+          </p>
+          <div class="svc-hero__tags">
+            <span class="svc-hero__tag">Pipeline Setup</span>
+            <span class="svc-hero__tag">Clawbot</span>
+            <span class="svc-hero__tag">VPS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── What We Offer ──────────────────────────────────── -->
+    <section class="services" id="services">
+      <div class="section-header reveal">
+        <span class="label">// 01 — what we offer</span>
+        <hr />
+      </div>
+
+      <div class="services__intro">
+        <h2 class="section-title services__title reveal-clip">
+          Three services.<br>One team.
+        </h2>
+        <p class="services__sub reveal">
+          Whether you need a complete AI workflow, an intelligent automation layer, or a provisioned VPS — we scope, build, and support it end-to-end.
+        </p>
+      </div>
+
+      <div class="services__grid services__grid--three">
+
+        <article class="service-card reveal">
+          <span class="service-card__num" aria-hidden="true">01</span>
+          <span class="service-card__badge">AI product</span>
+          <h3 class="service-card__name">Pipeline<br>Setup</h3>
+          <p class="service-card__desc">
+            End-to-end AI and data pipelines architected to your workload — from raw ingestion through inference to production output. Built on your hardware, deployed on your timeline.
+          </p>
+          <div class="service-card__detail">
+            <ul>
+              <li>data ingestion &amp; preprocessing</li>
+              <li>model selection &amp; fine-tuning</li>
+              <li>orchestration &amp; monitoring</li>
+              <li>api integration &amp; deployment</li>
+              <li>performance tuning &amp; scaling</li>
+            </ul>
+          </div>
+
+          <!-- Fastwork listing preview -->
+          <a href="https://fastwork.co/user/u2q4njh0/ai-automation-17155418"
+             class="fw-card"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="View this service on Fastwork">
+            <div class="fw-card__img-wrap">
+              <img
+                src="https://fw-fileupload-th.s3.ap-southeast-1.amazonaws.com/products/cd6836d7-c01b-4eb0-a523-2da505847c9f/images/bc43f682-98da-428d-8b9e-a7b290aed5e5.jpg"
+                alt="AI Automation Pipeline service on Fastwork"
+                class="fw-card__img"
+                loading="lazy"
+              />
+              <span class="fw-card__platform">Fastwork</span>
+            </div>
+            <div class="fw-card__body">
+              <p class="fw-card__title">AI &amp; Data Pipeline / Chatbot / AI Consultant</p>
+              <div class="fw-card__meta">
+                <span class="fw-card__price">from ฿2,500</span>
+                <span class="fw-card__cta">view listing →</span>
+              </div>
+            </div>
+          </a>
+        </article>
+
+        <article class="service-card reveal">
+          <span class="service-card__num" aria-hidden="true">02</span>
+          <span class="service-card__badge">AI product</span>
+          <h3 class="service-card__name">Clawbot</h3>
+          <p class="service-card__desc">
+            Serva's intelligent automation bot — deployable across your platforms and trained on your domain. Automates workflows, answers queries, and integrates with your existing stack.
+          </p>
+          <div class="service-card__detail">
+            <ul>
+              <li>natural language understanding</li>
+              <li>multi-channel deployment</li>
+              <li>custom model training</li>
+              <li>webhook &amp; api integration</li>
+              <li>usage analytics &amp; feedback loop</li>
+            </ul>
+          </div>
+
+          <!-- Fastwork listing preview -->
+          <a href="https://fastwork.co/user/u2q4njh0/ai-automation-51899474"
+             class="fw-card"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="View Clawbot service on Fastwork">
+            <div class="fw-card__img-wrap">
+              <img
+                src="https://fw-fileupload-th.s3.ap-southeast-1.amazonaws.com/products/be31f026-b2af-49a8-9a25-11a417bf830f/images/9d4ac4c7-1f34-437e-996a-fd1f892b968a.jpg"
+                alt="Clawbot installation service on Fastwork"
+                class="fw-card__img"
+                loading="lazy"
+              />
+              <span class="fw-card__platform">Fastwork</span>
+            </div>
+            <div class="fw-card__body">
+              <p class="fw-card__title">Install Clawbot on your machine or VPS — ready to use, no technical knowledge needed</p>
+              <div class="fw-card__meta">
+                <span class="fw-card__price">from ฿2,500</span>
+                <span class="fw-card__cta">view listing →</span>
+              </div>
+            </div>
+          </a>
+        </article>
+
+        <article class="service-card reveal">
+          <span class="service-card__num" aria-hidden="true">03</span>
+          <h3 class="service-card__name">VPS<br>Setup</h3>
+          <p class="service-card__desc">
+            Cloud VPS provisioned, hardened, and configured to your specs. We handle the setup so your team hits the ground running — from OS to monitoring stack.
+          </p>
+          <div class="service-card__detail">
+            <ul>
+              <li>os setup &amp; hardening</li>
+              <li>network &amp; firewall configuration</li>
+              <li>monitoring &amp; alerting setup</li>
+              <li>backup &amp; recovery planning</li>
+              <li>ongoing server management</li>
+            </ul>
+          </div>
+
+          <!-- Fastwork listing preview -->
+          <a href="https://fastwork.co/user/u2q4njh0/data-engineering-45434802"
+             class="fw-card"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="View VPS Setup service on Fastwork">
+            <div class="fw-card__img-wrap">
+              <img
+                src="https://fw-fileupload-th.s3.ap-southeast-1.amazonaws.com/products/e00e7c8f-2661-4dcd-a94d-10fe4ee8ae56/images/458a7a76-4526-4abc-9142-e0724c56fd2c.jpg"
+                alt="VPS Server setup and rental service on Fastwork"
+                class="fw-card__img"
+                loading="lazy"
+              />
+              <span class="fw-card__platform">Fastwork</span>
+            </div>
+            <div class="fw-card__body">
+              <p class="fw-card__title">VPS Server setup &amp; rental — fully managed, no IT knowledge required</p>
+              <div class="fw-card__meta">
+                <span class="fw-card__price">from ฿3,500</span>
+                <span class="fw-card__cta">view listing →</span>
+              </div>
+            </div>
+          </a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ── How We Work ────────────────────────────────────── -->
+    <section class="process" id="how">
+      <div class="section-header section-header--dark reveal">
+        <span class="label label--dark">// 02 — process</span>
+        <hr />
+      </div>
+      <h2 class="section-title reveal-clip">How we work.</h2>
+
+      <div class="process__steps">
+        <div class="process__step reveal">
+          <span class="process__step-label">01 / scope and discovery</span>
+          <h3 class="process__step-title">Scope &amp; Discovery</h3>
+          <p class="process__step-desc">
+            We begin with your requirements — workloads, data sources, latency targets, and budget. No assumptions, just listening.
+          </p>
+        </div>
+
+        <div class="process__step reveal">
+          <span class="process__step-label">02 / design and provision</span>
+          <h3 class="process__step-title">Design &amp; Provision</h3>
+          <p class="process__step-desc">
+            We architect the pipeline or provision the hardware to spec. Every component chosen deliberately, with room to scale.
+          </p>
+        </div>
+
+        <div class="process__step reveal">
+          <span class="process__step-label">03 / deploy and support</span>
+          <h3 class="process__step-title">Deploy &amp; Support</h3>
+          <p class="process__step-desc">
+            We ship, monitor, and remain available. Ongoing support, performance reviews, and adjustments as your needs evolve.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA ─────────────────────────────────────────────── -->
+    <section class="cta" id="contact">
+      <div class="cta__left reveal">
+        <p class="label cta__label">ready to build</p>
+        <h2 class="cta__heading">
+          Let's scope your next project.
+        </h2>
+      </div>
+      <div class="cta__right reveal">
+        <a href="mailto:hello@serva.io" class="btn btn--outline">
+          get in touch →
+        </a>
+        <p class="cta__email">or email <a href="mailto:hello@serva.io">hello@serva.io</a></p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ─────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div>
+        <p class="footer__brand">Serva</p>
+        <p class="footer__statement">Built for teams that demand precision.</p>
+        <p class="footer__tagline">// servers and services</p>
+      </div>
+      <nav class="footer__nav" aria-label="Footer navigation">
+        <div class="footer__col">
+          <h4>services</h4>
+          <ul>
+            <li><a href="services.html#services">Pipeline Setup</a></li>
+            <li><a href="services.html#services">Clawbot</a></li>
+            <li><a href="services.html#services">VPS Setup</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html#how">Process</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2026 Serva. All rights reserved.</p>
+      <div class="footer__links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+</body>
+</html>

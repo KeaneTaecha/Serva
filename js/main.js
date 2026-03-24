@@ -59,7 +59,6 @@ if ('IntersectionObserver' in window) {
       'nav.process':        'process',
       'nav.contact':        'contact',
       'hero.heading':       'Yours to rent,<br>from <span class="accent">฿349</span>/mo.',
-      'hero.sub':           'From Cloud VPS packages to Dedicated Servers — provisioned and ready. No contracts, no noisy neighbours, full hardware access.',
       'services.title':     'Two offerings.<br>One principle.',
       'services.sub':       'Your stack, your rules. Whether you need a bespoke AI workflow or reliable bare-metal hardware — we deliver both with precision and no compromise.',
       'service1.name':      'Custom AI<br>Pipelines',
@@ -89,7 +88,6 @@ if ('IntersectionObserver' in window) {
       'nav.process':        'กระบวนการ',
       'nav.contact':        'ติดต่อ',
       'hero.heading':       'เช่าได้ทันที<br>เริ่มต้นเพียง <span class="accent">฿349</span>/เดือน',
-      'hero.sub':           'ตั้งแต่ Cloud VPS ไปจนถึง Dedicated Server — พร้อมใช้งานทันที ไม่มีสัญญาผูกมัด ไม่มีการรบกวน เข้าถึง hardware ได้เต็มที่',
       'services.title':     'สองบริการ.<br>หนึ่งหลักการ.',
       'services.sub':       'Stack ของคุณ กฎของคุณ ไม่ว่าจะต้องการ AI workflow แบบกำหนดเอง หรือ hardware เกรดองค์กรที่เชื่อถือได้ — เราส่งมอบทั้งสองอย่างด้วยความแม่นยำและไม่มีการประนีประนอม',
       'service1.name':      'Custom AI<br>Pipelines',
@@ -178,11 +176,11 @@ if ('IntersectionObserver' in window) {
 
   // Fire after the fade-in animation completes (~1.2s for fade--d3)
   setTimeout(function () {
-    const uptime  = document.getElementById('stat-uptime');
-    const configs = document.getElementById('stat-configs');
+    const uptime   = document.getElementById('stat-uptime');
+    const latency  = document.getElementById('stat-latency');
 
-    if (uptime)  countUp(uptime,  99,  99.97, 2, '', 1600);
-    if (configs) countUp(configs,  0,  50,    0, '', 1200);
+    if (uptime)   countUp(uptime,   99,  99.99, 2, '%', 1600);
+    if (latency)  countUp(latency, 0,   6,    0, 'ms', 1200);
   }, 600);
 })();
 

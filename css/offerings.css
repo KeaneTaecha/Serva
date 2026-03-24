@@ -1,0 +1,262 @@
+/* ============================================================
+   OFFERINGS — Grouped card catalog (dark background)
+   ============================================================ */
+
+.offerings {
+  background: var(--color-dark);
+  padding: 8rem 4rem;
+}
+
+/* Section header overrides for dark bg */
+.offerings .section-header hr {
+  border-color: var(--border-light);
+}
+
+/* ── Intro ──────────────────────────────────────────────── */
+.offerings__intro {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 4rem;
+  margin-bottom: 5rem;
+}
+
+.offerings__heading {
+  color: var(--color-beige);
+}
+
+.offerings__sub {
+  max-width: 36ch;
+  font-size: .88rem;
+  font-weight: 300;
+  color: rgba(245, 240, 232, .42);
+  line-height: 1.85;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* ── Groups (products / services) ───────────────────────── */
+.offerings__group {
+  margin-bottom: 1px; /* seamless connection via gap */
+}
+
+.offerings__group + .offerings__group {
+  margin-top: 3.5rem;
+}
+
+.offerings__group-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.offerings__group-label {
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: rgba(245, 240, 232, .3);
+  white-space: nowrap;
+}
+
+.offerings__group-hr {
+  flex: 1;
+  border: none;
+  border-top: 1px solid var(--border-light);
+}
+
+/* ── Card grids ─────────────────────────────────────────── */
+.offerings__cards {
+  display: grid;
+  gap: 1px;
+  background: rgba(245, 240, 232, .07); /* gap colour = visible divider lines */
+}
+
+.offerings__cards--two   { grid-template-columns: 1fr 1fr; }
+.offerings__cards--three { grid-template-columns: repeat(3, 1fr); }
+
+/* ── Individual card ─────────────────────────────────────── */
+.off-card {
+  background: var(--color-dark);
+  padding: 2.5rem 2.5rem 2.25rem;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: background .28s ease;
+}
+
+/* Teal sweep bar from left along top */
+.off-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-teal-mid);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform .44s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.off-card:hover::before {
+  transform: scaleX(1);
+}
+
+.off-card:hover {
+  background: rgba(245, 240, 232, .04);
+}
+
+/* Category label */
+.off-card__cat {
+  font-family: var(--font-mono);
+  font-size: .63rem;
+  font-weight: 500;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--color-teal-mid);
+  margin-bottom: 1.5rem;
+  opacity: .8;
+}
+
+/* Card name */
+.off-card__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -.022em;
+  line-height: 1.15;
+  color: var(--color-beige);
+  margin-bottom: .9rem;
+  transition: color .22s;
+}
+
+/* Product cards: larger name */
+.offerings__cards--two .off-card__name {
+  font-size: clamp(1.5rem, 2.2vw, 2.1rem);
+}
+
+/* Service cards: slightly smaller */
+.offerings__cards--three .off-card__name {
+  font-size: clamp(1.1rem, 1.6vw, 1.5rem);
+}
+
+.off-card:hover .off-card__name {
+  color: rgba(245, 240, 232, .75);
+}
+
+/* Description */
+.off-card__desc {
+  font-size: .82rem;
+  font-weight: 300;
+  color: rgba(245, 240, 232, .38);
+  line-height: 1.82;
+  flex: 1;
+  margin-bottom: 2rem;
+}
+
+/* CTA link */
+.off-card__link {
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  letter-spacing: .1em;
+  color: var(--color-teal-mid);
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  margin-top: auto;
+  transition: gap .3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.off-card__link-arrow {
+  display: inline-block;
+  transition: transform .3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.off-card:hover .off-card__link {
+  gap: .85rem;
+}
+
+.off-card:hover .off-card__link-arrow {
+  transform: translateX(3px);
+}
+
+/* ── Card icon ──────────────────────────────────────────── */
+.off-card__icon {
+  width: 2rem;
+  height: 2rem;
+  color: var(--color-teal-mid);
+  margin-bottom: 1.5rem;
+  opacity: .65;
+  flex-shrink: 0;
+  transition: opacity .25s;
+}
+
+.off-card:hover .off-card__icon {
+  opacity: .9;
+}
+
+.off-card__icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ── Supported OS section ───────────────────────────────── */
+.off-card__os {
+  margin-top: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-light);
+  margin-bottom: 1.75rem;
+}
+
+.off-card__os-label {
+  font-family: var(--font-mono);
+  font-size: .6rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(245, 240, 232, .2);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.off-card__os-list {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.off-card__os-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .38rem;
+}
+
+.off-card__os-icon {
+  width: 1.35rem;
+  height: 1.35rem;
+  opacity: .55;
+  flex-shrink: 0;
+  transition: opacity .22s;
+}
+
+.off-card:hover .off-card__os-icon {
+  opacity: .85;
+}
+
+.off-card__os-name {
+  font-family: var(--font-mono);
+  font-size: .5rem;
+  letter-spacing: .04em;
+  color: rgba(245, 240, 232, .25);
+  white-space: nowrap;
+  transition: color .22s;
+}
+
+.off-card:hover .off-card__os-name {
+  color: rgba(245, 240, 232, .48);
+}

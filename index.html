@@ -18,7 +18,8 @@
   <link rel="stylesheet" href="css/navbar.css" />
   <link rel="stylesheet" href="css/hero.css" />
   <link rel="stylesheet" href="css/ticker.css" />
-  <link rel="stylesheet" href="css/catalog.css" />
+  <link rel="stylesheet" href="css/why.css" />
+  <link rel="stylesheet" href="css/offerings.css" />
   <link rel="stylesheet" href="css/cta.css" />
   <link rel="stylesheet" href="css/footer.css" />
   <link rel="stylesheet" href="css/responsive.css" />
@@ -33,7 +34,7 @@
     <nav aria-label="Main navigation">
       <ul class="navbar__links">
         <li class="navbar__dropdown">
-          <a href="#renting" class="navbar__dropdown-trigger">products</a>
+          <a href="cloud-vps.html" class="navbar__dropdown-trigger">products</a>
           <ul class="navbar__dropdown-menu">
             <li><a href="cloud-vps.html">
               <span class="navbar__dropdown-item-label">Cloud VPS</span>
@@ -45,6 +46,7 @@
             </a></li>
           </ul>
         </li>
+        <li><a href="services.html">services</a></li>
         <li><a href="about.html">about</a></li>
         <li><a href="#contact">contact</a></li>
         <li>
@@ -87,216 +89,229 @@
 
         <div class="hero__stats fade fade--d3" aria-label="Key statistics">
           <div class="hero__stat">
-            <span class="hero__stat-num" id="stat-uptime">99.97%</span>
-            <span class="hero__stat-label">uptime sla</span>
+            <span class="hero__stat-num" id="stat-uptime">99.99%</span>
+            <span class="hero__stat-label">uptime</span>
           </div>
           <div class="hero__stat">
-            <span class="hero__stat-num">&lt;15ms</span>
-            <span class="hero__stat-label">avg latency</span>
+            <span class="hero__stat-num" id="stat-latency">0ms</span>
+            <span class="hero__stat-label">latency</span>
           </div>
           <div class="hero__stat">
-            <span class="hero__stat-num" id="stat-configs">50+</span>
-            <span class="hero__stat-label">hardware configs</span>
+            <span class="hero__stat-num">GPU</span>
+            <span class="hero__stat-label">available</span>
           </div>
           <div class="hero__stat">
-            <span class="hero__stat-num">24/7</span>
-            <span class="hero__stat-label">active monitoring</span>
+            <span class="hero__stat-num">customer support</span>
+            <span class="hero__stat-label">available</span>
           </div>
         </div>
 
         <div class="hero__bottom fade fade--d4">
-          <p class="hero__sub" data-i18n="hero.sub">
-            From bare-metal CPU nodes to 8× H100 training clusters — provisioned and ready. No contracts, no noisy neighbors, full hardware access.
-          </p>
-          <a href="#renting" class="hero__cta">
+          <a href="#offerings" class="hero__cta">
             view all configs →
           </a>
         </div>
       </div>
     </section>
 
-    <!-- ── Hardware Catalog ──────────────────────────────── -->
-    <section class="catalog" id="renting">
+    <!-- ── Why Serva ─────────────────────────────────────── -->
+    <section class="why" id="why">
       <div class="section-header reveal">
-        <span class="label">// 01 — renting</span>
+        <span class="label">// 01 — why serva</span>
         <hr />
       </div>
 
-      <div class="catalog__intro">
-        <div class="catalog__intro-left">
-          <h2 class="section-title reveal-clip" data-i18n="catalog.title" data-i18n-html>
-            Rent the<br>right hardware.
-          </h2>
-        </div>
-        <div class="catalog__intro-right reveal">
-          <p class="catalog__sub" data-i18n="catalog.sub">
-            Choose from our fleet of GPU-accelerated and CPU-optimised bare-metal servers. All rentals include full hardware access, 24/7 uptime monitoring, and flexible billing — hourly or monthly.
-          </p>
-          <div class="catalog__toggle" role="tablist" aria-label="Server category">
-            <button class="catalog__toggle-btn active" data-tab="gpu" role="tab" aria-selected="true">Dedicated Servers</button>
-            <button class="catalog__toggle-btn" data-tab="cpu" role="tab" aria-selected="false">Cloud VPS</button>
+      <div class="why__intro">
+        <h2 class="why__heading section-title reveal-clip">Why<br>Serva?</h2>
+        <p class="why__sub reveal">Everything you need to deploy with confidence — from hardware to pipeline, from setup to ongoing support.</p>
+      </div>
+
+      <div class="why__grid">
+
+        <div class="why__item reveal">
+          <span class="why__item-num">01</span>
+          <div class="why__item-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="5" cy="12" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="19" cy="18" r="2"/>
+              <line x1="7" y1="11.2" x2="17" y2="7"/><line x1="7" y1="12.8" x2="17" y2="17"/>
+            </svg>
           </div>
+          <h3 class="why__item-title">Full Pipeline Services</h3>
+          <p class="why__item-desc">From server setup to complete AI and data pipeline deployment — we handle the full stack end-to-end.</p>
+        </div>
+
+        <div class="why__item reveal">
+          <span class="why__item-num">02</span>
+          <div class="why__item-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="2,13 5,13 7,6 9.5,19 12,13 14,13 15.5,9 17,13 22,13"/>
+            </svg>
+          </div>
+          <h3 class="why__item-title">99.99% Uptime</h3>
+          <p class="why__item-desc">Industry-leading uptime backed by redundant infrastructure and continuous 24/7 monitoring.</p>
+        </div>
+
+        <div class="why__item reveal">
+          <span class="why__item-num">03</span>
+          <div class="why__item-icon" aria-hidden="true">
+            <!-- Thailand silhouette — plotted from Natural Earth GeoJSON (THA.geo.json) -->
+            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+              <path d="M13.1,13.3 L11.7,12.6 L10.5,12.6 L10.7,11.5 L9.4,11.5 L9.2,13.1 L8.4,15.3 L7.9,16.6 L8.1,17.7 L9.0,17.8 L9.6,19.1 L9.9,20.4 L10.7,21.3 L11.6,21.4 L12.4,22.2 L11.9,22.8 L10.9,23.0 L10.8,22.2 L9.6,21.6 L9.3,21.9 L8.7,21.3 L8.5,20.5 L7.7,19.7 L7.0,19.0 L6.7,19.9 L6.5,19.0 L6.6,18.1 L7.1,16.7 L7.8,15.1 L8.6,13.7 L8.0,12.4 L8.0,11.7 L7.9,10.9 L6.9,9.7 L6.5,8.9 L7.0,8.6 L7.6,7.3 L7.0,6.4 L6.0,5.3 L5.3,4.0 L5.9,3.7 L6.6,2.1 L7.7,2.0 L8.5,1.4 L9.4,1.0 L10.0,1.5 L10.1,2.4 L11.1,2.4 L10.8,4.0 L10.8,5.3 L12.4,4.5 L12.8,4.7 L13.7,4.7 L14.0,4.2 L15.1,4.3 L16.3,5.5 L16.4,6.9 L17.6,8.2 L17.5,9.5 L17.0,10.2 L15.6,10.0 L13.7,10.3 L12.7,11.5 Z"/>
+            </svg>
+          </div>
+          <h3 class="why__item-title">Secure Thai Data Center</h3>
+          <p class="why__item-desc">Deployed inside JasTel's tier-grade data center in Thailand — low-latency, compliant, and sovereign.</p>
+        </div>
+
+        <div class="why__item reveal">
+          <span class="why__item-num">04</span>
+          <div class="why__item-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="7" y="7" width="10" height="10" rx="1"/>
+              <line x1="9" y1="4" x2="9" y2="7"/><line x1="12" y1="4" x2="12" y2="7"/><line x1="15" y1="4" x2="15" y2="7"/>
+              <line x1="9" y1="17" x2="9" y2="20"/><line x1="12" y1="17" x2="12" y2="20"/><line x1="15" y1="17" x2="15" y2="20"/>
+              <line x1="4" y1="9" x2="7" y2="9"/><line x1="4" y1="12" x2="7" y2="12"/><line x1="4" y1="15" x2="7" y2="15"/>
+              <line x1="17" y1="9" x2="20" y2="9"/><line x1="17" y1="12" x2="20" y2="12"/><line x1="17" y1="15" x2="20" y2="15"/>
+            </svg>
+          </div>
+          <h3 class="why__item-title">GPU Available</h3>
+          <p class="why__item-desc">NVIDIA GPU hardware on-demand for AI training, inference, and high-throughput compute workloads.</p>
+        </div>
+
+        <div class="why__item reveal">
+          <span class="why__item-num">05</span>
+          <div class="why__item-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
+              <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z"/>
+              <path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
+            </svg>
+          </div>
+          <h3 class="why__item-title">Customer Support</h3>
+          <p class="why__item-desc">Dedicated team ready to assist with provisioning, troubleshooting, and ongoing project needs.</p>
+        </div>
+
+        <div class="why__item reveal">
+          <span class="why__item-num">06</span>
+          <div class="why__item-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="2"/>
+              <circle cx="4" cy="8" r="2"/><circle cx="20" cy="8" r="2"/>
+              <circle cx="4" cy="18" r="2"/><circle cx="20" cy="18" r="2"/>
+              <line x1="6" y1="9" x2="10" y2="11"/><line x1="18" y1="9" x2="14" y2="11"/>
+              <line x1="6" y1="17" x2="10" y2="13"/><line x1="18" y1="17" x2="14" y2="13"/>
+            </svg>
+          </div>
+          <h3 class="why__item-title">Stable Network</h3>
+          <p class="why__item-desc">Enterprise-grade connectivity with consistent bandwidth, minimal packet loss, and low-latency routing.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Everything We Offer ───────────────────────────── -->
+    <section class="offerings" id="offerings">
+      <div class="section-header section-header--dark reveal">
+        <span class="label label--dark">// 02 — what we offer</span>
+        <hr />
+      </div>
+
+      <div class="offerings__intro">
+        <h2 class="offerings__heading section-title reveal-clip">Everything<br>on offer.</h2>
+        <p class="offerings__sub reveal">Two product lines. Three managed services. One team behind all of it — ready to deploy on your terms.</p>
+      </div>
+
+      <!-- Products group -->
+      <div class="offerings__group reveal">
+        <div class="offerings__group-header">
+          <span class="offerings__group-label">// products</span>
+          <hr class="offerings__group-hr" />
+        </div>
+        <div class="offerings__cards offerings__cards--two">
+
+          <a href="cloud-vps.html" class="off-card">
+            <div class="off-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+              </svg>
+            </div>
+            <span class="off-card__cat">Cloud VPS</span>
+            <h3 class="off-card__name">Scalable virtual<br>private servers</h3>
+            <p class="off-card__desc">Full root access, SSD storage, and flexible billing — hourly or monthly. Spin up in minutes, scale without contracts.</p>
+            <span class="off-card__link">view plans <span class="off-card__link-arrow">→</span></span>
+          </a>
+
+          <a href="dedicated-servers.html" class="off-card">
+            <div class="off-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="8" rx="2"/>
+                <rect x="2" y="14" width="20" height="8" rx="2"/>
+                <circle cx="6" cy="6" r="1" fill="currentColor" stroke="none"/>
+                <circle cx="10" cy="6" r="1" fill="currentColor" stroke="none"/>
+                <circle cx="6" cy="18" r="1" fill="currentColor" stroke="none"/>
+                <circle cx="10" cy="18" r="1" fill="currentColor" stroke="none"/>
+              </svg>
+            </div>
+            <span class="off-card__cat">Dedicated Servers</span>
+            <h3 class="off-card__name">Bare-metal &amp;<br>GPU-accelerated</h3>
+            <p class="off-card__desc">Full hardware access, zero noisy neighbors, 99.99% uptime SLA. NVIDIA GPU available for AI and compute workloads.</p>
+            <span class="off-card__link">view configs <span class="off-card__link-arrow">→</span></span>
+          </a>
+
         </div>
       </div>
 
-      <div class="catalog__slider-outer">
-        <div class="catalog__viewport" id="catalogViewport">
+      <!-- Services group -->
+      <div class="offerings__group reveal">
+        <div class="offerings__group-header">
+          <span class="offerings__group-label">// services</span>
+          <hr class="offerings__group-hr" />
+        </div>
+        <div class="offerings__cards offerings__cards--three">
 
-          <!-- ── Dedicated Servers Track ── -->
-          <div class="catalog__track" id="gpuTrack">
+          <a href="services.html#services" class="off-card">
+            <div class="off-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="5" cy="12" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="19" cy="18" r="2"/>
+                <line x1="7" y1="11.2" x2="17" y2="7"/><line x1="7" y1="12.8" x2="17" y2="17"/>
+              </svg>
+            </div>
+            <span class="off-card__cat">Pipeline Setup</span>
+            <h3 class="off-card__name">AI &amp; Data<br>Pipelines</h3>
+            <p class="off-card__desc">End-to-end workflows built to your spec — ingestion, training, inference, and deployment on your infrastructure.</p>
+            <span class="off-card__link">learn more <span class="off-card__link-arrow">→</span></span>
+          </a>
 
-            <article class="server-card">
-              <div class="server-card__header">
-                <span class="server-card__badge">DEDICATED</span>
-                <span class="server-card__id">SRV-D01</span>
-              </div>
-              <h3 class="server-card__name">Dedicated<br>Standard</h3>
-              <div class="server-card__specs">
-                <div class="spec-row"><span class="spec-label">gpu</span><span class="spec-value">NVIDIA RTX 3060 12 GB</span></div>
-                <div class="spec-row"><span class="spec-label">cpu</span><span class="spec-value">8 vCore CPU</span></div>
-                <div class="spec-row"><span class="spec-label">ram</span><span class="spec-value">12 GB RAM</span></div>
-                <div class="spec-row"><span class="spec-label">storage</span><span class="spec-value">60 GB SSD</span></div>
-                <div class="spec-row"><span class="spec-label">ip</span><span class="spec-value">1 IP Address</span></div>
-              </div>
-              <div class="server-card__pricing">
-                <div class="price-block"><span class="price-amount">฿5,499</span><span class="price-unit">/mo</span></div>
-              </div>
-              <a href="#contact" class="server-card__cta">rent this →</a>
-            </article>
+          <a href="services.html#services" class="off-card">
+            <div class="off-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="8" width="18" height="13" rx="3"/>
+                <circle cx="9" cy="14" r="1.5" fill="currentColor" stroke="none"/>
+                <circle cx="15" cy="14" r="1.5" fill="currentColor" stroke="none"/>
+                <path d="M9.5 17.5h5"/>
+                <line x1="8" y1="8" x2="7" y2="5"/><line x1="12" y1="8" x2="12" y2="4"/><line x1="16" y1="8" x2="17" y2="5"/>
+              </svg>
+            </div>
+            <span class="off-card__cat">Clawbot</span>
+            <h3 class="off-card__name">Intelligent<br>Automation Bot</h3>
+            <p class="off-card__desc">Trained on your domain, deployed across your platforms. Automates workflows and integrates with your existing stack.</p>
+            <span class="off-card__link">learn more <span class="off-card__link-arrow">→</span></span>
+          </a>
 
-            <article class="server-card">
-              <div class="server-card__header">
-                <span class="server-card__badge server-card__badge--flagship">flagship</span>
-                <span class="server-card__id">SRV-D02</span>
-              </div>
-              <h3 class="server-card__name">Dedicated<br>Pro</h3>
-              <div class="server-card__specs">
-                <div class="spec-row"><span class="spec-label">gpu</span><span class="spec-value">NVIDIA RTX 3060 12 GB</span></div>
-                <div class="spec-row"><span class="spec-label">cpu</span><span class="spec-value">16 vCore CPU</span></div>
-                <div class="spec-row"><span class="spec-label">ram</span><span class="spec-value">24 GB RAM</span></div>
-                <div class="spec-row"><span class="spec-label">storage</span><span class="spec-value">120 GB SSD</span></div>
-                <div class="spec-row"><span class="spec-label">ip</span><span class="spec-value">1 IP Address</span></div>
-              </div>
-              <div class="server-card__pricing">
-                <div class="price-block"><span class="price-amount">฿6,999</span><span class="price-unit">/mo</span></div>
-              </div>
-              <a href="#contact" class="server-card__cta">rent this →</a>
-            </article>
+          <a href="services.html#services" class="off-card">
+            <div class="off-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+              </svg>
+            </div>
+            <span class="off-card__cat">VPS Setup</span>
+            <h3 class="off-card__name">Provisioned &amp;<br>Configured</h3>
+            <p class="off-card__desc">OS hardening, firewall, monitoring, and backups — your VPS fully configured by our team from day one.</p>
+            <span class="off-card__link">learn more <span class="off-card__link-arrow">→</span></span>
+          </a>
 
-          </div><!-- /gpuTrack -->
-
-          <!-- ── Cloud VPS Track ── -->
-          <div class="catalog__track catalog__track--hidden" id="cpuTrack">
-
-            <article class="server-card">
-              <div class="server-card__ribbon">popular</div>
-              <div class="server-card__header">
-                <span class="server-card__badge server-card__badge--cpu">VPS</span>
-                <span class="server-card__id">PKG-01</span>
-              </div>
-              <h3 class="server-card__name">Package 1</h3>
-              <div class="server-card__specs">
-                <div class="spec-row"><span class="spec-label">cpu</span><span class="spec-value">2 vCore CPU</span></div>
-                <div class="spec-row"><span class="spec-label">ram</span><span class="spec-value">4 GB RAM</span></div>
-                <div class="spec-row"><span class="spec-label">storage</span><span class="spec-value">60 GB SSD</span></div>
-                <div class="spec-row"><span class="spec-label">ip</span><span class="spec-value">1 IP Address</span></div>
-              </div>
-              <div class="server-card__pricing">
-                <div class="price-block"><span class="price-amount">฿349</span><span class="price-unit">/mo</span></div>
-              </div>
-              <a href="#contact" class="server-card__cta">rent this →</a>
-            </article>
-
-            <article class="server-card">
-              <div class="server-card__header">
-                <span class="server-card__badge server-card__badge--cpu">VPS</span>
-                <span class="server-card__id">PKG-02</span>
-              </div>
-              <h3 class="server-card__name">Package 2</h3>
-              <div class="server-card__specs">
-                <div class="spec-row"><span class="spec-label">cpu</span><span class="spec-value">4 vCore CPU</span></div>
-                <div class="spec-row"><span class="spec-label">ram</span><span class="spec-value">8 GB RAM</span></div>
-                <div class="spec-row"><span class="spec-label">storage</span><span class="spec-value">100 GB SSD</span></div>
-                <div class="spec-row"><span class="spec-label">ip</span><span class="spec-value">1 IP Address</span></div>
-              </div>
-              <div class="server-card__pricing">
-                <div class="price-block"><span class="price-amount">฿599</span><span class="price-unit">/mo</span></div>
-              </div>
-              <a href="#contact" class="server-card__cta">rent this →</a>
-            </article>
-
-            <article class="server-card">
-              <div class="server-card__header">
-                <span class="server-card__badge server-card__badge--cpu">VPS</span>
-                <span class="server-card__id">PKG-03</span>
-              </div>
-              <h3 class="server-card__name">Package 3</h3>
-              <div class="server-card__specs">
-                <div class="spec-row"><span class="spec-label">cpu</span><span class="spec-value">6 vCore CPU</span></div>
-                <div class="spec-row"><span class="spec-label">ram</span><span class="spec-value">12 GB RAM</span></div>
-                <div class="spec-row"><span class="spec-label">storage</span><span class="spec-value">180 GB SSD</span></div>
-                <div class="spec-row"><span class="spec-label">ip</span><span class="spec-value">1 IP Address</span></div>
-              </div>
-              <div class="server-card__pricing">
-                <div class="price-block"><span class="price-amount">฿1,299</span><span class="price-unit">/mo</span></div>
-              </div>
-              <a href="#contact" class="server-card__cta">rent this →</a>
-            </article>
-
-            <article class="server-card">
-              <div class="server-card__header">
-                <span class="server-card__badge server-card__badge--cpu">VPS</span>
-                <span class="server-card__id">PKG-04</span>
-              </div>
-              <h3 class="server-card__name">Package 4</h3>
-              <div class="server-card__specs">
-                <div class="spec-row"><span class="spec-label">cpu</span><span class="spec-value">8 vCore CPU</span></div>
-                <div class="spec-row"><span class="spec-label">ram</span><span class="spec-value">16 GB RAM</span></div>
-                <div class="spec-row"><span class="spec-label">storage</span><span class="spec-value">220 GB SSD</span></div>
-                <div class="spec-row"><span class="spec-label">ip</span><span class="spec-value">1 IP Address</span></div>
-              </div>
-              <div class="server-card__pricing">
-                <div class="price-block"><span class="price-amount">฿1,599</span><span class="price-unit">/mo</span></div>
-              </div>
-              <a href="#contact" class="server-card__cta">rent this →</a>
-            </article>
-
-            <article class="server-card">
-              <div class="server-card__header">
-                <span class="server-card__badge server-card__badge--cpu">VPS</span>
-                <span class="server-card__id">PKG-05</span>
-              </div>
-              <h3 class="server-card__name">Package 5</h3>
-              <div class="server-card__specs">
-                <div class="spec-row"><span class="spec-label">cpu</span><span class="spec-value">10 vCore CPU</span></div>
-                <div class="spec-row"><span class="spec-label">ram</span><span class="spec-value">24 GB RAM</span></div>
-                <div class="spec-row"><span class="spec-label">storage</span><span class="spec-value">300 GB SSD</span></div>
-                <div class="spec-row"><span class="spec-label">ip</span><span class="spec-value">1 IP Address</span></div>
-              </div>
-              <div class="server-card__pricing">
-                <div class="price-block"><span class="price-amount">฿2,399</span><span class="price-unit">/mo</span></div>
-              </div>
-              <a href="#contact" class="server-card__cta">rent this →</a>
-            </article>
-
-          </div><!-- /cpuTrack -->
-
-        </div><!-- /catalog__viewport -->
-      </div><!-- /catalog__slider-outer -->
-
-      <div class="catalog__controls-row">
-        <button class="catalog__arrow" id="catalogPrev" aria-label="Previous servers">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-            <path d="M11 3.5L5.5 9L11 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-        <button class="catalog__arrow" id="catalogNext" aria-label="Next servers">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-            <path d="M7 3.5L12.5 9L7 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-        <div class="catalog__dots" id="catalogDots"></div>
-        <p class="catalog__scroll-hint" data-i18n="catalog.hint">drag or swipe to explore</p>
+        </div>
       </div>
 
     </section>
@@ -340,7 +355,7 @@
           <h4 data-i18n="footer.col2.title">company</h4>
           <ul>
             <li><a href="about.html" data-i18n="footer.col2.about">About</a></li>
-            <li><a href="about.html#how" data-i18n="footer.col2.process">Process</a></li>
+            <li><a href="services.html#how" data-i18n="footer.col2.process">Process</a></li>
             <li><a href="#contact" data-i18n="footer.col2.contact">Contact</a></li>
           </ul>
         </div>

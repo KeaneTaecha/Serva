@@ -173,6 +173,7 @@
 }
 
 .hero__cta {
+  margin-left: auto;
   display: inline-flex;
   align-items: center;
   gap: .65rem;
