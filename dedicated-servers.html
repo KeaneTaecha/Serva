@@ -250,7 +250,7 @@
 
     .features-included__grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       border: 1px solid var(--border-light);
     }
 
@@ -438,10 +438,17 @@
       .os-compat__intro { flex-direction: column; gap: 1.5rem; }
       .os-compat__sub { text-align: left; max-width: none; }
       .os-compat__grid { grid-template-columns: repeat(3, 1fr); }
+      .features-included__grid { grid-template-columns: repeat(3, 1fr); }
+      .feature-tile:nth-child(3) { border-right: none; }
+      .feature-tile:last-child { border-right: 1px solid var(--border-light); }
+      .feature-tile:nth-child(3n) { border-right: none; }
     }
 
     @media (max-width: 560px) {
       .os-compat__grid { grid-template-columns: repeat(2, 1fr); }
+      .features-included__grid { grid-template-columns: repeat(2, 1fr); }
+      .feature-tile:nth-child(3n) { border-right: 1px solid var(--border-light); }
+      .feature-tile:nth-child(2n) { border-right: none; }
     }
   </style>
 </head>
@@ -507,7 +514,7 @@
           Dedicated<br><span class="accent">Servers</span>
         </h1>
         <p class="page-hero__sub fade fade--d3" data-i18n="ded.hero.sub">
-          Full bare-metal dedicated servers — provisioned and ready. No shared tenancy, no noisy neighbours. Full hardware access from day one with 24/7 uptime monitoring.
+          Full bare-metal dedicated servers — provisioned and ready. Full hardware access from day one with 24/7 uptime monitoring.
         </p>
         <div class="page-hero__meta fade fade--d4">
           <div class="page-hero__stat">
@@ -535,16 +542,9 @@
     <section class="catalog" id="renting">
 
       <div class="catalog__intro">
-        <div class="catalog__intro-left">
-          <h2 class="section-title reveal-clip" data-i18n="ded.catalog.title" data-i18n-html>
-            Rent the<br>right hardware.
-          </h2>
-        </div>
-        <div class="catalog__intro-right reveal">
-          <p class="catalog__sub" data-i18n="ded.catalog.sub">
-            Full dedicated servers with no shared resources. Choose from our Standard or Pro tier — both include dedicated hardware access, 24/7 uptime monitoring, and flexible billing.
-          </p>
-        </div>
+        <h2 class="catalog__heading section-title reveal-clip" data-i18n="ded.catalog.title">
+          Our packages
+        </h2>
       </div>
 
       <div class="catalog__slider-outer">
@@ -624,8 +624,8 @@
 
       <div class="features-included__intro">
         <div class="features-included__intro-left">
-          <h2 class="section-title reveal-clip" data-i18n="ded.features.title" data-i18n-html>
-            Built in,<br>not bolted on.
+          <h2 class="section-title reveal-clip" data-i18n="ded.features.title">
+            Included in every plan.
           </h2>
         </div>
         <div class="features-included__intro-right reveal">
@@ -698,6 +698,20 @@
           <p class="feature-tile__desc" data-i18n="ded.tile4.desc">Ubuntu, Debian, CentOS, and more — choose your OS at provisioning, ready to go.</p>
         </div>
 
+        <div class="feature-tile reveal">
+          <div class="feature-tile__icon">
+            <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M32 20a12 12 0 1 1-4-8.5"/>
+              <polyline points="28,7 32,11 28,15"/>
+              <line x1="20" y1="15" x2="20" y2="25"/>
+              <polyline points="16,21 20,25 24,21"/>
+            </svg>
+          </div>
+          <p class="feature-tile__label">// backup</p>
+          <h3 class="feature-tile__title" data-i18n="ded.tile5.title" data-i18n-html>Daily<br>Backups</h3>
+          <p class="feature-tile__desc" data-i18n="ded.tile5.desc">Automated daily backups included on every plan. Your data is retained and restorable.</p>
+        </div>
+
       </div>
     </section>
 
@@ -705,8 +719,7 @@
     <section class="os-compat">
 
       <div class="os-compat__intro">
-        <h2 class="os-compat__heading reveal-clip" data-i18n="ded.os.heading" data-i18n-html>Pick your OS.<br>We deploy it.</h2>
-        <p class="os-compat__sub reveal" data-i18n="ded.os.sub">Choose at provisioning — your server arrives pre-installed, hardened, and ready to SSH into within minutes.</p>
+        <h2 class="os-compat__heading reveal-clip" data-i18n="ded.os.heading">Supported operating systems.</h2>
       </div>
 
       <div class="os-compat__grid">
@@ -878,16 +891,16 @@
           'ded.bread.home':        'home',
           'ded.bread.products':    'products',
           'ded.bread.current':     'dedicated servers',
-          'ded.hero.sub':          'Full bare-metal dedicated servers — provisioned and ready. No shared tenancy, no noisy neighbours. Full hardware access from day one with 24/7 uptime monitoring.',
+          'ded.hero.sub':          'Full bare-metal dedicated servers — provisioned and ready. Full hardware access from day one with 24/7 uptime monitoring.',
           'ded.hero.stat.start':   'starting / mo',
           'ded.hero.stat.cpu':     'flagship cpu',
           'ded.hero.stat.storage': 'storage type',
           'ded.hero.stat.monitor': 'monitoring',
-          'ded.catalog.title':     'Rent the<br>right hardware.',
+          'ded.catalog.title':     'Our packages',
           'ded.catalog.sub':       'Full dedicated servers with no shared resources. Choose from our Standard or Pro tier — both include dedicated hardware access, 24/7 uptime monitoring, and flexible billing.',
           'ded.catalog.hint':      'drag or swipe to explore',
           'ded.cpu.link':          'looking for CPU servers? view cloud VPS →',
-          'ded.features.title':    'Built in,<br>not bolted on.',
+          'ded.features.title':    'Included in every plan.',
           'ded.tile1.title':       'Solid State<br>Drives',
           'ded.tile1.desc':        'NVMe SSD on every node. No spinning disks — pure, consistent I/O from day one.',
           'ded.tile2.title':       'Root<br>Access',
@@ -896,8 +909,10 @@
           'ded.tile3.desc':        '24/7 monitoring and infrastructure engineered to stay online when you need it most.',
           'ded.tile4.title':       'Operating<br>Systems',
           'ded.tile4.desc':        'Ubuntu, Debian, CentOS, and more — choose your OS at provisioning, ready to go.',
-          'ded.os.heading':        'Pick your OS.<br>We deploy it.',
-          'ded.os.sub':            'Choose at provisioning — your server arrives pre-installed, hardened, and ready to SSH into within minutes.',
+          'ded.tile5.title':       'Daily<br>Backups',
+          'ded.tile5.desc':        'Automated daily backups included on every plan. Your data is retained and restorable.',
+          'ded.os.heading':        'Supported operating systems.',
+          'ded.os.sub':            'Choose at provisioning — your server arrives pre-installed, hardened, and ready to SSH into.',
           'ded.cta.label':         'ready to train',
           'ded.cta.heading':       "Let's scope your cluster.",
           'ded.cta.email':         'or email <a href="mailto:hello@serva.io">hello@serva.io</a>',
@@ -918,11 +933,11 @@
           'ded.hero.stat.cpu':     'CPU flagship',
           'ded.hero.stat.storage': 'ประเภท storage',
           'ded.hero.stat.monitor': 'monitoring',
-          'ded.catalog.title':     'เลือกเช่า hardware<br>ที่ใช่.',
+          'ded.catalog.title':     'แพ็กเกจของเรา',
           'ded.catalog.sub':       'Dedicated server เต็มรูปแบบโดยไม่มีการแชร์ทรัพยากร เลือกจาก tier Standard หรือ Pro — ทั้งคู่รวมการเข้าถึง hardware เฉพาะ monitoring uptime 24/7 และ billing ที่ยืดหยุ่น',
           'ded.catalog.hint':      'ลากหรือปัดเพื่อดูเพิ่มเติม',
           'ded.cpu.link':          'มองหา CPU server? ดู cloud VPS →',
-          'ded.features.title':    'รวมอยู่แล้ว<br>ไม่ใช่เสริมทีหลัง.',
+          'ded.features.title':    'รวมในทุกแพ็กเกจ',
           'ded.tile1.title':       'Solid State<br>Drives',
           'ded.tile1.desc':        'NVMe SSD บนทุก node ไม่มีดิสก์หมุน — I/O บริสุทธิ์และสม่ำเสมอตั้งแต่วันแรก',
           'ded.tile2.title':       'Root<br>Access',
@@ -931,7 +946,9 @@
           'ded.tile3.desc':        'Monitoring 24/7 และ infrastructure ที่ออกแบบมาเพื่อให้ online อยู่เสมอเมื่อคุณต้องการ',
           'ded.tile4.title':       'Operating<br>Systems',
           'ded.tile4.desc':        'Ubuntu, Debian, CentOS และอื่น ๆ — เลือก OS ตอน provisioning พร้อมใช้งานทันที',
-          'ded.os.heading':        'เลือก OS ของคุณ.<br>เราจะ deploy ให้.',
+          'ded.tile5.title':       'Daily<br>Backups',
+          'ded.tile5.desc':        'สำรองข้อมูลอัตโนมัติทุกวัน รวมอยู่ในทุกแผน ข้อมูลของคุณจะถูกเก็บรักษาและสามารถกู้คืนได้',
+          'ded.os.heading':        'ระบบปฏิบัติการที่รองรับ',
           'ded.os.sub':            'เลือกตอน provisioning — server ของคุณมาพร้อม pre-installed, hardened และพร้อม SSH ภายในไม่กี่นาที',
           'ded.cta.label':         'พร้อมเริ่มฝึกโมเดลแล้ว',
           'ded.cta.heading':       'มาวางแผน cluster ของคุณกัน.',

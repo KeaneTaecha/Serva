@@ -55,7 +55,7 @@ if ('IntersectionObserver' in window) {
       'service1.name':      'Custom AI<br>Pipelines',
       'service1.desc':      'End-to-end AI workflows tailored to your data, your models, and your throughput requirements — from ingestion to inference to output.',
       'service2.name':      'Dedicated<br>Server Rentals',
-      'service2.desc':      'Bare-metal and GPU-accelerated servers rented on your terms — hourly, monthly, or long-term. No noisy neighbors. Full hardware access.',
+      'service2.desc':      'Bare-metal and GPU-accelerated servers available for monthly to yearly rental. Full hardware access with dedicated resources.',
       'process.title':      'How we work.',
       'process.step1.desc': 'We begin with your requirements — workloads, data sources, latency targets, and budget. No assumptions, just listening.',
       'process.step2.desc': 'We architect the pipeline or provision the hardware to spec. Every component chosen deliberately, with room to scale.',
@@ -80,7 +80,7 @@ if ('IntersectionObserver' in window) {
       'about.val2.title':   'Reliability',
       'about.val2.desc':    '99.97% uptime SLA. 24/7 monitoring. We remain accountable long after the first deployment.',
       'about.val3.title':   'Transparency',
-      'about.val3.desc':    'No hidden costs, no noisy neighbors, no lock-in. Your stack, your rules — always.',
+      'about.val3.desc':    'No hidden costs, no lock-in. Your stack, your rules — always.',
     },
     th: {
       'services.title':     'สองบริการ.<br>หนึ่งหลักการ.',

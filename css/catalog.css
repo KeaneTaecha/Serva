@@ -7,32 +7,29 @@
   background: var(--color-beige);
 }
 
-/* ── Intro ──────────────────────────────────────────────── */
+/* ── Intro (matches why__intro / offerings__intro) ─────── */
 .catalog__intro {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 4rem;
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 36ch);
+  align-items: end;
+  column-gap: 4rem;
   margin-bottom: 5rem;
 }
 
-.catalog__intro-right {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  gap: 3rem;
-  width: 100%;
-  max-width: none;
+.catalog__heading {
+  color: var(--color-dark);
+  max-width: 14ch;
 }
 
 .catalog__sub {
+  grid-column: 2;
+  justify-self: end;
+  max-width: 36ch;
   font-size: .88rem;
   font-weight: 300;
   color: var(--color-mid);
-  line-height: 1.8;
-  text-align: left;
-  max-width: 44ch;
+  line-height: 1.85;
+  text-align: right;
 }
 
 /* ── Toggle ─────────────────────────────────────────────── */

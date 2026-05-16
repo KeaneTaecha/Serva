@@ -280,7 +280,7 @@
 
     .features-included__grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       border: 1px solid var(--border-light);
     }
 
@@ -468,10 +468,17 @@
       .os-compat__intro { flex-direction: column; gap: 1.5rem; }
       .os-compat__sub { text-align: left; max-width: none; }
       .os-compat__grid { grid-template-columns: repeat(3, 1fr); }
+      .features-included__grid { grid-template-columns: repeat(3, 1fr); }
+      .feature-tile:nth-child(3) { border-right: none; }
+      .feature-tile:last-child { border-right: 1px solid var(--border-light); }
+      .feature-tile:nth-child(3n) { border-right: none; }
     }
 
     @media (max-width: 560px) {
       .os-compat__grid { grid-template-columns: repeat(2, 1fr); }
+      .features-included__grid { grid-template-columns: repeat(2, 1fr); }
+      .feature-tile:nth-child(3n) { border-right: 1px solid var(--border-light); }
+      .feature-tile:nth-child(2n) { border-right: none; }
     }
   </style>
 </head>
@@ -536,7 +543,7 @@
         Cloud<br><span class="accent">VPS</span>
       </h1>
       <p class="page-hero__sub fade fade--d3" data-i18n="vps.hero.sub">
-        Bare-metal CPU nodes built for web workloads, APIs, and high-memory processing. No hypervisor overhead — just raw, dedicated compute power at an honest price.
+        Bare-metal CPU nodes for web workloads, APIs, and high-memory processing. Direct hardware access with no shared resources.
       </p>
       <div class="page-hero__meta fade fade--d4">
         <div class="page-hero__stat">
@@ -563,16 +570,9 @@
     <section class="catalog" id="renting">
 
       <div class="catalog__intro">
-        <div class="catalog__intro-left">
-          <h2 class="section-title reveal-clip" data-i18n="vps.catalog.title" data-i18n-html>
-            Rent the<br>right hardware.
-          </h2>
-        </div>
-        <div class="catalog__intro-right reveal">
-          <p class="catalog__sub" data-i18n="vps.catalog.sub">
-            Our CPU-optimised bare-metal fleet is purpose-built for web hosting, API tiers, storage-dense workloads, and high-memory processing. Full hardware access, flexible billing, and zero noisy neighbours.
-          </p>
-        </div>
+        <h2 class="catalog__heading section-title reveal-clip" data-i18n="vps.catalog.title">
+          Our packages
+        </h2>
       </div>
 
       <div class="catalog__slider-outer">
@@ -705,8 +705,8 @@
 
       <div class="features-included__intro">
         <div class="features-included__intro-left">
-          <h2 class="section-title reveal-clip" data-i18n="vps.features.title" data-i18n-html>
-            Built in,<br>not bolted on.
+          <h2 class="section-title reveal-clip" data-i18n="vps.features.title">
+            Included in every plan.
           </h2>
         </div>
       </div>
@@ -777,6 +777,20 @@
           <p class="feature-tile__desc" data-i18n="vps.tile4.desc">Ubuntu, Debian, CentOS, and more — choose your OS at provisioning, ready to go.</p>
         </div>
 
+        <div class="feature-tile reveal">
+          <div class="feature-tile__icon">
+            <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M32 20a12 12 0 1 1-4-8.5"/>
+              <polyline points="28,7 32,11 28,15"/>
+              <line x1="20" y1="15" x2="20" y2="25"/>
+              <polyline points="16,21 20,25 24,21"/>
+            </svg>
+          </div>
+          <p class="feature-tile__label">// backup</p>
+          <h3 class="feature-tile__title" data-i18n="vps.tile5.title" data-i18n-html>Daily<br>Backups</h3>
+          <p class="feature-tile__desc" data-i18n="vps.tile5.desc">Automated daily backups included on every plan. Your data is retained and restorable.</p>
+        </div>
+
       </div>
     </section>
 
@@ -784,8 +798,7 @@
     <section class="os-compat">
 
       <div class="os-compat__intro">
-        <h2 class="os-compat__heading reveal-clip" data-i18n="vps.os.heading" data-i18n-html>Pick your OS.<br>We deploy it.</h2>
-        <p class="os-compat__sub reveal" data-i18n="vps.os.sub">Choose at provisioning — your server arrives pre-installed, hardened, and ready to SSH into within minutes.</p>
+        <h2 class="os-compat__heading reveal-clip" data-i18n="vps.os.heading">Supported operating systems.</h2>
       </div>
 
       <div class="os-compat__grid">
@@ -954,16 +967,16 @@
     (function () {
       var translations = {
         en: {
-          'vps.hero.sub':          'Bare-metal CPU nodes built for web workloads, APIs, and high-memory processing. No hypervisor overhead — just raw, dedicated compute power at an honest price.',
+          'vps.hero.sub':          'Bare-metal CPU nodes for web workloads, APIs, and high-memory processing. Direct hardware access with no shared resources.',
           'vps.hero.stat.start':   'starting / mo',
           'vps.hero.stat.avail':   'available',
           'vps.hero.stat.storage': 'storage type',
           'vps.hero.stat.monitor': 'monitoring',
-          'vps.catalog.title':     'Rent the<br>right hardware.',
-          'vps.catalog.sub':       'Our CPU-optimised bare-metal fleet is purpose-built for web hosting, API tiers, storage-dense workloads, and high-memory processing. Full hardware access, flexible billing, and zero noisy neighbours.',
+          'vps.catalog.title':     'Our packages',
+          'vps.catalog.sub':       'Our CPU-optimised bare-metal fleet supports web hosting, API tiers, storage-dense workloads, and high-memory processing. Full hardware access and flexible billing.',
           'vps.catalog.hint':      'drag or swipe to explore',
           'vps.gpu.link':          'looking for GPU servers? view dedicated servers →',
-          'vps.features.title':    'Built in,<br>not bolted on.',
+          'vps.features.title':    'Included in every plan.',
           'vps.tile1.title':       'Solid State<br>Drives',
           'vps.tile1.desc':        'NVMe SSD on every node. No spinning disks — pure, consistent I/O from day one.',
           'vps.tile2.title':       'Root<br>Access',
@@ -972,8 +985,10 @@
           'vps.tile3.desc':        '24/7 monitoring and infrastructure engineered to stay online when you need it most.',
           'vps.tile4.title':       'Operating<br>Systems',
           'vps.tile4.desc':        'Ubuntu, Debian, CentOS, and more — choose your OS at provisioning, ready to go.',
-          'vps.os.heading':        'Pick your OS.<br>We deploy it.',
-          'vps.os.sub':            'Choose at provisioning — your server arrives pre-installed, hardened, and ready to SSH into within minutes.',
+          'vps.tile5.title':       'Daily<br>Backups',
+          'vps.tile5.desc':        'Automated daily backups included on every plan. Your data is retained and restorable.',
+          'vps.os.heading':        'Supported operating systems.',
+          'vps.os.sub':            'Choose at provisioning — your server arrives pre-installed, hardened, and ready to SSH into.',
           'vps.cta.label':         'ready to provision',
           'vps.cta.heading':       "Let's scope your Cloud VPS.",
           'vps.cta.email':         'or email <a href="mailto:hello@serva.io">hello@serva.io</a>',
@@ -993,11 +1008,11 @@
           'vps.hero.stat.avail':   'พร้อมใช้งาน',
           'vps.hero.stat.storage': 'ประเภท storage',
           'vps.hero.stat.monitor': 'monitoring',
-          'vps.catalog.title':     'เลือกเช่า hardware<br>ที่ใช่.',
+          'vps.catalog.title':     'แพ็กเกจของเรา',
           'vps.catalog.sub':       'Fleet bare-metal ที่ optimise สำหรับ CPU ของเรา สร้างขึ้นสำหรับ web hosting, API tier, workload ที่ต้องการ storage หนาแน่น และการประมวลผล high-memory เข้าถึง hardware เต็มที่ billing ยืดหยุ่น ไม่มีการรบกวนจากผู้เช่าอื่น',
           'vps.catalog.hint':      'ลากหรือปัดเพื่อดูเพิ่มเติม',
           'vps.gpu.link':          'มองหา GPU server? ดู dedicated servers →',
-          'vps.features.title':    'รวมอยู่แล้ว<br>ไม่ใช่เสริมทีหลัง.',
+          'vps.features.title':    'รวมในทุกแพ็กเกจ',
           'vps.tile1.title':       'Solid State<br>Drives',
           'vps.tile1.desc':        'NVMe SSD บนทุก node ไม่มีดิสก์หมุน — I/O บริสุทธิ์และสม่ำเสมอตั้งแต่วันแรก',
           'vps.tile2.title':       'Root<br>Access',
@@ -1006,7 +1021,9 @@
           'vps.tile3.desc':        'Monitoring 24/7 และ infrastructure ที่ออกแบบมาเพื่อให้ online อยู่เสมอเมื่อคุณต้องการ',
           'vps.tile4.title':       'Operating<br>Systems',
           'vps.tile4.desc':        'Ubuntu, Debian, CentOS และอื่น ๆ — เลือก OS ตอน provisioning พร้อมใช้งานทันที',
-          'vps.os.heading':        'เลือก OS ของคุณ.<br>เราจะ deploy ให้.',
+          'vps.tile5.title':       'Daily<br>Backups',
+          'vps.tile5.desc':        'สำรองข้อมูลอัตโนมัติทุกวัน รวมอยู่ในทุกแผน ข้อมูลของคุณจะถูกเก็บรักษาและสามารถกู้คืนได้',
+          'vps.os.heading':        'ระบบปฏิบัติการที่รองรับ',
           'vps.os.sub':            'เลือกตอน provisioning — server ของคุณมาพร้อม pre-installed, hardened และพร้อม SSH ภายในไม่กี่นาที',
           'vps.cta.label':         'พร้อม provision แล้ว',
           'vps.cta.heading':       'มาวางแผน Cloud VPS ของคุณกัน.',
