@@ -450,6 +450,95 @@
       .feature-tile:nth-child(3n) { border-right: 1px solid var(--border-light); }
       .feature-tile:nth-child(2n) { border-right: none; }
     }
+
+    /* ── Billing Toggle ───────────────────────────────────── */
+    .billing-toggle-wrap {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: center;
+      margin-top: -.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .billing-toggle {
+      position: relative;
+      display: inline-flex;
+      align-items: stretch;
+      background: rgba(26, 26, 26, .04);
+      border: 1px solid rgba(26, 26, 26, .14);
+      border-radius: 100px;
+      padding: .3rem;
+    }
+
+    .billing-toggle__track {
+      position: absolute;
+      top: .3rem;
+      bottom: .3rem;
+      left: .3rem;
+      width: calc(50% - .3rem);
+      background: var(--color-teal);
+      border-radius: 100px;
+      transition: transform .4s cubic-bezier(.16, 1, .3, 1);
+      pointer-events: none;
+      box-shadow: 0 2px 12px rgba(26, 92, 92, .25);
+    }
+
+    .billing-toggle.is-yearly .billing-toggle__track {
+      transform: translateX(100%);
+    }
+
+    .billing-toggle__btn {
+      position: relative;
+      z-index: 1;
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--color-mid);
+      background: none;
+      border: none;
+      padding: .8rem 2.2rem;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: color .25s;
+      white-space: nowrap;
+      min-width: 130px;
+      text-align: center;
+    }
+
+    .billing-toggle__btn.is-active {
+      color: var(--color-beige);
+    }
+
+    .price-billed-note {
+      font-family: var(--font-mono);
+      font-size: .62rem;
+      letter-spacing: .07em;
+      color: var(--color-teal);
+      margin-top: .35rem;
+      display: none;
+    }
+
+    .server-card__pricing {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: .2rem;
+    }
+
+    .price-block {
+      flex-wrap: wrap;
+      row-gap: .1rem;
+    }
+
+    .price-original {
+      display: none;
+      width: 100%;
+      font-family: var(--font-mono);
+      font-size: .82rem;
+      color: rgba(26, 26, 26, .3);
+      text-decoration: line-through;
+      text-decoration-color: rgba(26, 26, 26, .38);
+    }
   </style>
 </head>
 <body>
@@ -545,6 +634,13 @@
         <h2 class="catalog__heading section-title reveal-clip" data-i18n="ded.catalog.title">
           Our packages
         </h2>
+        <div class="billing-toggle-wrap">
+          <div class="billing-toggle" id="billingToggle" role="group" aria-label="Billing period">
+            <div class="billing-toggle__track"></div>
+            <button class="billing-toggle__btn is-active" data-period="monthly">Monthly</button>
+            <button class="billing-toggle__btn" data-period="yearly">Annually</button>
+          </div>
+        </div>
       </div>
 
       <div class="catalog__slider-outer">
@@ -567,7 +663,8 @@
                 <div class="spec-row"><span class="spec-label">ip</span><span class="spec-value">1 IP Address</span></div>
               </div>
               <div class="server-card__pricing">
-                <div class="price-block"><span class="price-amount">฿3,799</span><span class="price-unit">/mo</span></div>
+                <div class="price-block"><span class="price-original"></span><span class="price-amount" data-monthly="฿3,799" data-yearly="฿3,229">฿3,799</span><span class="price-unit">/mo</span></div>
+                <p class="price-billed-note">billed annually</p>
               </div>
               <a href="index.html#contact" class="server-card__cta">rent this →</a>
             </article>
@@ -586,7 +683,8 @@
                 <div class="spec-row"><span class="spec-label">ip</span><span class="spec-value">1 IP Address</span></div>
               </div>
               <div class="server-card__pricing">
-                <div class="price-block"><span class="price-amount">฿4,499</span><span class="price-unit">/mo</span></div>
+                <div class="price-block"><span class="price-original"></span><span class="price-amount" data-monthly="฿4,499" data-yearly="฿3,824">฿4,499</span><span class="price-unit">/mo</span></div>
+                <p class="price-billed-note">billed annually</p>
               </div>
               <a href="index.html#contact" class="server-card__cta">rent this →</a>
             </article>
@@ -708,8 +806,8 @@
             </svg>
           </div>
           <p class="feature-tile__label">// backup</p>
-          <h3 class="feature-tile__title" data-i18n="ded.tile5.title" data-i18n-html>Daily<br>Backups</h3>
-          <p class="feature-tile__desc" data-i18n="ded.tile5.desc">Automated daily backups included on every plan. Your data is retained and restorable.</p>
+          <h3 class="feature-tile__title" data-i18n="ded.tile5.title" data-i18n-html>Backup every<br>3 days</h3>
+          <p class="feature-tile__desc" data-i18n="ded.tile5.desc">Automated backups every 3 days on every plan. Your data is retained and restorable.</p>
         </div>
 
       </div>
@@ -817,6 +915,39 @@
   </footer>
 
   <script>
+    /* ── Billing Toggle ──────────────────────────────────── */
+    (function () {
+      const toggle = document.getElementById('billingToggle');
+      if (!toggle) return;
+      toggle.addEventListener('click', function (e) {
+        const btn = e.target.closest('.billing-toggle__btn');
+        if (!btn) return;
+        const period = btn.dataset.period;
+        toggle.querySelectorAll('.billing-toggle__btn').forEach(function (b) {
+          b.classList.toggle('is-active', b === btn);
+        });
+        toggle.classList.toggle('is-yearly', period === 'yearly');
+        document.querySelectorAll('.price-amount[data-monthly]').forEach(function (el) {
+          const origEl = el.previousElementSibling;
+          if (period === 'yearly') {
+            el.textContent = el.dataset.yearly;
+            if (origEl && origEl.classList.contains('price-original')) {
+              origEl.textContent = el.dataset.monthly;
+              origEl.style.display = 'inline';
+            }
+          } else {
+            el.textContent = el.dataset.monthly;
+            if (origEl && origEl.classList.contains('price-original')) {
+              origEl.style.display = 'none';
+            }
+          }
+        });
+        document.querySelectorAll('.price-billed-note').forEach(function (el) {
+          el.style.display = period === 'yearly' ? 'block' : 'none';
+        });
+      });
+    })();
+
     /* ── Minimal catalog slider for single-track page ─────── */
     (function () {
       const viewport = document.getElementById('catalogViewport');
@@ -909,8 +1040,8 @@
           'ded.tile3.desc':        '24/7 monitoring and infrastructure engineered to stay online when you need it most.',
           'ded.tile4.title':       'Operating<br>Systems',
           'ded.tile4.desc':        'Ubuntu, Debian, CentOS, and more — choose your OS at provisioning, ready to go.',
-          'ded.tile5.title':       'Daily<br>Backups',
-          'ded.tile5.desc':        'Automated daily backups included on every plan. Your data is retained and restorable.',
+          'ded.tile5.title':       'Backup every<br>3 days',
+          'ded.tile5.desc':        'Automated backups every 3 days on every plan. Your data is retained and restorable.',
           'ded.os.heading':        'Supported operating systems.',
           'ded.os.sub':            'Choose at provisioning — your server arrives pre-installed, hardened, and ready to SSH into.',
           'ded.cta.label':         'ready to train',
@@ -946,8 +1077,8 @@
           'ded.tile3.desc':        'Monitoring 24/7 และ infrastructure ที่ออกแบบมาเพื่อให้ online อยู่เสมอเมื่อคุณต้องการ',
           'ded.tile4.title':       'Operating<br>Systems',
           'ded.tile4.desc':        'Ubuntu, Debian, CentOS และอื่น ๆ — เลือก OS ตอน provisioning พร้อมใช้งานทันที',
-          'ded.tile5.title':       'Daily<br>Backups',
-          'ded.tile5.desc':        'สำรองข้อมูลอัตโนมัติทุกวัน รวมอยู่ในทุกแผน ข้อมูลของคุณจะถูกเก็บรักษาและสามารถกู้คืนได้',
+          'ded.tile5.title':       'สำรองข้อมูล<br>ทุก 3 วัน',
+          'ded.tile5.desc':        'สำรองข้อมูลอัตโนมัติทุก 3 วัน รวมอยู่ในทุกแผน ข้อมูลของคุณจะถูกเก็บรักษาและสามารถกู้คืนได้',
           'ded.os.heading':        'ระบบปฏิบัติการที่รองรับ',
           'ded.os.sub':            'เลือกตอน provisioning — server ของคุณมาพร้อม pre-installed, hardened และพร้อม SSH ภายในไม่กี่นาที',
           'ded.cta.label':         'พร้อมเริ่มฝึกโมเดลแล้ว',
