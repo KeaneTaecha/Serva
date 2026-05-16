@@ -514,9 +514,9 @@
 
   <!-- ── Breadcrumb ──────────────────────────────────────── -->
   <div class="breadcrumb">
-    <a href="index.html">home</a>
+    <a href="index.html" data-i18n="vps.bread.home">home</a>
     <span class="breadcrumb-sep">/</span>
-    <a href="#">products</a>
+    <a href="#" data-i18n="vps.bread.products">products</a>
     <span class="breadcrumb-sep">/</span>
     <span class="breadcrumb-current">cloud vps</span>
   </div>
@@ -532,29 +532,28 @@
       </div>
 
       <div class="page-hero__content">
-      <p class="page-hero__eyebrow fade fade--d1">// CPU-optimised infrastructure</p>
       <h1 class="page-hero__heading fade fade--d2">
         Cloud<br><span class="accent">VPS</span>
       </h1>
-      <p class="page-hero__sub fade fade--d3">
+      <p class="page-hero__sub fade fade--d3" data-i18n="vps.hero.sub">
         Bare-metal CPU nodes built for web workloads, APIs, and high-memory processing. No hypervisor overhead — just raw, dedicated compute power at an honest price.
       </p>
       <div class="page-hero__meta fade fade--d4">
         <div class="page-hero__stat">
           <span class="page-hero__stat-num">฿349</span>
-          <span class="page-hero__stat-label">starting / mo</span>
+          <span class="page-hero__stat-label" data-i18n="vps.hero.stat.start">starting / mo</span>
         </div>
         <div class="page-hero__stat">
           <span class="page-hero__stat-num">5 plans</span>
-          <span class="page-hero__stat-label">available</span>
+          <span class="page-hero__stat-label" data-i18n="vps.hero.stat.avail">available</span>
         </div>
         <div class="page-hero__stat">
           <span class="page-hero__stat-num">SSD</span>
-          <span class="page-hero__stat-label">storage type</span>
+          <span class="page-hero__stat-label" data-i18n="vps.hero.stat.storage">storage type</span>
         </div>
         <div class="page-hero__stat">
           <span class="page-hero__stat-num">24/7</span>
-          <span class="page-hero__stat-label">monitoring</span>
+          <span class="page-hero__stat-label" data-i18n="vps.hero.stat.monitor">monitoring</span>
         </div>
       </div>
       </div><!-- /page-hero__content -->
@@ -562,19 +561,15 @@
 
     <!-- ── Hardware Catalog ──────────────────────────────── -->
     <section class="catalog" id="renting">
-      <div class="section-header reveal">
-        <span class="label">// hardware catalog — cpu servers</span>
-        <hr />
-      </div>
 
       <div class="catalog__intro">
         <div class="catalog__intro-left">
-          <h2 class="section-title reveal-clip">
+          <h2 class="section-title reveal-clip" data-i18n="vps.catalog.title" data-i18n-html>
             Rent the<br>right hardware.
           </h2>
         </div>
         <div class="catalog__intro-right reveal">
-          <p class="catalog__sub">
+          <p class="catalog__sub" data-i18n="vps.catalog.sub">
             Our CPU-optimised bare-metal fleet is purpose-built for web hosting, API tiers, storage-dense workloads, and high-memory processing. Full hardware access, flexible billing, and zero noisy neighbours.
           </p>
         </div>
@@ -694,11 +689,11 @@
           </svg>
         </button>
         <div class="catalog__dots" id="catalogDots"></div>
-        <p class="catalog__scroll-hint">drag or swipe to explore</p>
+        <p class="catalog__scroll-hint" data-i18n="vps.catalog.hint">drag or swipe to explore</p>
       </div>
 
       <div style="margin-top:3rem;">
-        <a href="dedicated-servers.html" style="font-family:var(--font-mono);font-size:.82rem;letter-spacing:.07em;color:var(--color-teal);display:inline-flex;align-items:center;gap:.5rem;transition:letter-spacing .2s;">
+        <a href="dedicated-servers.html" style="font-family:var(--font-mono);font-size:.82rem;letter-spacing:.07em;color:var(--color-teal);display:inline-flex;align-items:center;gap:.5rem;transition:letter-spacing .2s;" data-i18n="vps.gpu.link">
           looking for GPU servers? view dedicated servers →
         </a>
       </div>
@@ -707,14 +702,10 @@
 
     <!-- ── Included Features ─────────────────────────────── -->
     <section class="features-included">
-      <div class="section-header reveal">
-        <span class="label">// included in every plan</span>
-        <hr />
-      </div>
 
       <div class="features-included__intro">
         <div class="features-included__intro-left">
-          <h2 class="section-title reveal-clip">
+          <h2 class="section-title reveal-clip" data-i18n="vps.features.title" data-i18n-html>
             Built in,<br>not bolted on.
           </h2>
         </div>
@@ -735,8 +726,8 @@
             </svg>
           </div>
           <p class="feature-tile__label">// storage</p>
-          <h3 class="feature-tile__title">Solid State<br>Drives</h3>
-          <p class="feature-tile__desc">NVMe SSD on every node. No spinning disks — pure, consistent I/O from day one.</p>
+          <h3 class="feature-tile__title" data-i18n="vps.tile1.title" data-i18n-html>Solid State<br>Drives</h3>
+          <p class="feature-tile__desc" data-i18n="vps.tile1.desc">NVMe SSD on every node. No spinning disks — pure, consistent I/O from day one.</p>
         </div>
 
         <div class="feature-tile reveal">
@@ -751,8 +742,8 @@
             </svg>
           </div>
           <p class="feature-tile__label">// access</p>
-          <h3 class="feature-tile__title">Root<br>Access</h3>
-          <p class="feature-tile__desc">Full administrative control. SSH in as root and configure exactly what you need.</p>
+          <h3 class="feature-tile__title" data-i18n="vps.tile2.title" data-i18n-html>Root<br>Access</h3>
+          <p class="feature-tile__desc" data-i18n="vps.tile2.desc">Full administrative control. SSH in as root and configure exactly what you need.</p>
         </div>
 
         <div class="feature-tile reveal">
@@ -763,8 +754,8 @@
             </svg>
           </div>
           <p class="feature-tile__label">// reliability</p>
-          <h3 class="feature-tile__title">99.9%<br>Uptime</h3>
-          <p class="feature-tile__desc">24/7 monitoring and infrastructure engineered to stay online when you need it most.</p>
+          <h3 class="feature-tile__title" data-i18n="vps.tile3.title" data-i18n-html>99.9%<br>Uptime</h3>
+          <p class="feature-tile__desc" data-i18n="vps.tile3.desc">24/7 monitoring and infrastructure engineered to stay online when you need it most.</p>
         </div>
 
         <div class="feature-tile reveal">
@@ -782,8 +773,8 @@
             </svg>
           </div>
           <p class="feature-tile__label">// software</p>
-          <h3 class="feature-tile__title">Operating<br>Systems</h3>
-          <p class="feature-tile__desc">Ubuntu, Debian, CentOS, and more — choose your OS at provisioning, ready to go.</p>
+          <h3 class="feature-tile__title" data-i18n="vps.tile4.title" data-i18n-html>Operating<br>Systems</h3>
+          <p class="feature-tile__desc" data-i18n="vps.tile4.desc">Ubuntu, Debian, CentOS, and more — choose your OS at provisioning, ready to go.</p>
         </div>
 
       </div>
@@ -791,14 +782,10 @@
 
     <!-- ── Supported OS ──────────────────────────────────── -->
     <section class="os-compat">
-      <div class="section-header reveal">
-        <span class="label">// supported operating systems</span>
-        <hr />
-      </div>
 
       <div class="os-compat__intro">
-        <h2 class="os-compat__heading reveal-clip">Pick your OS.<br>We deploy it.</h2>
-        <p class="os-compat__sub reveal">Choose at provisioning — your server arrives pre-installed, hardened, and ready to SSH into within minutes.</p>
+        <h2 class="os-compat__heading reveal-clip" data-i18n="vps.os.heading" data-i18n-html>Pick your OS.<br>We deploy it.</h2>
+        <p class="os-compat__sub reveal" data-i18n="vps.os.sub">Choose at provisioning — your server arrives pre-installed, hardened, and ready to SSH into within minutes.</p>
       </div>
 
       <div class="os-compat__grid">
@@ -846,8 +833,7 @@
     <!-- ── CTA ─────────────────────────────────────────── -->
     <section class="cta" id="contact">
       <div class="cta__left reveal">
-        <p class="label cta__label">ready to provision</p>
-        <h2 class="cta__heading">
+        <h2 class="cta__heading" data-i18n="vps.cta.heading">
           Let's scope your Cloud VPS.
         </h2>
       </div>
@@ -855,7 +841,7 @@
         <a href="mailto:hello@serva.io" class="btn btn--outline">
           get in touch →
         </a>
-        <p class="cta__email">or email <a href="mailto:hello@serva.io">hello@serva.io</a></p>
+        <p class="cta__email" data-i18n="vps.cta.email" data-i18n-html>or email <a href="mailto:hello@serva.io">hello@serva.io</a></p>
       </div>
     </section>
 
@@ -866,29 +852,29 @@
     <div class="footer__top">
       <div>
         <p class="footer__brand">Serva</p>
-        <p class="footer__statement">Built for teams that demand precision.</p>
+        <p class="footer__statement" data-i18n="vps.footer.statement">Built for teams that demand precision.</p>
         <p class="footer__tagline">// servers and services</p>
       </div>
       <nav class="footer__nav" aria-label="Footer navigation">
         <div class="footer__col">
-          <h4>products</h4>
+          <h4 data-i18n="vps.footer.col1.title">products</h4>
           <ul>
             <li><a href="cloud-vps.html">Cloud VPS</a></li>
             <li><a href="dedicated-servers.html">Dedicated Servers</a></li>
           </ul>
         </div>
         <div class="footer__col">
-          <h4>company</h4>
+          <h4 data-i18n="vps.footer.col2.title">company</h4>
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="index.html#how">Process</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="index.html" data-i18n="vps.footer.home">Home</a></li>
+            <li><a href="index.html#how" data-i18n="vps.footer.process">Process</a></li>
+            <li><a href="index.html#contact" data-i18n="vps.footer.contact">Contact</a></li>
           </ul>
         </div>
       </nav>
     </div>
     <div class="footer__bottom">
-      <p class="footer__copy">&copy; 2026 Serva. All rights reserved.</p>
+      <p class="footer__copy" data-i18n="vps.footer.copy" data-i18n-html>&copy; 2026 Serva. All rights reserved.</p>
       <div class="footer__links">
         <a href="#">Privacy</a>
         <a href="#">Terms</a>
@@ -962,6 +948,113 @@
 
       buildDots();
       updateArrows();
+    })();
+
+    /* ── i18n: Language Toggle ───────────────────────────── */
+    (function () {
+      var translations = {
+        en: {
+          'vps.hero.sub':          'Bare-metal CPU nodes built for web workloads, APIs, and high-memory processing. No hypervisor overhead — just raw, dedicated compute power at an honest price.',
+          'vps.hero.stat.start':   'starting / mo',
+          'vps.hero.stat.avail':   'available',
+          'vps.hero.stat.storage': 'storage type',
+          'vps.hero.stat.monitor': 'monitoring',
+          'vps.catalog.title':     'Rent the<br>right hardware.',
+          'vps.catalog.sub':       'Our CPU-optimised bare-metal fleet is purpose-built for web hosting, API tiers, storage-dense workloads, and high-memory processing. Full hardware access, flexible billing, and zero noisy neighbours.',
+          'vps.catalog.hint':      'drag or swipe to explore',
+          'vps.gpu.link':          'looking for GPU servers? view dedicated servers →',
+          'vps.features.title':    'Built in,<br>not bolted on.',
+          'vps.tile1.title':       'Solid State<br>Drives',
+          'vps.tile1.desc':        'NVMe SSD on every node. No spinning disks — pure, consistent I/O from day one.',
+          'vps.tile2.title':       'Root<br>Access',
+          'vps.tile2.desc':        'Full administrative control. SSH in as root and configure exactly what you need.',
+          'vps.tile3.title':       '99.9%<br>Uptime',
+          'vps.tile3.desc':        '24/7 monitoring and infrastructure engineered to stay online when you need it most.',
+          'vps.tile4.title':       'Operating<br>Systems',
+          'vps.tile4.desc':        'Ubuntu, Debian, CentOS, and more — choose your OS at provisioning, ready to go.',
+          'vps.os.heading':        'Pick your OS.<br>We deploy it.',
+          'vps.os.sub':            'Choose at provisioning — your server arrives pre-installed, hardened, and ready to SSH into within minutes.',
+          'vps.cta.label':         'ready to provision',
+          'vps.cta.heading':       "Let's scope your Cloud VPS.",
+          'vps.cta.email':         'or email <a href="mailto:hello@serva.io">hello@serva.io</a>',
+          'vps.footer.statement':  'Built for teams that demand precision.',
+          'vps.footer.col1.title': 'products',
+          'vps.footer.col2.title': 'company',
+          'vps.footer.home':       'Home',
+          'vps.footer.process':    'Process',
+          'vps.footer.contact':    'Contact',
+          'vps.footer.copy':       '&copy; 2026 Serva. All rights reserved.',
+          'vps.bread.home':        'home',
+          'vps.bread.products':    'products',
+        },
+        th: {
+          'vps.hero.sub':          'CPU node แบบ bare-metal สร้างขึ้นสำหรับ web workload, API และการประมวลผล high-memory ไม่มีค่าใช้จ่าย hypervisor — เพียงพลังงานคำนวณดิบและ dedicated ในราคาที่ยุติธรรม',
+          'vps.hero.stat.start':   'เริ่มต้น / เดือน',
+          'vps.hero.stat.avail':   'พร้อมใช้งาน',
+          'vps.hero.stat.storage': 'ประเภท storage',
+          'vps.hero.stat.monitor': 'monitoring',
+          'vps.catalog.title':     'เลือกเช่า hardware<br>ที่ใช่.',
+          'vps.catalog.sub':       'Fleet bare-metal ที่ optimise สำหรับ CPU ของเรา สร้างขึ้นสำหรับ web hosting, API tier, workload ที่ต้องการ storage หนาแน่น และการประมวลผล high-memory เข้าถึง hardware เต็มที่ billing ยืดหยุ่น ไม่มีการรบกวนจากผู้เช่าอื่น',
+          'vps.catalog.hint':      'ลากหรือปัดเพื่อดูเพิ่มเติม',
+          'vps.gpu.link':          'มองหา GPU server? ดู dedicated servers →',
+          'vps.features.title':    'รวมอยู่แล้ว<br>ไม่ใช่เสริมทีหลัง.',
+          'vps.tile1.title':       'Solid State<br>Drives',
+          'vps.tile1.desc':        'NVMe SSD บนทุก node ไม่มีดิสก์หมุน — I/O บริสุทธิ์และสม่ำเสมอตั้งแต่วันแรก',
+          'vps.tile2.title':       'Root<br>Access',
+          'vps.tile2.desc':        'การควบคุมระดับผู้ดูแลระบบเต็มที่ SSH เข้าใช้งานในฐานะ root และกำหนดค่าตามที่คุณต้องการ',
+          'vps.tile3.title':       'Uptime<br>99.9%',
+          'vps.tile3.desc':        'Monitoring 24/7 และ infrastructure ที่ออกแบบมาเพื่อให้ online อยู่เสมอเมื่อคุณต้องการ',
+          'vps.tile4.title':       'Operating<br>Systems',
+          'vps.tile4.desc':        'Ubuntu, Debian, CentOS และอื่น ๆ — เลือก OS ตอน provisioning พร้อมใช้งานทันที',
+          'vps.os.heading':        'เลือก OS ของคุณ.<br>เราจะ deploy ให้.',
+          'vps.os.sub':            'เลือกตอน provisioning — server ของคุณมาพร้อม pre-installed, hardened และพร้อม SSH ภายในไม่กี่นาที',
+          'vps.cta.label':         'พร้อม provision แล้ว',
+          'vps.cta.heading':       'มาวางแผน Cloud VPS ของคุณกัน.',
+          'vps.cta.email':         'หรือส่งอีเมลมาที่ <a href="mailto:hello@serva.io">hello@serva.io</a>',
+          'vps.footer.statement':  'สร้างขึ้นสำหรับทีมที่ไม่ยอมลดมาตรฐาน.',
+          'vps.footer.col1.title': 'สินค้า',
+          'vps.footer.col2.title': 'บริษัท',
+          'vps.footer.home':       'หน้าหลัก',
+          'vps.footer.process':    'กระบวนการ',
+          'vps.footer.contact':    'ติดต่อ',
+          'vps.footer.copy':       '&copy; 2026 Serva. สงวนลิขสิทธิ์ทุกประการ.',
+          'vps.bread.home':        'หน้าหลัก',
+          'vps.bread.products':    'สินค้า',
+        }
+      };
+
+      var currentLang = 'en';
+
+      function applyLang(lang) {
+        currentLang = lang;
+        document.documentElement.lang = lang;
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+          var key  = el.getAttribute('data-i18n');
+          var text = translations[lang][key];
+          if (text === undefined) return;
+          if (el.hasAttribute('data-i18n-html')) {
+            el.innerHTML = text;
+          } else {
+            el.textContent = text;
+          }
+        });
+        document.querySelectorAll('.lang-opt').forEach(function (opt) {
+          opt.classList.toggle('is-active', opt.dataset.l === lang);
+        });
+        try { localStorage.setItem('serva-lang', lang); } catch (e) {}
+      }
+
+      var btn = document.getElementById('langBtn');
+      if (btn) {
+        btn.addEventListener('click', function () {
+          applyLang(currentLang === 'en' ? 'th' : 'en');
+        });
+      }
+
+      try {
+        var saved = localStorage.getItem('serva-lang');
+        if (saved && saved !== 'en') applyLang(saved);
+      } catch (e) {}
     })();
 
     /* ── Navbar reveal + scroll reveal ──────────────────── */

@@ -114,8 +114,12 @@ a {
 }
 
 /* ── Thai language overrides ────────────────────────────── */
+:lang(th) {
+  --font-display: 'Sarabun', sans-serif;
+  --font-body:    'Sarabun', sans-serif;
+}
+
 :lang(th) body {
-  font-family: 'Sarabun', sans-serif;
   font-weight: 400;
   line-height: 1.85;
 }
@@ -124,7 +128,6 @@ a {
 :lang(th) h1,
 :lang(th) h2,
 :lang(th) h3 {
-  font-family: 'Sarabun', sans-serif;
   font-weight: 700;
   letter-spacing: 0;
 }

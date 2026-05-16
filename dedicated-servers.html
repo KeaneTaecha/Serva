@@ -484,11 +484,11 @@
 
   <!-- ── Breadcrumb ──────────────────────────────────────── -->
   <div class="breadcrumb">
-    <a href="index.html">home</a>
+    <a href="index.html" data-i18n="ded.bread.home">home</a>
     <span class="breadcrumb-sep">/</span>
-    <a href="#">products</a>
+    <a href="#" data-i18n="ded.bread.products">products</a>
     <span class="breadcrumb-sep">/</span>
-    <span class="breadcrumb-current">dedicated servers</span>
+    <span class="breadcrumb-current" data-i18n="ded.bread.current">dedicated servers</span>
   </div>
 
   <main>
@@ -503,29 +503,28 @@
 
       <!-- Text content -->
       <div class="page-hero__content">
-        <p class="page-hero__eyebrow fade fade--d1">// dedicated bare-metal servers</p>
         <h1 class="page-hero__heading fade fade--d2">
           Dedicated<br><span class="accent">Servers</span>
         </h1>
-        <p class="page-hero__sub fade fade--d3">
+        <p class="page-hero__sub fade fade--d3" data-i18n="ded.hero.sub">
           Full bare-metal dedicated servers — provisioned and ready. No shared tenancy, no noisy neighbours. Full hardware access from day one with 24/7 uptime monitoring.
         </p>
         <div class="page-hero__meta fade fade--d4">
           <div class="page-hero__stat">
             <span class="page-hero__stat-num">฿3,799</span>
-            <span class="page-hero__stat-label">starting / mo</span>
+            <span class="page-hero__stat-label" data-i18n="ded.hero.stat.start">starting / mo</span>
           </div>
           <div class="page-hero__stat">
             <span class="page-hero__stat-num">16 core</span>
-            <span class="page-hero__stat-label">flagship cpu</span>
+            <span class="page-hero__stat-label" data-i18n="ded.hero.stat.cpu">flagship cpu</span>
           </div>
           <div class="page-hero__stat">
             <span class="page-hero__stat-num">SSD</span>
-            <span class="page-hero__stat-label">storage type</span>
+            <span class="page-hero__stat-label" data-i18n="ded.hero.stat.storage">storage type</span>
           </div>
           <div class="page-hero__stat">
             <span class="page-hero__stat-num">24/7</span>
-            <span class="page-hero__stat-label">monitoring</span>
+            <span class="page-hero__stat-label" data-i18n="ded.hero.stat.monitor">monitoring</span>
           </div>
         </div>
       </div>
@@ -534,19 +533,15 @@
 
     <!-- ── Hardware Catalog ──────────────────────────────── -->
     <section class="catalog" id="renting">
-      <div class="section-header reveal">
-        <span class="label">// hardware catalog — dedicated servers</span>
-        <hr />
-      </div>
 
       <div class="catalog__intro">
         <div class="catalog__intro-left">
-          <h2 class="section-title reveal-clip">
+          <h2 class="section-title reveal-clip" data-i18n="ded.catalog.title" data-i18n-html>
             Rent the<br>right hardware.
           </h2>
         </div>
         <div class="catalog__intro-right reveal">
-          <p class="catalog__sub">
+          <p class="catalog__sub" data-i18n="ded.catalog.sub">
             Full dedicated servers with no shared resources. Choose from our Standard or Pro tier — both include dedicated hardware access, 24/7 uptime monitoring, and flexible billing.
           </p>
         </div>
@@ -613,11 +608,11 @@
           </svg>
         </button>
         <div class="catalog__dots" id="catalogDots"></div>
-        <p class="catalog__scroll-hint">drag or swipe to explore</p>
+        <p class="catalog__scroll-hint" data-i18n="ded.catalog.hint">drag or swipe to explore</p>
       </div>
 
       <div style="margin-top:3rem;">
-        <a href="cloud-vps.html" style="font-family:var(--font-mono);font-size:.82rem;letter-spacing:.07em;color:var(--color-teal);display:inline-flex;align-items:center;gap:.5rem;transition:letter-spacing .2s;">
+        <a href="cloud-vps.html" style="font-family:var(--font-mono);font-size:.82rem;letter-spacing:.07em;color:var(--color-teal);display:inline-flex;align-items:center;gap:.5rem;transition:letter-spacing .2s;" data-i18n="ded.cpu.link">
           looking for CPU servers? view cloud VPS →
         </a>
       </div>
@@ -626,14 +621,10 @@
 
     <!-- ── Included Features ─────────────────────────────── -->
     <section class="features-included">
-      <div class="section-header reveal">
-        <span class="label">// included in every plan</span>
-        <hr />
-      </div>
 
       <div class="features-included__intro">
         <div class="features-included__intro-left">
-          <h2 class="section-title reveal-clip">
+          <h2 class="section-title reveal-clip" data-i18n="ded.features.title" data-i18n-html>
             Built in,<br>not bolted on.
           </h2>
         </div>
@@ -656,8 +647,8 @@
             </svg>
           </div>
           <p class="feature-tile__label">// storage</p>
-          <h3 class="feature-tile__title">Solid State<br>Drives</h3>
-          <p class="feature-tile__desc">NVMe SSD on every node. No spinning disks — pure, consistent I/O from day one.</p>
+          <h3 class="feature-tile__title" data-i18n="ded.tile1.title" data-i18n-html>Solid State<br>Drives</h3>
+          <p class="feature-tile__desc" data-i18n="ded.tile1.desc">NVMe SSD on every node. No spinning disks — pure, consistent I/O from day one.</p>
         </div>
 
         <div class="feature-tile reveal">
@@ -672,8 +663,8 @@
             </svg>
           </div>
           <p class="feature-tile__label">// access</p>
-          <h3 class="feature-tile__title">Root<br>Access</h3>
-          <p class="feature-tile__desc">Full administrative control. SSH in as root and configure exactly what you need.</p>
+          <h3 class="feature-tile__title" data-i18n="ded.tile2.title" data-i18n-html>Root<br>Access</h3>
+          <p class="feature-tile__desc" data-i18n="ded.tile2.desc">Full administrative control. SSH in as root and configure exactly what you need.</p>
         </div>
 
         <div class="feature-tile reveal">
@@ -684,8 +675,8 @@
             </svg>
           </div>
           <p class="feature-tile__label">// reliability</p>
-          <h3 class="feature-tile__title">99.9%<br>Uptime</h3>
-          <p class="feature-tile__desc">24/7 monitoring and infrastructure engineered to stay online when you need it most.</p>
+          <h3 class="feature-tile__title" data-i18n="ded.tile3.title" data-i18n-html>99.9%<br>Uptime</h3>
+          <p class="feature-tile__desc" data-i18n="ded.tile3.desc">24/7 monitoring and infrastructure engineered to stay online when you need it most.</p>
         </div>
 
         <div class="feature-tile reveal">
@@ -703,8 +694,8 @@
             </svg>
           </div>
           <p class="feature-tile__label">// software</p>
-          <h3 class="feature-tile__title">Operating<br>Systems</h3>
-          <p class="feature-tile__desc">Ubuntu, Debian, CentOS, and more — choose your OS at provisioning, ready to go.</p>
+          <h3 class="feature-tile__title" data-i18n="ded.tile4.title" data-i18n-html>Operating<br>Systems</h3>
+          <p class="feature-tile__desc" data-i18n="ded.tile4.desc">Ubuntu, Debian, CentOS, and more — choose your OS at provisioning, ready to go.</p>
         </div>
 
       </div>
@@ -712,14 +703,10 @@
 
     <!-- ── Supported OS ──────────────────────────────────── -->
     <section class="os-compat">
-      <div class="section-header reveal">
-        <span class="label">// supported operating systems</span>
-        <hr />
-      </div>
 
       <div class="os-compat__intro">
-        <h2 class="os-compat__heading reveal-clip">Pick your OS.<br>We deploy it.</h2>
-        <p class="os-compat__sub reveal">Choose at provisioning — your server arrives pre-installed, hardened, and ready to SSH into within minutes.</p>
+        <h2 class="os-compat__heading reveal-clip" data-i18n="ded.os.heading" data-i18n-html>Pick your OS.<br>We deploy it.</h2>
+        <p class="os-compat__sub reveal" data-i18n="ded.os.sub">Choose at provisioning — your server arrives pre-installed, hardened, and ready to SSH into within minutes.</p>
       </div>
 
       <div class="os-compat__grid">
@@ -767,8 +754,7 @@
     <!-- ── CTA ─────────────────────────────────────────── -->
     <section class="cta" id="contact">
       <div class="cta__left reveal">
-        <p class="label cta__label">ready to train</p>
-        <h2 class="cta__heading">
+        <h2 class="cta__heading" data-i18n="ded.cta.heading">
           Let's scope your cluster.
         </h2>
       </div>
@@ -776,7 +762,7 @@
         <a href="mailto:hello@serva.io" class="btn btn--outline">
           get in touch →
         </a>
-        <p class="cta__email">or email <a href="mailto:hello@serva.io">hello@serva.io</a></p>
+        <p class="cta__email" data-i18n="ded.cta.email" data-i18n-html>or email <a href="mailto:hello@serva.io">hello@serva.io</a></p>
       </div>
     </section>
 
@@ -787,29 +773,29 @@
     <div class="footer__top">
       <div>
         <p class="footer__brand">Serva</p>
-        <p class="footer__statement">Built for teams that demand precision.</p>
+        <p class="footer__statement" data-i18n="ded.footer.statement">Built for teams that demand precision.</p>
         <p class="footer__tagline">// servers and services</p>
       </div>
       <nav class="footer__nav" aria-label="Footer navigation">
         <div class="footer__col">
-          <h4>products</h4>
+          <h4 data-i18n="ded.footer.col1.title">products</h4>
           <ul>
             <li><a href="cloud-vps.html">Cloud VPS</a></li>
             <li><a href="dedicated-servers.html">Dedicated Servers</a></li>
           </ul>
         </div>
         <div class="footer__col">
-          <h4>company</h4>
+          <h4 data-i18n="ded.footer.col2.title">company</h4>
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="index.html#how">Process</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="index.html" data-i18n="ded.footer.home">Home</a></li>
+            <li><a href="index.html#how" data-i18n="ded.footer.process">Process</a></li>
+            <li><a href="index.html#contact" data-i18n="ded.footer.contact">Contact</a></li>
           </ul>
         </div>
       </nav>
     </div>
     <div class="footer__bottom">
-      <p class="footer__copy">&copy; 2026 Serva. All rights reserved.</p>
+      <p class="footer__copy" data-i18n="ded.footer.copy" data-i18n-html>&copy; 2026 Serva. All rights reserved.</p>
       <div class="footer__links">
         <a href="#">Privacy</a>
         <a href="#">Terms</a>
@@ -883,6 +869,115 @@
 
       buildDots();
       updateArrows();
+    })();
+
+    /* ── i18n: Language Toggle ───────────────────────────── */
+    (function () {
+      var translations = {
+        en: {
+          'ded.bread.home':        'home',
+          'ded.bread.products':    'products',
+          'ded.bread.current':     'dedicated servers',
+          'ded.hero.sub':          'Full bare-metal dedicated servers — provisioned and ready. No shared tenancy, no noisy neighbours. Full hardware access from day one with 24/7 uptime monitoring.',
+          'ded.hero.stat.start':   'starting / mo',
+          'ded.hero.stat.cpu':     'flagship cpu',
+          'ded.hero.stat.storage': 'storage type',
+          'ded.hero.stat.monitor': 'monitoring',
+          'ded.catalog.title':     'Rent the<br>right hardware.',
+          'ded.catalog.sub':       'Full dedicated servers with no shared resources. Choose from our Standard or Pro tier — both include dedicated hardware access, 24/7 uptime monitoring, and flexible billing.',
+          'ded.catalog.hint':      'drag or swipe to explore',
+          'ded.cpu.link':          'looking for CPU servers? view cloud VPS →',
+          'ded.features.title':    'Built in,<br>not bolted on.',
+          'ded.tile1.title':       'Solid State<br>Drives',
+          'ded.tile1.desc':        'NVMe SSD on every node. No spinning disks — pure, consistent I/O from day one.',
+          'ded.tile2.title':       'Root<br>Access',
+          'ded.tile2.desc':        'Full administrative control. SSH in as root and configure exactly what you need.',
+          'ded.tile3.title':       '99.9%<br>Uptime',
+          'ded.tile3.desc':        '24/7 monitoring and infrastructure engineered to stay online when you need it most.',
+          'ded.tile4.title':       'Operating<br>Systems',
+          'ded.tile4.desc':        'Ubuntu, Debian, CentOS, and more — choose your OS at provisioning, ready to go.',
+          'ded.os.heading':        'Pick your OS.<br>We deploy it.',
+          'ded.os.sub':            'Choose at provisioning — your server arrives pre-installed, hardened, and ready to SSH into within minutes.',
+          'ded.cta.label':         'ready to train',
+          'ded.cta.heading':       "Let's scope your cluster.",
+          'ded.cta.email':         'or email <a href="mailto:hello@serva.io">hello@serva.io</a>',
+          'ded.footer.statement':  'Built for teams that demand precision.',
+          'ded.footer.col1.title': 'products',
+          'ded.footer.col2.title': 'company',
+          'ded.footer.home':       'Home',
+          'ded.footer.process':    'Process',
+          'ded.footer.contact':    'Contact',
+          'ded.footer.copy':       '&copy; 2026 Serva. All rights reserved.',
+        },
+        th: {
+          'ded.bread.home':        'หน้าหลัก',
+          'ded.bread.products':    'สินค้า',
+          'ded.bread.current':     'dedicated servers',
+          'ded.hero.sub':          'Dedicated server แบบ bare-metal เต็มรูปแบบ — จัดเตรียมพร้อมใช้งาน ไม่มีการแชร์ tenancy ไม่มีการรบกวนจากผู้เช่าอื่น เข้าถึง hardware เต็มที่ตั้งแต่วันแรกพร้อม uptime monitoring 24/7',
+          'ded.hero.stat.start':   'เริ่มต้น / เดือน',
+          'ded.hero.stat.cpu':     'CPU flagship',
+          'ded.hero.stat.storage': 'ประเภท storage',
+          'ded.hero.stat.monitor': 'monitoring',
+          'ded.catalog.title':     'เลือกเช่า hardware<br>ที่ใช่.',
+          'ded.catalog.sub':       'Dedicated server เต็มรูปแบบโดยไม่มีการแชร์ทรัพยากร เลือกจาก tier Standard หรือ Pro — ทั้งคู่รวมการเข้าถึง hardware เฉพาะ monitoring uptime 24/7 และ billing ที่ยืดหยุ่น',
+          'ded.catalog.hint':      'ลากหรือปัดเพื่อดูเพิ่มเติม',
+          'ded.cpu.link':          'มองหา CPU server? ดู cloud VPS →',
+          'ded.features.title':    'รวมอยู่แล้ว<br>ไม่ใช่เสริมทีหลัง.',
+          'ded.tile1.title':       'Solid State<br>Drives',
+          'ded.tile1.desc':        'NVMe SSD บนทุก node ไม่มีดิสก์หมุน — I/O บริสุทธิ์และสม่ำเสมอตั้งแต่วันแรก',
+          'ded.tile2.title':       'Root<br>Access',
+          'ded.tile2.desc':        'การควบคุมระดับผู้ดูแลระบบเต็มที่ SSH เข้าใช้งานในฐานะ root และกำหนดค่าตามที่คุณต้องการ',
+          'ded.tile3.title':       'Uptime<br>99.9%',
+          'ded.tile3.desc':        'Monitoring 24/7 และ infrastructure ที่ออกแบบมาเพื่อให้ online อยู่เสมอเมื่อคุณต้องการ',
+          'ded.tile4.title':       'Operating<br>Systems',
+          'ded.tile4.desc':        'Ubuntu, Debian, CentOS และอื่น ๆ — เลือก OS ตอน provisioning พร้อมใช้งานทันที',
+          'ded.os.heading':        'เลือก OS ของคุณ.<br>เราจะ deploy ให้.',
+          'ded.os.sub':            'เลือกตอน provisioning — server ของคุณมาพร้อม pre-installed, hardened และพร้อม SSH ภายในไม่กี่นาที',
+          'ded.cta.label':         'พร้อมเริ่มฝึกโมเดลแล้ว',
+          'ded.cta.heading':       'มาวางแผน cluster ของคุณกัน.',
+          'ded.cta.email':         'หรือส่งอีเมลมาที่ <a href="mailto:hello@serva.io">hello@serva.io</a>',
+          'ded.footer.statement':  'สร้างขึ้นสำหรับทีมที่ไม่ยอมลดมาตรฐาน.',
+          'ded.footer.col1.title': 'สินค้า',
+          'ded.footer.col2.title': 'บริษัท',
+          'ded.footer.home':       'หน้าหลัก',
+          'ded.footer.process':    'กระบวนการ',
+          'ded.footer.contact':    'ติดต่อ',
+          'ded.footer.copy':       '&copy; 2026 Serva. สงวนลิขสิทธิ์ทุกประการ.',
+        }
+      };
+
+      var currentLang = 'en';
+
+      function applyLang(lang) {
+        currentLang = lang;
+        document.documentElement.lang = lang;
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+          var key  = el.getAttribute('data-i18n');
+          var text = translations[lang][key];
+          if (text === undefined) return;
+          if (el.hasAttribute('data-i18n-html')) {
+            el.innerHTML = text;
+          } else {
+            el.textContent = text;
+          }
+        });
+        document.querySelectorAll('.lang-opt').forEach(function (opt) {
+          opt.classList.toggle('is-active', opt.dataset.l === lang);
+        });
+        try { localStorage.setItem('serva-lang', lang); } catch (e) {}
+      }
+
+      var btn = document.getElementById('langBtn');
+      if (btn) {
+        btn.addEventListener('click', function () {
+          applyLang(currentLang === 'en' ? 'th' : 'en');
+        });
+      }
+
+      try {
+        var saved = localStorage.getItem('serva-lang');
+        if (saved && saved !== 'en') applyLang(saved);
+      } catch (e) {}
     })();
 
     /* ── Scroll reveal ───────────────────────────────────── */
