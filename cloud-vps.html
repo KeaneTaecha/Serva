@@ -481,6 +481,283 @@
       .feature-tile:nth-child(2n) { border-right: none; }
     }
 
+    /* ── Price Calculator ────────────────────────────────── */
+    .calc-section {
+      padding: 5rem 4rem;
+      background: #232323;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .calc-section__intro {
+      margin-bottom: 3.5rem;
+    }
+
+    .calc-section .section-title {
+      color: var(--color-beige);
+    }
+
+    .calc-section__eyebrow {
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      letter-spacing: .14em;
+      color: rgba(245, 240, 232, .3);
+      text-transform: uppercase;
+      margin-bottom: .55rem;
+      display: block;
+    }
+
+    .calc-layout {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .calc-controls { display: flex; flex-direction: column; gap: .9rem; }
+
+    .calc-row { display: flex; flex-direction: column; gap: .3rem; }
+
+    .calc-row__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .calc-row__label {
+      font-family: var(--font-mono);
+      font-size: .62rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 232, .4);
+    }
+
+    .calc-row__value {
+      font-family: var(--font-display);
+      font-size: .9rem;
+      font-weight: 700;
+      letter-spacing: -.02em;
+      color: var(--color-beige);
+    }
+
+    .calc-row__value span {
+      font-family: var(--font-mono);
+      font-size: .6rem;
+      font-weight: 400;
+      letter-spacing: .06em;
+      color: rgba(245, 240, 232, .28);
+      margin-left: .25rem;
+    }
+
+    .calc-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(
+        to right,
+        var(--color-teal-mid) 0%,
+        var(--color-teal-mid) var(--fill, 0%),
+        rgba(245, 240, 232, .1) var(--fill, 0%),
+        rgba(245, 240, 232, .1) 100%
+      );
+      outline: none;
+      border-radius: 0;
+      cursor: pointer;
+    }
+
+    .calc-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 13px;
+      height: 13px;
+      background: var(--color-teal-mid);
+      border-radius: 0;
+      cursor: pointer;
+      transition: background .2s, transform .2s;
+    }
+
+    .calc-slider::-webkit-slider-thumb:hover {
+      background: var(--color-beige);
+      transform: scale(1.2);
+    }
+
+    .calc-slider::-moz-range-thumb {
+      width: 13px;
+      height: 13px;
+      background: var(--color-teal-mid);
+      border: none;
+      border-radius: 0;
+      cursor: pointer;
+    }
+
+    .calc-slider-track {
+      position: relative;
+    }
+
+    /* ── Result panel ── */
+    .calc-result {
+      background: rgba(245, 240, 232, .03);
+      border: 1px solid var(--border-light);
+      padding: 1.5rem 1.4rem;
+      position: sticky;
+      top: 6rem;
+    }
+
+    .calc-result__label {
+      font-family: var(--font-mono);
+      font-size: .6rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 232, .25);
+      margin-bottom: 1rem;
+    }
+
+    .calc-result__breakdown { display: flex; flex-direction: column; }
+
+    .calc-result__line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: .3rem 0;
+      border-bottom: 1px solid rgba(245, 240, 232, .05);
+    }
+
+    .calc-result__line:last-child { border-bottom: none; }
+
+    .calc-result__line-label {
+      font-family: var(--font-mono);
+      font-size: .65rem;
+      letter-spacing: .08em;
+      color: rgba(245, 240, 232, .32);
+    }
+
+    .calc-result__line-price {
+      font-family: var(--font-display);
+      font-size: .85rem;
+      font-weight: 600;
+      letter-spacing: -.02em;
+      color: var(--color-beige);
+    }
+
+    .calc-result__divider {
+      height: 1px;
+      background: rgba(245, 240, 232, .1);
+      margin: .75rem 0;
+    }
+
+    /* ── Billing period toggle ── */
+    .calc-period {
+      display: flex;
+      border: 1px solid var(--border-light);
+      margin-bottom: .75rem;
+    }
+
+    .calc-period__btn {
+      flex: 1;
+      font-family: var(--font-mono);
+      font-size: .58rem;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 232, .32);
+      background: none;
+      border: none;
+      padding: .6rem .4rem;
+      cursor: pointer;
+      transition: color .2s, background .2s;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    .calc-period__btn.is-active {
+      background: var(--color-teal-mid);
+      color: var(--color-dark);
+    }
+
+    .calc-result__total-label {
+      font-family: var(--font-mono);
+      font-size: .6rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 232, .25);
+      margin-bottom: .3rem;
+    }
+
+    .calc-result__total-row {
+      display: flex;
+      align-items: baseline;
+      gap: .6rem;
+      margin-bottom: .2rem;
+    }
+
+    .calc-result__total {
+      font-family: var(--font-display);
+      font-size: 1.9rem;
+      font-weight: 800;
+      letter-spacing: -.04em;
+      color: var(--color-teal-mid);
+      line-height: 1;
+    }
+
+    .calc-result__total-original {
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      color: rgba(245, 240, 232, .22);
+      text-decoration: line-through;
+      display: none;
+    }
+
+    .calc-result__total-original.is-visible { display: block; }
+
+    .calc-result__savings {
+      font-family: var(--font-mono);
+      font-size: .6rem;
+      letter-spacing: .07em;
+      color: var(--color-teal-mid);
+      margin-bottom: .6rem;
+      display: none;
+    }
+
+    .calc-result__savings.is-visible { display: block; }
+
+    .calc-result__total-unit {
+      font-family: var(--font-mono);
+      font-size: .6rem;
+      letter-spacing: .08em;
+      color: rgba(245, 240, 232, .22);
+      margin-bottom: .75rem;
+    }
+
+    .calc-result__cta {
+      display: block;
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: .7rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--color-dark);
+      background: var(--color-teal-mid);
+      padding: .85rem 1.5rem;
+      transition: background .25s;
+    }
+
+    .calc-result__cta:hover { background: var(--color-beige); }
+
+    .calc-result__note {
+      margin-top: .75rem;
+      font-family: var(--font-mono);
+      font-size: .56rem;
+      letter-spacing: .06em;
+      color: rgba(245, 240, 232, .16);
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 900px) {
+      .calc-section { padding: 4rem 2rem; }
+      .calc-layout { grid-template-columns: 1fr; gap: 2rem; }
+      .calc-result { position: static; }
+    }
+
     /* ── Billing Toggle ───────────────────────────────────── */
     .billing-toggle-wrap {
       grid-column: 1 / -1;
@@ -496,7 +773,7 @@
       align-items: stretch;
       background: rgba(26, 26, 26, .04);
       border: 1px solid rgba(26, 26, 26, .14);
-      border-radius: 100px;
+      border-radius: 0;
       padding: .3rem;
     }
 
@@ -507,7 +784,7 @@
       left: .3rem;
       width: calc(50% - .3rem);
       background: var(--color-teal);
-      border-radius: 100px;
+      border-radius: 0;
       transition: transform .4s cubic-bezier(.16, 1, .3, 1);
       pointer-events: none;
       box-shadow: 0 2px 12px rgba(26, 92, 92, .25);
@@ -528,7 +805,7 @@
       background: none;
       border: none;
       padding: .8rem 2.2rem;
-      border-radius: 100px;
+      border-radius: 0;
       cursor: pointer;
       transition: color .25s;
       white-space: nowrap;
@@ -628,30 +905,30 @@
       </div>
 
       <div class="page-hero__content">
-      <h1 class="page-hero__heading fade fade--d2">
-        Cloud<br><span class="accent">VPS</span>
-      </h1>
-      <p class="page-hero__sub fade fade--d3" data-i18n="vps.hero.sub">
+        <h1 class="page-hero__heading fade fade--d2">
+          Cloud<br><span class="accent">VPS</span>
+        </h1>
+        <p class="page-hero__sub fade fade--d3" data-i18n="vps.hero.sub">
         Bare-metal CPU nodes for web workloads, APIs, and high-memory processing. Direct hardware access with no shared resources.
       </p>
-      <div class="page-hero__meta fade fade--d4">
-        <div class="page-hero__stat">
-          <span class="page-hero__stat-num">฿349</span>
-          <span class="page-hero__stat-label" data-i18n="vps.hero.stat.start">starting / mo</span>
+        <div class="page-hero__meta fade fade--d4">
+          <div class="page-hero__stat">
+            <span class="page-hero__stat-num">฿349</span>
+            <span class="page-hero__stat-label" data-i18n="vps.hero.stat.start">starting / mo</span>
+          </div>
+          <div class="page-hero__stat">
+            <span class="page-hero__stat-num">3 days</span>
+            <span class="page-hero__stat-label" data-i18n="vps.hero.stat.avail">backups</span>
+          </div>
+          <div class="page-hero__stat">
+            <span class="page-hero__stat-num">SSD</span>
+            <span class="page-hero__stat-label" data-i18n="vps.hero.stat.storage">storage type</span>
+          </div>
+          <div class="page-hero__stat">
+            <span class="page-hero__stat-num">24/7</span>
+            <span class="page-hero__stat-label" data-i18n="vps.hero.stat.monitor">monitoring</span>
+          </div>
         </div>
-        <div class="page-hero__stat">
-          <span class="page-hero__stat-num">3 days</span>
-          <span class="page-hero__stat-label" data-i18n="vps.hero.stat.avail">backups</span>
-        </div>
-        <div class="page-hero__stat">
-          <span class="page-hero__stat-num">SSD</span>
-          <span class="page-hero__stat-label" data-i18n="vps.hero.stat.storage">storage type</span>
-        </div>
-        <div class="page-hero__stat">
-          <span class="page-hero__stat-num">24/7</span>
-          <span class="page-hero__stat-label" data-i18n="vps.hero.stat.monitor">monitoring</span>
-        </div>
-      </div>
       </div><!-- /page-hero__content -->
     </section>
 
@@ -799,6 +1076,106 @@
         </a>
       </div>
 
+    </section>
+
+    <!-- ── Price Calculator ─────────────────────────────── -->
+    <section class="calc-section" id="calculator">
+
+      <div class="calc-section__intro">
+        <p class="calc-section__eyebrow" data-i18n="vps.calc.eyebrow">// pricing</p>
+        <h2 class="section-title reveal-clip" data-i18n="vps.calc.heading">Build your custom spec.</h2>
+      </div>
+
+      <div class="calc-layout">
+
+        <!-- Sliders -->
+        <div class="calc-controls">
+
+          <div class="calc-row">
+            <div class="calc-row__header">
+              <span class="calc-row__label" data-i18n="vps.calc.cpu.label">CPU Cores</span>
+              <span class="calc-row__value" id="calcCpuVal">2<span data-i18n="vps.calc.cpu.unit">cores</span></span>
+            </div>
+            <div class="calc-slider-track" id="calcCpuTrack">
+              <input type="range" class="calc-slider" id="calcCpu" min="1" max="32" value="2" step="1" aria-label="CPU cores" />
+            </div>
+          </div>
+
+          <div class="calc-row">
+            <div class="calc-row__header">
+              <span class="calc-row__label" data-i18n="vps.calc.ram.label">RAM</span>
+              <span class="calc-row__value" id="calcRamVal">4<span>GB</span></span>
+            </div>
+            <div class="calc-slider-track" id="calcRamTrack">
+              <input type="range" class="calc-slider" id="calcRam" min="1" max="128" value="4" step="1" aria-label="RAM in GB" />
+            </div>
+          </div>
+
+          <div class="calc-row">
+            <div class="calc-row__header">
+              <span class="calc-row__label" data-i18n="vps.calc.ssd.label">SSD Storage</span>
+              <span class="calc-row__value" id="calcSsdVal">60<span>GB</span></span>
+            </div>
+            <div class="calc-slider-track" id="calcSsdTrack">
+              <input type="range" class="calc-slider" id="calcSsd" min="0" max="2000" value="60" step="10" aria-label="SSD storage in GB" />
+            </div>
+          </div>
+
+          <div class="calc-row">
+            <div class="calc-row__header">
+              <span class="calc-row__label" data-i18n="vps.calc.hdd.label">HDD Storage</span>
+              <span class="calc-row__value" id="calcHddVal">0<span>GB</span></span>
+            </div>
+            <div class="calc-slider-track" id="calcHddTrack">
+              <input type="range" class="calc-slider" id="calcHdd" min="0" max="10000" value="0" step="100" aria-label="HDD storage in GB" />
+            </div>
+          </div>
+
+        </div><!-- /calc-controls -->
+
+        <!-- Result panel -->
+        <div class="calc-result">
+          <p class="calc-result__label" data-i18n="vps.calc.result.label">// estimated cost</p>
+
+          <div class="calc-result__breakdown">
+            <div class="calc-result__line">
+              <span class="calc-result__line-label" data-i18n="vps.calc.result.cpu">CPU</span>
+              <span class="calc-result__line-price" id="calcPriceCpu">฿70</span>
+            </div>
+            <div class="calc-result__line">
+              <span class="calc-result__line-label" data-i18n="vps.calc.result.ram">RAM</span>
+              <span class="calc-result__line-price" id="calcPriceRam">฿120</span>
+            </div>
+            <div class="calc-result__line">
+              <span class="calc-result__line-label" data-i18n="vps.calc.result.ssd">SSD</span>
+              <span class="calc-result__line-price" id="calcPriceSsd">฿240</span>
+            </div>
+            <div class="calc-result__line">
+              <span class="calc-result__line-label" data-i18n="vps.calc.result.hdd">HDD</span>
+              <span class="calc-result__line-price" id="calcPriceHdd">฿0</span>
+            </div>
+          </div>
+
+          <div class="calc-result__divider"></div>
+
+          <div class="calc-period" role="group" aria-label="Billing period">
+            <button class="calc-period__btn is-active" id="calcPeriodMonthly" data-i18n="vps.calc.period.monthly">Monthly</button>
+            <button class="calc-period__btn" id="calcPeriodYearly" data-i18n="vps.calc.period.yearly">Annually · −15%</button>
+          </div>
+
+          <p class="calc-result__total-label" data-i18n="vps.calc.result.total.label">total / month</p>
+          <div class="calc-result__total-row">
+            <p class="calc-result__total" id="calcTotal">฿430</p>
+            <span class="calc-result__total-original" id="calcTotalOriginal"></span>
+          </div>
+          <p class="calc-result__savings" id="calcSavings"></p>
+          <p class="calc-result__total-unit" data-i18n="vps.calc.result.total.unit">Thai Baht · VAT excluded</p>
+
+          <a href="index.html#contact" class="calc-result__cta" data-i18n="vps.calc.result.cta">get a quote →</a>
+          <p class="calc-result__note" data-i18n="vps.calc.result.note">Prices are estimates. Final pricing confirmed on request.</p>
+        </div><!-- /calc-result -->
+
+      </div><!-- /calc-layout -->
     </section>
 
     <!-- ── Included Features ─────────────────────────────── -->
@@ -1135,6 +1512,25 @@
           'vps.footer.copy':       '&copy; 2026 Serva. All rights reserved.',
           'vps.bread.home':        'home',
           'vps.bread.products':    'products',
+          'vps.calc.eyebrow':          '// pricing',
+          'vps.calc.heading':          'Build your custom spec.',
+          'vps.calc.sub':              'Adjust the sliders to match your workload. Pricing is calculated per resource so you only pay for what you need.',
+          'vps.calc.cpu.label':        'CPU Cores',
+          'vps.calc.cpu.unit':         'cores',
+          'vps.calc.ram.label':        'RAM',
+          'vps.calc.ssd.label':        'SSD Storage',
+          'vps.calc.hdd.label':        'HDD Storage',
+          'vps.calc.result.label':     '// estimated monthly cost',
+          'vps.calc.result.cpu':       'CPU',
+          'vps.calc.result.ram':       'RAM',
+          'vps.calc.result.ssd':       'SSD',
+          'vps.calc.result.hdd':       'HDD',
+          'vps.calc.result.total.label': 'total / month',
+          'vps.calc.result.total.unit':  'Thai Baht · VAT excluded',
+          'vps.calc.period.monthly':    'Monthly',
+          'vps.calc.period.yearly':    'Annually · −15%',
+          'vps.calc.result.cta':       'get a quote →',
+          'vps.calc.result.note':      'Prices are estimates. Final pricing confirmed on request.',
         },
         th: {
           'vps.hero.sub':          'CPU node แบบ bare-metal สร้างขึ้นสำหรับ web workload, API และการประมวลผล high-memory ไม่มีค่าใช้จ่าย hypervisor — เพียงพลังงานคำนวณดิบและ dedicated ในราคาที่ยุติธรรม',
@@ -1171,6 +1567,25 @@
           'vps.footer.copy':       '&copy; 2026 Serva. สงวนลิขสิทธิ์ทุกประการ.',
           'vps.bread.home':        'หน้าหลัก',
           'vps.bread.products':    'สินค้า',
+          'vps.calc.eyebrow':          '// ราคา',
+          'vps.calc.heading':          'สร้างสเปคที่คุณต้องการ',
+          'vps.calc.sub':              'ปรับ slider ให้ตรงกับ workload ของคุณ ราคาคำนวณตามทรัพยากรที่ใช้จริง คุณจ่ายเฉพาะสิ่งที่ต้องการ',
+          'vps.calc.cpu.label':        'CPU Cores',
+          'vps.calc.cpu.unit':         'คอร์',
+          'vps.calc.ram.label':        'RAM',
+          'vps.calc.ssd.label':        'SSD Storage',
+          'vps.calc.hdd.label':        'HDD Storage',
+          'vps.calc.result.label':     '// ค่าประมาณการต่อเดือน',
+          'vps.calc.result.cpu':       'CPU',
+          'vps.calc.result.ram':       'RAM',
+          'vps.calc.result.ssd':       'SSD',
+          'vps.calc.result.hdd':       'HDD',
+          'vps.calc.result.total.label': 'รวม / เดือน',
+          'vps.calc.result.total.unit':  'บาท · ยังไม่รวม VAT',
+          'vps.calc.period.monthly':    'รายเดือน',
+          'vps.calc.period.yearly':    'รายปี · −15%',
+          'vps.calc.result.cta':       'ขอใบเสนอราคา →',
+          'vps.calc.result.note':      'ราคาเป็นการประมาณเบื้องต้น ราคาสุดท้ายยืนยันเมื่อติดต่อ',
         }
       };
 
@@ -1206,6 +1621,86 @@
         var saved = localStorage.getItem('serva-lang');
         if (saved && saved !== 'en') applyLang(saved);
       } catch (e) {}
+    })();
+
+    /* ── Price Calculator ───────────────────────────────── */
+    (function () {
+      var RATES   = { cpu: 35, ram: 30, ssd: 4, hdd: 3 };
+      var DISCOUNT = 0.85;
+      var isYearly = false;
+
+      var cpuEl = document.getElementById('calcCpu');
+      var ramEl = document.getElementById('calcRam');
+      var ssdEl = document.getElementById('calcSsd');
+      var hddEl = document.getElementById('calcHdd');
+
+      function fmt(n) {
+        return '฿' + Math.round(n).toLocaleString('th-TH', { maximumFractionDigits: 0 });
+      }
+
+      function setFill(track, slider) {
+        var pct = ((slider.value - slider.min) / (slider.max - slider.min)) * 100;
+        track.style.setProperty('--fill', pct + '%');
+      }
+
+      function update() {
+        var cpu = parseInt(cpuEl.value, 10);
+        var ram = parseInt(ramEl.value, 10);
+        var ssd = parseInt(ssdEl.value, 10);
+        var hdd = parseInt(hddEl.value, 10);
+
+        var base  = cpu * RATES.cpu + ram * RATES.ram + ssd * RATES.ssd + hdd * RATES.hdd;
+        var mult  = isYearly ? DISCOUNT : 1;
+        var total = base * mult;
+
+        document.getElementById('calcCpuVal').childNodes[0].textContent = cpu;
+        document.getElementById('calcRamVal').childNodes[0].textContent = ram;
+        document.getElementById('calcSsdVal').childNodes[0].textContent = ssd;
+        document.getElementById('calcHddVal').childNodes[0].textContent = hdd;
+
+        document.getElementById('calcPriceCpu').textContent = fmt(cpu * RATES.cpu * mult);
+        document.getElementById('calcPriceRam').textContent = fmt(ram * RATES.ram * mult);
+        document.getElementById('calcPriceSsd').textContent = fmt(ssd * RATES.ssd * mult);
+        document.getElementById('calcPriceHdd').textContent = fmt(hdd * RATES.hdd * mult);
+        document.getElementById('calcTotal').textContent    = fmt(total);
+
+        var origEl    = document.getElementById('calcTotalOriginal');
+        var savingsEl = document.getElementById('calcSavings');
+        if (isYearly && base > 0) {
+          origEl.textContent = fmt(base);
+          origEl.classList.add('is-visible');
+          savingsEl.textContent = 'saving ' + fmt(base - total) + '/mo';
+          savingsEl.classList.add('is-visible');
+        } else {
+          origEl.classList.remove('is-visible');
+          savingsEl.classList.remove('is-visible');
+        }
+
+        setFill(document.getElementById('calcCpuTrack'), cpuEl);
+        setFill(document.getElementById('calcRamTrack'), ramEl);
+        setFill(document.getElementById('calcSsdTrack'), ssdEl);
+        setFill(document.getElementById('calcHddTrack'), hddEl);
+      }
+
+      document.getElementById('calcPeriodMonthly').addEventListener('click', function () {
+        isYearly = false;
+        this.classList.add('is-active');
+        document.getElementById('calcPeriodYearly').classList.remove('is-active');
+        update();
+      });
+
+      document.getElementById('calcPeriodYearly').addEventListener('click', function () {
+        isYearly = true;
+        this.classList.add('is-active');
+        document.getElementById('calcPeriodMonthly').classList.remove('is-active');
+        update();
+      });
+
+      [cpuEl, ramEl, ssdEl, hddEl].forEach(function (el) {
+        el.addEventListener('input', update);
+      });
+
+      update();
     })();
 
     /* ── Navbar reveal + scroll reveal ──────────────────── */

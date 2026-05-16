@@ -4,15 +4,15 @@
 
 .services {
   padding: 8rem 4rem;
-  background: #EDE8DF;
+  background: var(--color-beige);
 }
 
 .services__intro {
   display: flex;
-  align-items: flex-start;
+  align-items: flex-end;
   justify-content: space-between;
   gap: 4rem;
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
 }
 
 .services__title {
@@ -26,6 +26,7 @@
   color: var(--color-mid);
   line-height: 1.8;
   flex-shrink: 0;
+  text-align: right;
 }
 
 .services__grid {
