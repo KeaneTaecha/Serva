@@ -255,6 +255,8 @@
     }
 
     .feature-tile {
+      display: flex;
+      flex-direction: column;
       padding: 2.5rem 2rem;
       border-right: 1px solid var(--border-light);
       position: relative;
@@ -440,17 +442,31 @@
       .os-compat__intro { flex-direction: column; gap: 1.5rem; }
       .os-compat__sub { text-align: left; max-width: none; }
       .os-compat__grid { grid-template-columns: repeat(3, 1fr); }
+      .features-included { padding: 4rem 2rem; }
       .features-included__grid { grid-template-columns: repeat(3, 1fr); }
-      .feature-tile:nth-child(3) { border-right: none; }
-      .feature-tile:last-child { border-right: 1px solid var(--border-light); }
+      .feature-tile { padding: 1.5rem; }
       .feature-tile:nth-child(3n) { border-right: none; }
+      .feature-tile:last-child { border-right: none; }
     }
 
     @media (max-width: 560px) {
       .os-compat__grid { grid-template-columns: repeat(2, 1fr); }
-      .features-included__grid { grid-template-columns: repeat(2, 1fr); }
-      .feature-tile:nth-child(3n) { border-right: 1px solid var(--border-light); }
-      .feature-tile:nth-child(2n) { border-right: none; }
+      .features-included { padding: 3rem 1.25rem; }
+      .features-included__grid { grid-template-columns: 1fr; }
+      .feature-tile {
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.875rem 1.25rem;
+        border-right: none;
+        border-bottom: 1px solid var(--border-light);
+      }
+      .feature-tile:last-child { border-bottom: none; }
+      .feature-tile__icon { width: 28px; height: 28px; margin-bottom: 0; flex-shrink: 0; }
+      .feature-tile__body { flex: 1; min-width: 0; }
+      .feature-tile__title { font-size: 0.92rem; margin-bottom: 0; }
+      .feature-tile__label { margin-bottom: 0.1rem; }
+      .feature-tile__desc { display: none; }
     }
 
     /* ── Catalog intro: heading left, toggle right ────────── */
@@ -961,9 +977,11 @@
               <circle cx="31" cy="12" r="1.5" fill="currentColor" stroke="none"/>
             </svg>
           </div>
-          <p class="feature-tile__label">// storage</p>
-          <h3 class="feature-tile__title" data-i18n="ded.tile1.title" data-i18n-html>Solid State<br>Drives</h3>
-          <p class="feature-tile__desc" data-i18n="ded.tile1.desc">NVMe SSD on every node. No spinning disks — pure, consistent I/O from day one.</p>
+          <div class="feature-tile__body">
+            <p class="feature-tile__label">// storage</p>
+            <h3 class="feature-tile__title" data-i18n="ded.tile1.title" data-i18n-html>Solid State<br>Drives</h3>
+            <p class="feature-tile__desc" data-i18n="ded.tile1.desc">NVMe SSD on every node. No spinning disks — pure, consistent I/O from day one.</p>
+          </div>
         </div>
 
         <div class="feature-tile reveal">
@@ -977,9 +995,11 @@
               <line x1="18.5" y1="29" x2="29" y2="29"/>
             </svg>
           </div>
-          <p class="feature-tile__label">// access</p>
-          <h3 class="feature-tile__title" data-i18n="ded.tile2.title" data-i18n-html>Root<br>Access</h3>
-          <p class="feature-tile__desc" data-i18n="ded.tile2.desc">Full administrative control. SSH in as root and configure exactly what you need.</p>
+          <div class="feature-tile__body">
+            <p class="feature-tile__label">// access</p>
+            <h3 class="feature-tile__title" data-i18n="ded.tile2.title" data-i18n-html>Root<br>Access</h3>
+            <p class="feature-tile__desc" data-i18n="ded.tile2.desc">Full administrative control. SSH in as root and configure exactly what you need.</p>
+          </div>
         </div>
 
         <div class="feature-tile reveal">
@@ -989,9 +1009,11 @@
               <line x1="2" y1="30" x2="38" y2="30" stroke-opacity=".3"/>
             </svg>
           </div>
-          <p class="feature-tile__label">// reliability</p>
-          <h3 class="feature-tile__title" data-i18n="ded.tile3.title" data-i18n-html>99.9%<br>Uptime</h3>
-          <p class="feature-tile__desc" data-i18n="ded.tile3.desc">24/7 monitoring and infrastructure engineered to stay online when you need it most.</p>
+          <div class="feature-tile__body">
+            <p class="feature-tile__label">// reliability</p>
+            <h3 class="feature-tile__title" data-i18n="ded.tile3.title" data-i18n-html>99.9%<br>Uptime</h3>
+            <p class="feature-tile__desc" data-i18n="ded.tile3.desc">24/7 monitoring and infrastructure engineered to stay online when you need it most.</p>
+          </div>
         </div>
 
         <div class="feature-tile reveal">
@@ -1008,9 +1030,11 @@
               <line x1="13" y1="34" x2="27" y2="34"/>
             </svg>
           </div>
-          <p class="feature-tile__label">// software</p>
-          <h3 class="feature-tile__title" data-i18n="ded.tile4.title" data-i18n-html>Operating<br>Systems</h3>
-          <p class="feature-tile__desc" data-i18n="ded.tile4.desc">Ubuntu, Debian, CentOS, and more — choose your OS at provisioning, ready to go.</p>
+          <div class="feature-tile__body">
+            <p class="feature-tile__label">// software</p>
+            <h3 class="feature-tile__title" data-i18n="ded.tile4.title" data-i18n-html>Operating<br>Systems</h3>
+            <p class="feature-tile__desc" data-i18n="ded.tile4.desc">Ubuntu, Debian, CentOS, and more — choose your OS at provisioning, ready to go.</p>
+          </div>
         </div>
 
         <div class="feature-tile reveal">
@@ -1022,9 +1046,11 @@
               <polyline points="16,21 20,25 24,21"/>
             </svg>
           </div>
-          <p class="feature-tile__label">// backup</p>
-          <h3 class="feature-tile__title" data-i18n="ded.tile5.title" data-i18n-html>Backup every<br>3 days</h3>
-          <p class="feature-tile__desc" data-i18n="ded.tile5.desc">Automated backups every 3 days on every plan. Your data is retained and restorable.</p>
+          <div class="feature-tile__body">
+            <p class="feature-tile__label">// backup</p>
+            <h3 class="feature-tile__title" data-i18n="ded.tile5.title" data-i18n-html>Backup every<br>3 days</h3>
+            <p class="feature-tile__desc" data-i18n="ded.tile5.desc">Automated backups every 3 days on every plan. Your data is retained and restorable.</p>
+          </div>
         </div>
 
       </div>
@@ -1301,7 +1327,7 @@
           'ded.os.heading':        'ระบบปฏิบัติการที่รองรับ',
           'ded.os.sub':            'เลือกตอน provisioning — server ของคุณมาพร้อม pre-installed, hardened และพร้อม SSH ภายในไม่กี่นาที',
           'ded.cta.label':         'พร้อมเริ่มฝึกโมเดลแล้ว',
-          'ded.cta.heading':       'มาวางแผน cluster ของคุณกัน.',
+          'ded.cta.heading':       'รับ Dedicated Server ของคุณ.',
           'ded.cta.email':         'หรือส่งอีเมลมาที่ <a href="mailto:hello@serva.io">hello@serva.io</a>',
           'ded.footer.statement':  'สร้างขึ้นสำหรับทีมที่ไม่ยอมลดมาตรฐาน.',
           'ded.footer.col1.title': 'สินค้า',
