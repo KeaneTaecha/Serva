@@ -659,20 +659,31 @@
       margin-bottom: 1.25rem;
       line-height: 1.2;
     }
-    .line-modal__id-box {
-      background: rgba(42, 128, 128, 0.12);
-      border: 1px solid rgba(42, 128, 128, 0.35);
-      border-radius: 10px;
-      padding: 0.9rem 1.25rem;
-      margin-bottom: 0.75rem;
+    .line-modal__qr {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.6rem;
+      margin-bottom: 1rem;
+    }
+    .line-modal__qr img {
+      width: 176px;
+      height: 176px;
+      border-radius: 10px;
+    }
+    .line-modal__id-box {
+      background: rgba(42, 128, 128, 0.08);
+      border: 1px solid rgba(42, 128, 128, 0.25);
+      border-radius: 6px;
+      padding: 0.35rem 0.85rem;
+      margin-bottom: 0.75rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
     }
     .line-modal__id {
       font-family: var(--font-mono);
-      font-size: 1.45rem;
+      font-size: 0.82rem;
       font-weight: 500;
       color: var(--color-teal-mid);
       letter-spacing: 0.04em;
@@ -1375,14 +1386,18 @@
       <p class="line-modal__label">get in touch</p>
       <h2 class="line-modal__heading" id="lineModalHeading">Add us on LINE</h2>
 
+      <div class="line-modal__qr">
+        <img src="assets/images/LINE_qr.png" alt="Scan QR code to add on LINE" />
+      </div>
+
       <div class="line-modal__id-box">
-        <span class="line-modal__id">@serva</span>
+        <span class="line-modal__id">@679lvqez</span>
       </div>
 
       <p class="line-modal__sub">We'll get back to you within 24 hours.</p>
 
       <div class="line-modal__actions">
-        <a href="https://line.me/R/ti/p/@serva" target="_blank" rel="noopener" class="line-modal__open-btn">Open in LINE →</a>
+        <a href="https://line.me/R/ti/p/@679lvqez" target="_blank" rel="noopener" class="line-modal__open-btn">Add on LINE →</a>
         <span class="line-modal__divider">or</span>
         <button class="line-modal__copy" id="lineCopyBtn">Copy LINE ID</button>
       </div>
@@ -1420,7 +1435,7 @@
       });
 
       copyBtn.addEventListener('click', function () {
-        navigator.clipboard.writeText('@serva').then(function () {
+        navigator.clipboard.writeText('@679lvqez').then(function () {
           copyBtn.textContent = 'Copied!';
           copyBtn.classList.add('copied');
           setTimeout(function () {
@@ -1428,7 +1443,7 @@
             copyBtn.classList.remove('copied');
           }, 2000);
         }).catch(function () {
-          copyBtn.textContent = '@serva';
+          copyBtn.textContent = '@679lvqez';
         });
       });
     })();
