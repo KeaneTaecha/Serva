@@ -763,13 +763,38 @@
       .calc-result { position: static; }
     }
 
+    /* ── Catalog intro: heading left, toggle right ────────── */
+    .catalog__intro {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
     /* ── Billing Toggle ───────────────────────────────────── */
     .billing-toggle-wrap {
-      grid-column: 1 / -1;
       display: flex;
-      justify-content: center;
-      margin-top: -.5rem;
-      margin-bottom: 1rem;
+      justify-content: flex-end;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 900px) {
+      .catalog__intro {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .billing-toggle-wrap {
+        align-self: center;
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 0;
+      }
     }
 
     .billing-toggle {
@@ -1230,6 +1255,13 @@
           </div><!-- /cpuTrack -->
 
         </div><!-- /catalog__viewport -->
+        <div class="catalog__edge-hint" id="catalogEdgeHint" aria-hidden="true">
+          <div class="catalog__edge-hint__arrow">
+            <svg width="14" height="14" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              <path d="M7 3.5L12.5 9L7 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
       </div><!-- /catalog__slider-outer -->
 
       <div class="catalog__controls-row">
@@ -1586,11 +1618,12 @@
 
     /* ── Minimal catalog slider for single-track page ─────── */
     (function () {
-      const viewport = document.getElementById('catalogViewport');
-      const track    = document.getElementById('cpuTrack');
-      const dotsEl   = document.getElementById('catalogDots');
-      const prevBtn  = document.getElementById('catalogPrev');
-      const nextBtn  = document.getElementById('catalogNext');
+      const viewport   = document.getElementById('catalogViewport');
+      const track      = document.getElementById('cpuTrack');
+      const dotsEl     = document.getElementById('catalogDots');
+      const prevBtn    = document.getElementById('catalogPrev');
+      const nextBtn    = document.getElementById('catalogNext');
+      const edgeHint   = document.getElementById('catalogEdgeHint');
 
       if (!viewport || !track) return;
 
@@ -1640,6 +1673,7 @@
         const idx = getCurrentIndex();
         prevBtn.disabled = idx === 0;
         nextBtn.disabled = idx >= getTotalDots() - 1;
+        if (edgeHint) edgeHint.classList.toggle('is-hidden', nextBtn.disabled);
       }
 
       prevBtn.addEventListener('click', () => viewport.scrollBy({ left: -getScrollStep(), behavior: 'smooth' }));

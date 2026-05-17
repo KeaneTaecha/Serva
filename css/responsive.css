@@ -6,7 +6,8 @@
 @media (max-width: 1024px) {
   .services__intro {
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
   }
 
   .services__sub {
@@ -17,7 +18,8 @@
   /* Catalog */
   .catalog__intro {
     grid-template-columns: 1fr;
-    row-gap: 2rem;
+    row-gap: 1.25rem;
+    margin-bottom: 2rem;
   }
 
   .catalog__sub {
@@ -31,7 +33,8 @@
   .why__intro {
     flex-direction: column;
     align-items: flex-start;
-    gap: 2rem;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
   }
 
   .why__sub {
@@ -47,7 +50,8 @@
   .offerings__intro {
     flex-direction: column;
     align-items: flex-start;
-    gap: 2rem;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
   }
 
   .offerings__sub {
@@ -70,14 +74,23 @@
   /* Hero */
   .hero__visual {
     width: 100%;
-    height: 45%;
+    height: 70%;
     top: 0;
     bottom: auto;
     opacity: .35;
   }
 
+  .hero__visual::after,
+  .hero__visual::before {
+    display: none;
+  }
+
   .hero__server-frame {
     margin-top: 2rem;
+  }
+
+  .hero__price-badge {
+    display: none;
   }
 
   .hero__content {
@@ -224,14 +237,14 @@
   }
 
   .hero__stat {
-    padding: 1.25rem 0;
+    padding: 1.25rem 1.25rem;
     margin-right: 0;
     border-right: none;
     border-bottom: 1px solid var(--border-light);
+    text-align: center;
   }
 
   .hero__stat:nth-child(odd) {
-    padding-right: 1.5rem;
     border-right: 1px solid var(--border-light);
   }
 

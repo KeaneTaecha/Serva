@@ -97,7 +97,7 @@
 .lang-btn {
   display: inline-flex;
   align-items: center;
-  gap: .3rem;
+  gap: .75rem;
   background: none;
   border: none;
   cursor: pointer;

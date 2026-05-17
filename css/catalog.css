@@ -71,6 +71,41 @@
   position: relative;
 }
 
+/* ── Right-edge scroll hint ─────────────────────────────── */
+.catalog__edge-hint {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 6rem;
+  height: 100%;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: .6rem;
+  background: linear-gradient(to right, transparent, var(--color-beige) 70%);
+  transition: opacity .35s ease;
+  z-index: 2;
+}
+
+.catalog__edge-hint.is-hidden {
+  opacity: 0;
+}
+
+.catalog__edge-hint__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-dark);
+  animation: edgePulse 1.6s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes edgePulse {
+  0%, 100% { transform: translateX(0); }
+  50%       { transform: translateX(5px); }
+}
+
 .catalog__viewport {
   overflow-x: scroll;
   scroll-snap-type: x mandatory;

@@ -35,9 +35,16 @@
 
     var available = navbar.clientWidth - padH - logoW - minGap;
     var needed    = getLinksWidth();
+    var isMobile  = navbar.classList.contains('navbar--mobile');
 
-    var wantMobile = needed > available;
-    var isMobile   = navbar.classList.contains('navbar--mobile');
+    // Hysteresis: when already in mobile mode, the padding is ~4rem narrower
+    // per side (~64px total), making available space larger. Without a buffer,
+    // toggling the class oscillates — available jumps up, wantMobile flips to
+    // false, desktop padding returns, available shrinks, wantMobile flips back.
+    // Requiring 80px of extra clearance before returning to desktop breaks the loop.
+    var wantMobile = isMobile
+      ? needed > available - 80
+      : needed > available;
 
     if (wantMobile === isMobile) return;
 
