@@ -134,6 +134,7 @@ a {
 
 :lang(th) .hero__heading {
   font-family: 'Sarabun', sans-serif;
+  font-size: clamp(2.7rem, 4.6vw, 5rem);
   letter-spacing: -.01em;
   line-height: 1.4;
 }
