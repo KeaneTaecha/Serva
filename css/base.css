@@ -141,6 +141,7 @@ a {
 
 @media (max-width: 900px) {
   :lang(th) .hero__heading {
+    font-size: clamp(2.2rem, 9vw, 3.5rem);
     line-height: 1.3;
   }
 }
