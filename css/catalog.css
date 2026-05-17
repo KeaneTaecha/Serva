@@ -265,14 +265,13 @@
   margin-top: auto;
   padding: .75rem 1rem;
   border: 1px solid var(--color-teal);
-  transition: background .2s, color .2s, border-color .2s, letter-spacing .2s;
+  transition: background .2s, color .2s, border-color .2s;
 }
 
 .server-card__cta:hover {
   background: var(--color-teal);
   color: var(--color-beige);
   border-color: var(--color-teal);
-  letter-spacing: .12em;
 }
 
 /* ── Slider Controls ────────────────────────────────────── */

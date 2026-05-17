@@ -40,8 +40,14 @@
 }
 
 /* ── Links ──────────────────────────────────────────────── */
-.navbar__links {
+.navbar__links,
+.navbar__links li {
   list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar__links {
   display: flex;
   align-items: center;
   gap: 2.5rem;
@@ -73,6 +79,7 @@
   color: var(--color-teal-mid);
   border: 1px solid var(--color-teal);
   padding: .42rem 1rem;
+  white-space: nowrap;
   transition: background .2s, color .2s, border-color .2s;
 }
 
@@ -117,11 +124,7 @@
 }
 
 .lang-sep {
-  font-family: var(--font-mono);
-  font-size: .92rem;
-  color: rgba(245, 240, 232, .2);
-  pointer-events: none;
-  line-height: 1;
+  display: none;
 }
 
 /* ── Products Dropdown ──────────────────────────────────── */
@@ -271,6 +274,236 @@
   color: var(--color-dark);
 }
 
-.navbar--light .lang-sep {
-  color: rgba(26, 26, 26, .25);
+/* ── Hamburger Button ───────────────────────────────────── */
+/* All visual properties live here so the icon always renders correctly.
+   display:none keeps it invisible on desktop; .navbar--mobile flips it to flex. */
+.navbar__burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 5px;
+  width: 2.4rem;
+  height: 2.4rem;
+  background: none;
+  border: none;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  padding: .3rem;
+  position: fixed;
+  top: 1rem;
+  right: 2rem;
+  z-index: 9999;
+  flex-shrink: 0;
+}
+
+.navbar__burger span {
+  display: block;
+  height: 2px;
+  background: var(--color-beige);
+  transition: transform .32s cubic-bezier(0.16, 1, 0.3, 1), opacity .2s, width .2s;
+}
+
+.navbar__burger span:nth-child(1) { width: 22px; }
+.navbar__burger span:nth-child(2) { width: 14px; }
+.navbar__burger span:nth-child(3) { width: 22px; }
+
+.navbar--light .navbar__burger span {
+  background: var(--color-dark);
+}
+
+.navbar__burger.is-open span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+  width: 22px;
+}
+
+.navbar__burger.is-open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.navbar__burger.is-open span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+  width: 22px;
+}
+
+/* ── Mobile overlay animation ───────────────────────────── */
+@keyframes mobileNavIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Mobile mode: JS adds .navbar--mobile when links don't fit ── */
+.navbar--mobile {
+  padding: 1.2rem 2rem;
+}
+
+.navbar--mobile .navbar__burger {
+  display: flex;
+}
+
+/* Links hidden in mobile mode */
+.navbar--mobile .navbar__links {
+  display: none;
+}
+
+/* Links open: full-screen overlay */
+.navbar--mobile .navbar__links.is-open {
+  display: flex;
+  position: fixed;
+  inset: 0;
+  background: var(--color-dark);
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 5.5rem 2.5rem 3rem;
+  gap: 0;
+  z-index: 200;
+  overflow-y: auto;
+  list-style: none;
+  animation: mobileNavIn .26s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.navbar--mobile .navbar__links > li {
+  width: 100%;
+  list-style: none;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.navbar--mobile .navbar__links > li:last-child {
+  border-bottom: none;
+}
+
+.navbar--mobile .navbar__links > li > a {
+  display: flex;
+  width: 100%;
+  padding: 1.1rem 0;
+  font-size: .95rem;
+  letter-spacing: .07em;
+  color: rgba(245, 240, 232, .6);
+}
+
+.navbar--mobile .navbar__links > li > a:hover {
+  color: var(--color-beige);
+}
+
+.navbar--mobile .navbar__links .navbar__cta {
+  color: var(--color-teal-mid);
+  border: none;
+  padding: 1.1rem 0;
+  background: transparent;
+}
+
+.navbar--mobile .navbar__links .lang-btn {
+  padding: 1.1rem 0;
+  width: 100%;
+}
+
+.navbar--mobile .navbar__links .navbar__link--active::after {
+  display: none;
+}
+
+/* Dropdown: remove hover zone and arrow — always expanded flat */
+/* Also cancel the desktop translateX(-50%) that would slide the menu left on hover */
+.navbar--mobile .navbar__dropdown:hover .navbar__dropdown-menu {
+  transform: none;
+  transition: none;
+}
+
+.navbar--mobile .navbar__dropdown::after {
+  display: none;
+}
+
+.navbar--mobile .navbar__dropdown-trigger::after {
+  display: none;
+}
+
+.navbar--mobile .navbar__dropdown-menu {
+  position: static;
+  transform: none;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  min-width: 0;
+  padding-bottom: .75rem;
+  transition: none;
+}
+
+.navbar--mobile .navbar__dropdown-menu li {
+  border-bottom: none;
+  list-style: none;
+}
+
+.navbar--mobile .navbar__dropdown-menu li a {
+  padding: .5rem 1.25rem;
+  color: rgba(245, 240, 232, .38);
+  gap: .3rem;
+  position: relative;
+}
+
+.navbar--mobile .navbar__dropdown-menu li a:hover {
+  background: transparent;
+  color: rgba(245, 240, 232, .38);
+}
+
+.navbar--mobile .navbar__dropdown-item-label {
+  font-size: .78rem;
+  color: rgba(245, 240, 232, .45);
+  transition: color .22s ease;
+}
+
+.navbar--mobile .navbar__dropdown-item-desc {
+  font-size: .66rem;
+  opacity: .55;
+  transition: opacity .22s ease;
+}
+
+/* Cloud VPS — teal left accent bar fades in + label turns teal */
+.navbar--mobile .navbar__dropdown-menu li:first-child a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: .35rem;
+  bottom: .35rem;
+  width: 2px;
+  background: var(--color-teal-mid);
+  opacity: 0;
+  transition: opacity .22s ease;
+}
+
+.navbar--mobile .navbar__dropdown-menu li:first-child a:hover::before {
+  opacity: 1;
+}
+
+.navbar--mobile .navbar__dropdown-menu li:first-child a:hover .navbar__dropdown-item-label {
+  color: var(--color-teal-mid);
+}
+
+/* Dedicated Server — same teal left accent bar + teal label */
+.navbar--mobile .navbar__dropdown-menu li:last-child a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: .35rem;
+  bottom: .35rem;
+  width: 2px;
+  background: var(--color-teal-mid);
+  opacity: 0;
+  transition: opacity .22s ease;
+}
+
+.navbar--mobile .navbar__dropdown-menu li:last-child a:hover::before {
+  opacity: 1;
+}
+
+.navbar--mobile .navbar__dropdown-menu li:last-child a:hover .navbar__dropdown-item-label {
+  color: var(--color-teal-mid);
+}
+
+body.menu-open {
+  overflow: hidden;
 }

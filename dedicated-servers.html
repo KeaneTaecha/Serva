@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="css/navbar.css" />
   <link rel="stylesheet" href="css/catalog.css" />
   <link rel="stylesheet" href="css/cta.css" />
-  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/footer.css?v=2" />
   <link rel="stylesheet" href="css/responsive.css" />
 
   <style>
@@ -346,6 +346,8 @@
       letter-spacing: -.03em;
       line-height: 1.1;
       color: var(--color-beige);
+      padding-bottom: 0.3em;
+      margin-bottom: -0.3em;
     }
 
     .os-compat__sub {
@@ -540,6 +542,173 @@
       text-decoration-color: rgba(26, 26, 26, .38);
     }
   </style>
+
+  <!-- LINE Modal Styles -->
+  <style>
+    /* ── LINE Contact Modal ───────────────────────────────── */
+    .line-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .line-modal.is-open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .line-modal__backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      cursor: pointer;
+    }
+    .line-modal__card {
+      position: relative;
+      background: var(--color-dark);
+      border: 1px solid rgba(245, 240, 232, 0.12);
+      border-radius: 20px;
+      padding: 2.5rem 2rem 2rem;
+      max-width: 380px;
+      width: 100%;
+      text-align: center;
+      transform: translateY(24px) scale(0.96);
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+    }
+    .line-modal.is-open .line-modal__card {
+      transform: translateY(0) scale(1);
+    }
+    .line-modal__close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(245, 240, 232, 0.08);
+      border: none;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: rgba(245, 240, 232, 0.5);
+      transition: background 0.2s, color 0.2s;
+    }
+    .line-modal__close:hover {
+      background: rgba(245, 240, 232, 0.15);
+      color: var(--color-beige);
+    }
+    .line-modal__close svg {
+      width: 16px;
+      height: 16px;
+    }
+    .line-modal__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    .line-modal__icon img {
+      width: 72px;
+      height: 72px;
+    }
+    .line-modal__label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      color: rgba(245, 240, 232, 0.4);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .line-modal__heading {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-beige);
+      margin-bottom: 1.25rem;
+      line-height: 1.2;
+    }
+    .line-modal__id-box {
+      background: rgba(42, 128, 128, 0.12);
+      border: 1px solid rgba(42, 128, 128, 0.35);
+      border-radius: 10px;
+      padding: 0.9rem 1.25rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+    }
+    .line-modal__id {
+      font-family: var(--font-mono);
+      font-size: 1.45rem;
+      font-weight: 500;
+      color: var(--color-teal-mid);
+      letter-spacing: 0.04em;
+    }
+    .line-modal__sub {
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      color: rgba(245, 240, 232, 0.38);
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+    .line-modal__actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    .line-modal__copy {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      padding: 0.75rem 1.25rem;
+      border-radius: 8px;
+      border: 1px solid rgba(245, 240, 232, 0.18);
+      background: transparent;
+      color: var(--color-beige);
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+    .line-modal__copy:hover {
+      background: rgba(245, 240, 232, 0.08);
+      border-color: rgba(245, 240, 232, 0.35);
+    }
+    .line-modal__copy.copied {
+      border-color: #00B900;
+      color: #00B900;
+    }
+    .line-modal__open-btn {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      padding: 0.75rem 1.25rem;
+      border-radius: 8px;
+      border: none;
+      background: #00B900;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .line-modal__open-btn:hover {
+      background: #00a000;
+      transform: translateY(-1px);
+    }
+    .line-modal__divider {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: rgba(245, 240, 232, 0.2);
+      letter-spacing: 0.08em;
+    }
+  </style>
 </head>
 <body>
 
@@ -549,7 +718,7 @@
       <img src="assets/images/logo.png" alt="Serva" class="navbar__logo-img" />
     </a>
     <nav aria-label="Main navigation">
-      <ul class="navbar__links">
+      <ul class="navbar__links" id="navLinks">
         <li class="navbar__dropdown">
           <a href="#" class="navbar__dropdown-trigger">products</a>
           <ul class="navbar__dropdown-menu">
@@ -569,13 +738,18 @@
         <li>
           <button class="lang-btn" id="langBtn" aria-label="Toggle language">
             <span class="lang-opt is-active" data-l="en">EN</span>
-            <span class="lang-sep" aria-hidden="true">·</span>
+
             <span class="lang-opt" data-l="th">ไทย</span>
           </button>
         </li>
         <li><a href="index.html#contact" class="navbar__cta">start project →</a></li>
       </ul>
     </nav>
+    <button class="navbar__burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </header>
 
   <!-- ── Breadcrumb ──────────────────────────────────────── -->
@@ -866,7 +1040,7 @@
     <section class="cta" id="contact">
       <div class="cta__left reveal">
         <h2 class="cta__heading" data-i18n="ded.cta.heading">
-          Let's scope your cluster.
+          Get your dedicated server.
         </h2>
       </div>
       <div class="cta__right reveal">
@@ -883,7 +1057,7 @@
   <footer class="footer">
     <div class="footer__top">
       <div>
-        <p class="footer__brand">Serva</p>
+        <img src="assets/images/logo.png" alt="Serva" class="footer__brand-logo" />
         <p class="footer__statement" data-i18n="ded.footer.statement">Built for teams that demand precision.</p>
         <p class="footer__tagline">// servers and services</p>
       </div>
@@ -1045,7 +1219,7 @@
           'ded.os.heading':        'Supported operating systems.',
           'ded.os.sub':            'Choose at provisioning — your server arrives pre-installed, hardened, and ready to SSH into.',
           'ded.cta.label':         'ready to train',
-          'ded.cta.heading':       "Let's scope your cluster.",
+          'ded.cta.heading':       "Get your dedicated server.",
           'ded.cta.email':         'or email <a href="mailto:hello@serva.io">hello@serva.io</a>',
           'ded.footer.statement':  'Built for teams that demand precision.',
           'ded.footer.col1.title': 'products',
@@ -1148,6 +1322,84 @@
       }
     })();
   </script>
+
+  <!-- ── LINE Contact Modal ──────────────────────────────── -->
+  <div class="line-modal" id="lineModal" role="dialog" aria-modal="true" aria-labelledby="lineModalHeading">
+    <div class="line-modal__backdrop" id="lineModalBackdrop"></div>
+    <div class="line-modal__card">
+
+      <button class="line-modal__close" id="lineModalClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+
+      <div class="line-modal__icon">
+        <img src="assets/images/LINE_Icon.png" alt="LINE" />
+      </div>
+
+      <p class="line-modal__label">get in touch</p>
+      <h2 class="line-modal__heading" id="lineModalHeading">Add us on LINE</h2>
+
+      <div class="line-modal__id-box">
+        <span class="line-modal__id">@serva</span>
+      </div>
+
+      <p class="line-modal__sub">We'll get back to you within 24 hours.</p>
+
+      <div class="line-modal__actions">
+        <a href="https://line.me/R/ti/p/@serva" target="_blank" rel="noopener" class="line-modal__open-btn">Open in LINE →</a>
+        <span class="line-modal__divider">or</span>
+        <button class="line-modal__copy" id="lineCopyBtn">Copy LINE ID</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const modal    = document.getElementById('lineModal');
+      const backdrop = document.getElementById('lineModalBackdrop');
+      const closeBtn = document.getElementById('lineModalClose');
+      const copyBtn  = document.getElementById('lineCopyBtn');
+
+      function openModal(e) {
+        if (e) e.preventDefault();
+        modal.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeModal() {
+        modal.classList.remove('is-open');
+        document.body.style.overflow = '';
+        copyBtn.textContent = 'Copy LINE ID';
+        copyBtn.classList.remove('copied');
+      }
+
+      document.querySelectorAll('.server-card__cta').forEach(function (btn) {
+        btn.addEventListener('click', openModal);
+      });
+
+      backdrop.addEventListener('click', closeModal);
+      closeBtn.addEventListener('click', closeModal);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeModal();
+      });
+
+      copyBtn.addEventListener('click', function () {
+        navigator.clipboard.writeText('@serva').then(function () {
+          copyBtn.textContent = 'Copied!';
+          copyBtn.classList.add('copied');
+          setTimeout(function () {
+            copyBtn.textContent = 'Copy LINE ID';
+            copyBtn.classList.remove('copied');
+          }, 2000);
+        }).catch(function () {
+          copyBtn.textContent = '@serva';
+        });
+      });
+    })();
+  </script>
+  <script src="js/nav.js"></script>
 
 </body>
 </html>

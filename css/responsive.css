@@ -119,11 +119,6 @@
     display: none;
   }
 
-  /* Navbar */
-  .navbar {
-    padding: 1.2rem 2rem;
-  }
-
   /* Hero */
   .hero {
     padding: 0 2rem 4.5rem;
@@ -254,13 +249,52 @@
     font-size: .7rem;
   }
 
-  .navbar__links {
-    display: none;
-  }
-
   .footer__nav {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 1rem;
+  }
+}
+
+/* ── Extra small (≤ 400px) ──────────────────────────────── */
+@media (max-width: 400px) {
+  .navbar {
+    padding: 1rem 1.25rem;
+  }
+
+  .hero {
+    padding: 0 1.25rem 3.5rem;
+  }
+
+  .catalog,
+  .why,
+  .offerings,
+  .services,
+  .process {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .footer {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  /* Page heroes (dedicated-servers, cloud-vps) */
+  .page-hero {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  /* Services page hero */
+  .svc-hero {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  /* About hero */
+  .about-hero {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
   }
 }

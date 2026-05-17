@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="css/about.css" />
   <link rel="stylesheet" href="css/services.css" />
   <link rel="stylesheet" href="css/cta.css" />
-  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/footer.css?v=2" />
   <link rel="stylesheet" href="css/responsive.css" />
 </head>
 <body>
@@ -30,7 +30,7 @@
       <img src="assets/images/logo.png" alt="Serva" class="navbar__logo-img" />
     </a>
     <nav aria-label="Main navigation">
-      <ul class="navbar__links">
+      <ul class="navbar__links" id="navLinks">
         <li class="navbar__dropdown">
           <a href="index.html#renting" class="navbar__dropdown-trigger">products</a>
           <ul class="navbar__dropdown-menu">
@@ -50,13 +50,18 @@
         <li>
           <button class="lang-btn" id="langBtn" aria-label="Toggle language">
             <span class="lang-opt is-active" data-l="en">EN</span>
-            <span class="lang-sep" aria-hidden="true">·</span>
+
             <span class="lang-opt" data-l="th">ไทย</span>
           </button>
         </li>
         <li><a href="index.html#contact" class="navbar__cta">start project →</a></li>
       </ul>
     </nav>
+    <button class="navbar__burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </header>
 
   <main>
@@ -168,7 +173,7 @@
     <section class="cta" id="contact">
       <div class="cta__left reveal">
         <h2 class="cta__heading" data-i18n="cta.heading">
-          Let's scope your next project.
+          Get in touch.
         </h2>
       </div>
       <div class="cta__right reveal">
@@ -185,7 +190,7 @@
   <footer class="footer">
     <div class="footer__top">
       <div>
-        <p class="footer__brand">Serva</p>
+        <img src="assets/images/logo.png" alt="Serva" class="footer__brand-logo" />
         <p class="footer__statement" data-i18n="footer.statement">Built for teams that demand precision.</p>
         <p class="footer__tagline">// servers and services</p>
       </div>
@@ -218,6 +223,7 @@
   </footer>
 
   <script src="js/about.js"></script>
+  <script src="js/nav.js"></script>
 
 </body>
 </html>

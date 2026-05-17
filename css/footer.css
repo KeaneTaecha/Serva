@@ -17,11 +17,18 @@
   border-bottom: 1px solid var(--border-light);
 }
 
-.footer__brand {
-  font-family: var(--font-display);
-  font-size: 1.45rem;
-  font-weight: 700;
-  letter-spacing: .04em;
+.footer__brand-logo {
+  height: 2rem;
+  width: auto;
+  display: block;
+  filter: brightness(0) invert(1);
+  opacity: 0.75;
+  transition: opacity .2s;
+  margin-left: -0.1rem;
+}
+
+.footer__brand-logo:hover {
+  opacity: 1;
 }
 
 .footer__statement {
