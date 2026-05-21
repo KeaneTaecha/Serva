@@ -117,7 +117,7 @@ if ('IntersectionObserver' in window) {
     }
   };
 
-  let currentLang = 'en';
+  let currentLang = 'th';
 
   function applyLang(lang) {
     currentLang = lang;
@@ -150,6 +150,8 @@ if ('IntersectionObserver' in window) {
 
   try {
     const saved = localStorage.getItem('serva-lang');
-    if (saved && saved !== 'en') applyLang(saved);
-  } catch (e) {}
+    applyLang(saved || 'th');
+  } catch (e) {
+    applyLang('th');
+  }
 })();

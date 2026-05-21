@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -790,9 +790,9 @@
         <li><a href="index.html#contact">contact</a></li>
         <li>
           <button class="lang-btn" id="langBtn" aria-label="Toggle language">
-            <span class="lang-opt is-active" data-l="en">EN</span>
+            <span class="lang-opt" data-l="en">EN</span>
 
-            <span class="lang-opt" data-l="th">ไทย</span>
+            <span class="lang-opt is-active" data-l="th">ไทย</span>
           </button>
         </li>
         <li><a href="index.html#contact" class="navbar__cta">start project →</a></li>
@@ -1340,7 +1340,7 @@
         }
       };
 
-      var currentLang = 'en';
+      var currentLang = 'th';
 
       function applyLang(lang) {
         currentLang = lang;
@@ -1370,8 +1370,10 @@
 
       try {
         var saved = localStorage.getItem('serva-lang');
-        if (saved && saved !== 'en') applyLang(saved);
-      } catch (e) {}
+        applyLang(saved || 'th');
+      } catch (e) {
+        applyLang('th');
+      }
     })();
 
     /* ── Scroll reveal ───────────────────────────────────── */

@@ -212,7 +212,7 @@ if ('IntersectionObserver' in window) {
     }
   };
 
-  let currentLang = 'en';
+  let currentLang = 'th';
 
   function applyLang(lang) {
     currentLang = lang;
@@ -250,8 +250,10 @@ if ('IntersectionObserver' in window) {
   // Restore preference on load
   try {
     var saved = localStorage.getItem('serva-lang');
-    if (saved && saved !== 'en') applyLang(saved);
-  } catch (e) {}
+    applyLang(saved || 'th');
+  } catch (e) {
+    applyLang('th');
+  }
 })();
 
 /* ── Hero Stats: Count-up animation ────────────────────── */
