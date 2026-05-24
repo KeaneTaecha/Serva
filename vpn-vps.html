@@ -1187,7 +1187,7 @@
             <span class="lang-opt is-active" data-l="th">ไทย</span>
           </button>
         </li>
-        <li><a href="index.html#contact" class="navbar__cta">start project →</a></li>
+        <li id="navAuthItem"><a href="login.html" class="navbar__cta" id="navAuthBtn">login →</a></li>
       </ul>
     </nav>
     <button class="navbar__burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false">
@@ -1688,10 +1688,10 @@
         </h2>
       </div>
       <div class="cta__right reveal">
-        <a href="mailto:hello@serva.io" class="btn btn--outline">
+        <a href="mailto:hello@serva.services" class="btn btn--outline">
           get in touch →
         </a>
-        <p class="cta__email" data-i18n="vpn.cta.email" data-i18n-html>or email <a href="mailto:hello@serva.io">hello@serva.io</a></p>
+        <p class="cta__email" data-i18n="vpn.cta.email" data-i18n-html>or email <a href="mailto:hello@serva.services">hello@serva.services</a></p>
       </div>
     </section>
 
@@ -1898,7 +1898,7 @@
           'vpn.os.heading':        'Supported operating systems.',
           'vpn.os.sub':            'Choose at provisioning — arrives pre-installed and ready to run your VPN stack.',
           'vpn.cta.heading':       'Get your VPN server.',
-          'vpn.cta.email':         'or email <a href="mailto:hello@serva.io">hello@serva.io</a>',
+          'vpn.cta.email':         'or email <a href="mailto:hello@serva.services">hello@serva.services</a>',
           'vpn.footer.statement':  'Built for teams that demand precision.',
           'vpn.footer.col1.title': 'products',
           'vpn.footer.col2.title': 'company',
@@ -1960,7 +1960,7 @@
           'vpn.os.heading':        'ระบบปฏิบัติการที่รองรับ',
           'vpn.os.sub':            'เลือกตอน provisioning — มาพร้อม pre-installed และพร้อมรัน VPN stack ของคุณ',
           'vpn.cta.heading':       'รับ VPN server ของคุณ.',
-          'vpn.cta.email':         'หรือส่งอีเมลมาที่ <a href="mailto:hello@serva.io">hello@serva.io</a>',
+          'vpn.cta.email':         'หรือส่งอีเมลมาที่ <a href="mailto:hello@serva.services">hello@serva.services</a>',
           'vpn.footer.statement':  'สร้างขึ้นสำหรับทีมที่ไม่ยอมลดมาตรฐาน.',
           'vpn.footer.col1.title': 'สินค้า',
           'vpn.footer.col2.title': 'บริษัท',
@@ -2221,6 +2221,8 @@
     })();
   </script>
   <script src="js/nav.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/auth.js"></script>
 
 </body>
 </html>

@@ -799,7 +799,7 @@
             <span class="lang-opt is-active" data-l="th">ไทย</span>
           </button>
         </li>
-        <li><a href="index.html#contact" class="navbar__cta">start project →</a></li>
+        <li id="navAuthItem"><a href="login.html" class="navbar__cta" id="navAuthBtn">login →</a></li>
       </ul>
     </nav>
     <button class="navbar__burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false">
@@ -1118,10 +1118,10 @@
         </h2>
       </div>
       <div class="cta__right reveal">
-        <a href="mailto:hello@serva.io" class="btn btn--outline">
+        <a href="mailto:hello@serva.services" class="btn btn--outline">
           get in touch →
         </a>
-        <p class="cta__email" data-i18n="ded.cta.email" data-i18n-html>or email <a href="mailto:hello@serva.io">hello@serva.io</a></p>
+        <p class="cta__email" data-i18n="ded.cta.email" data-i18n-html>or email <a href="mailto:hello@serva.services">hello@serva.services</a></p>
       </div>
     </section>
 
@@ -1296,7 +1296,7 @@
           'ded.os.sub':            'Choose at provisioning — your server arrives pre-installed, hardened, and ready to SSH into.',
           'ded.cta.label':         'ready to train',
           'ded.cta.heading':       "Get your dedicated server.",
-          'ded.cta.email':         'or email <a href="mailto:hello@serva.io">hello@serva.io</a>',
+          'ded.cta.email':         'or email <a href="mailto:hello@serva.services">hello@serva.services</a>',
           'ded.footer.statement':  'Built for teams that demand precision.',
           'ded.footer.col1.title': 'products',
           'ded.footer.col2.title': 'company',
@@ -1333,7 +1333,7 @@
           'ded.os.sub':            'เลือกตอน provisioning — server ของคุณมาพร้อม pre-installed, hardened และพร้อม SSH ภายในไม่กี่นาที',
           'ded.cta.label':         'พร้อมเริ่มฝึกโมเดลแล้ว',
           'ded.cta.heading':       'รับ Dedicated Server ของคุณ.',
-          'ded.cta.email':         'หรือส่งอีเมลมาที่ <a href="mailto:hello@serva.io">hello@serva.io</a>',
+          'ded.cta.email':         'หรือส่งอีเมลมาที่ <a href="mailto:hello@serva.services">hello@serva.services</a>',
           'ded.footer.statement':  'สร้างขึ้นสำหรับทีมที่ไม่ยอมลดมาตรฐาน.',
           'ded.footer.col1.title': 'สินค้า',
           'ded.footer.col2.title': 'บริษัท',
@@ -1482,6 +1482,8 @@
     })();
   </script>
   <script src="js/nav.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/auth.js"></script>
 
 </body>
 </html>

@@ -60,7 +60,7 @@
             <span class="lang-opt is-active" data-l="th">ไทย</span>
           </button>
         </li>
-        <li><a href="#contact" class="navbar__cta">start project →</a></li>
+        <li id="navAuthItem"><a href="login.html" class="navbar__cta" id="navAuthBtn">login →</a></li>
       </ul>
     </nav>
     <button class="navbar__burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false">
@@ -83,14 +83,14 @@
           <img src="assets/images/server.png" alt="Serva dedicated server hardware" class="hero__server-img" />
           <div class="hero__price-badge fade fade--d3">
             <span class="hero__price-badge-label">rent from</span>
-            <span class="hero__price-badge-value">฿297<span class="hero__price-badge-unit">/mo</span></span>
+            <span class="hero__price-badge-value">฿147<span class="hero__price-badge-unit">/mo</span></span>
           </div>
         </div>
       </div>
 
       <div class="hero__content">
         <h1 class="hero__heading fade fade--d2" data-i18n="hero.heading" data-i18n-html>
-          Yours to rent,<br>from <span class="accent">฿297</span>/mo.
+          Yours to rent,<br>from <span class="accent">฿147</span>/mo.
         </h1>
 
         <div class="hero__stats fade fade--d3" aria-label="Key statistics">
@@ -318,10 +318,10 @@
         </h2>
       </div>
       <div class="cta__right reveal">
-        <a href="mailto:hello@serva.io" class="btn btn--outline">
+        <a href="mailto:hello@serva.services" class="btn btn--outline">
           get in touch →
         </a>
-        <p class="cta__email" data-i18n="cta.email" data-i18n-html>or email <a href="mailto:hello@serva.io">hello@serva.io</a></p>
+        <p class="cta__email" data-i18n="cta.email" data-i18n-html>or email <a href="mailto:hello@serva.services">hello@serva.services</a></p>
       </div>
     </section>
 
@@ -365,6 +365,8 @@
 
   <script src="js/main.js"></script>
   <script src="js/nav.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/auth.js"></script>
 
 </body>
 </html>
