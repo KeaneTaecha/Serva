@@ -971,6 +971,23 @@
       text-transform: uppercase;
       color: rgba(26, 26, 26, .45);
     }
+
+    @media (max-width: 600px) {
+      .promo-banner {
+        flex-wrap: wrap;
+        gap: .5rem 1.5rem;
+        padding: .75rem 1rem;
+      }
+      .promo-banner__label {
+        flex-basis: 100%;
+      }
+      .promo-banner__sep {
+        display: none;
+      }
+      .promo-banner__pct {
+        font-size: 1.35rem;
+      }
+    }
   </style>
 
   <!-- LINE Modal Styles -->
