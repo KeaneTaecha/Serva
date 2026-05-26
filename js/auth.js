@@ -1,12 +1,14 @@
 /* ── Supabase Auth ───────────────────────────────────────── */
 
-var SUPABASE_URL  = 'https://nbxgarxjcnubyabbkbos.supabase.co';
-var SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5ieGdhcnhqY251YnlhYmJrYm9zIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk2MTAwNDUsImV4cCI6MjA5NTE4NjA0NX0.PRzSCrsrXIGqlee4M592Kof6xl71KN3p8EZftYzPQcM';
+import { createClient } from '@supabase/supabase-js';
 
-var supabaseClient = null;
-if (SUPABASE_URL && SUPABASE_ANON) {
-  supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
-}
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+const supabaseClient =
+  supabaseUrl && supabaseAnonKey
+    ? createClient(supabaseUrl, supabaseAnonKey)
+    : null;
 
 /* ── Login page translations ─────────────────────────────── */
 var loginTranslations = {
@@ -173,7 +175,7 @@ function updateNavAuth(session) {
 })();
 
 /* ── Login page logic ────────────────────────────────────── */
-function initLoginPage() {
+export function initLoginPage() {
   var form                 = document.getElementById('loginForm');
   var emailBtn             = document.getElementById('btnEmailLogin');
   var googleBtn            = document.getElementById('btnGoogle');
@@ -191,7 +193,7 @@ function initLoginPage() {
   if (!form) return;
 
   if (!supabaseClient) {
-    errorEl.textContent = 'Auth not configured — add Supabase credentials to auth.js.';
+    errorEl.textContent = 'Auth not configured — add Supabase credentials to .env.';
     errorEl.classList.add('is-visible');
     emailBtn.disabled = true;
     googleBtn.disabled = true;
