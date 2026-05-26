@@ -293,11 +293,23 @@
         <li><a href="about.html">about</a></li>
         <li><a href="index.html#contact">contact</a></li>
         <li>
-          <button class="lang-btn" id="langBtn" aria-label="Toggle language">
-            <span class="lang-opt" data-l="en">EN</span>
-
-            <span class="lang-opt is-active" data-l="th">ไทย</span>
-          </button>
+          <div class="lang-dropdown" id="langDropdown">
+            <button class="lang-trigger" id="langBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Select language">
+              <span class="lang-flag" id="langFlagEl">🇹🇭</span>
+              <span class="lang-code" id="langCodeEl">TH</span>
+              <span class="lang-chevron" aria-hidden="true">↓</span>
+            </button>
+            <ul class="lang-menu" id="langMenu" role="listbox">
+              <li class="lang-option" data-l="en" role="option" tabindex="-1">
+                <span class="lang-option__flag">🇬🇧</span>
+                <span class="lang-option__code">EN</span>
+              </li>
+              <li class="lang-option" data-l="th" role="option" tabindex="-1">
+                <span class="lang-option__flag">🇹🇭</span>
+                <span class="lang-option__code">TH</span>
+              </li>
+            </ul>
+          </div>
         </li>
         <li id="navAuthItem"><a href="login.html" class="navbar__cta" id="navAuthBtn">login →</a></li>
       </ul>

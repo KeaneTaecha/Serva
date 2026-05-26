@@ -95,3 +95,34 @@
     });
   }
 })();
+
+/* ── Language Dropdown ────────────────────────────────────── */
+(function () {
+  var langTrigger = document.getElementById('langBtn');
+  var langMenu    = document.getElementById('langMenu');
+  if (!langTrigger || !langMenu) return;
+
+  function closeLang() {
+    langMenu.classList.remove('is-open');
+    langTrigger.setAttribute('aria-expanded', 'false');
+  }
+
+  langTrigger.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = langMenu.classList.toggle('is-open');
+    langTrigger.setAttribute('aria-expanded', String(open));
+  });
+
+  langMenu.querySelectorAll('.lang-option').forEach(function (opt) {
+    opt.addEventListener('click', function (e) {
+      e.stopPropagation();
+      closeLang();
+      document.dispatchEvent(new CustomEvent('lang-select', { detail: { lang: opt.dataset.l } }));
+    });
+  });
+
+  document.addEventListener('click', closeLang);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeLang();
+  });
+})();

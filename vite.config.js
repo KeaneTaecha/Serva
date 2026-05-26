@@ -10,7 +10,6 @@ export default defineConfig({
         login: resolve(__dirname, 'login.html'),
         services: resolve(__dirname, 'services.html'),
         'cloud-vps': resolve(__dirname, 'cloud-vps.html'),
-        'vpn-vps': resolve(__dirname, 'vpn-vps.html'),
         'dedicated-servers': resolve(__dirname, 'dedicated-servers.html'),
       },
     },

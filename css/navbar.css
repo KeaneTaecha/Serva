@@ -53,6 +53,11 @@
   gap: 2.5rem;
 }
 
+.navbar__links > li {
+  display: flex;
+  align-items: center;
+}
+
 .navbar__links a {
   font-family: var(--font-mono);
   font-size: .87rem;
@@ -93,38 +98,119 @@
   border-color: var(--color-teal);
 }
 
-/* ── Language Toggle ────────────────────────────────────── */
-.lang-btn {
+/* ── Language Dropdown ──────────────────────────────────── */
+.lang-dropdown {
+  position: relative;
+}
+
+.lang-trigger {
   display: inline-flex;
   align-items: center;
-  gap: .75rem;
+  gap: .45rem;
   background: none;
   border: none;
   cursor: pointer;
   padding: 0;
-  vertical-align: middle;
-}
-
-.lang-opt {
   font-family: var(--font-mono);
-  font-size: .92rem;
+  font-size: .87rem;
   font-weight: 500;
   letter-spacing: .06em;
-  color: rgba(245, 240, 232, .45);
+  line-height: 1;
+  color: rgba(245, 240, 232, .65);
   transition: color .2s;
+}
+
+.lang-trigger:hover {
+  color: var(--color-beige);
+}
+
+.lang-flag {
+  font-size: 1.05rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+}
+
+.lang-code {
   line-height: 1;
 }
 
-.lang-opt.is-active {
+.lang-chevron {
+  font-size: .6rem;
+  opacity: .5;
+  line-height: 1;
+  transition: transform .25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+}
+
+.lang-trigger[aria-expanded="true"] .lang-chevron {
+  transform: rotate(180deg);
+}
+
+.lang-menu {
+  position: absolute;
+  top: calc(100% + .75rem);
+  right: 0;
+  min-width: 7rem;
+  background: var(--color-dark);
+  border: 1px solid var(--border-light);
+  list-style: none;
+  padding: .35rem 0;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity .18s ease, transform .18s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s .18s;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, .35);
+  z-index: 10;
+}
+
+.lang-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity .18s ease, transform .18s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s;
+}
+
+.lang-menu > .lang-option {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  padding: .65rem 1rem;
+  cursor: pointer;
+  list-style: none;
+  transition: background .15s, color .15s;
+}
+
+.lang-menu > .lang-option:not(:last-child) {
+  border-bottom: 1px solid var(--border-light);
+}
+
+.lang-menu > .lang-option:hover {
+  background: rgba(245, 240, 232, .06);
+}
+
+.lang-option__flag {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.lang-option__code {
+  font-family: var(--font-mono);
+  font-size: .83rem;
+  font-weight: 500;
+  letter-spacing: .05em;
+  color: rgba(245, 240, 232, .55);
+  transition: color .15s;
+}
+
+.lang-option:hover .lang-option__code {
+  color: var(--color-beige);
+}
+
+.lang-option.is-active .lang-option__code {
   color: var(--color-teal-mid);
-}
-
-.lang-opt:not(.is-active):hover {
-  color: rgba(245, 240, 232, .75);
-}
-
-.lang-sep {
-  display: none;
 }
 
 /* ── Products Dropdown ──────────────────────────────────── */
@@ -262,21 +348,40 @@
 }
 
 /* ── Light navbar overrides */
-.navbar--light .lang-opt {
-  color: rgba(26, 26, 26, .4);
+.navbar--light .lang-trigger {
+  color: rgba(26, 26, 26, .5);
 }
 
-.navbar--light .lang-opt.is-active {
-  color: var(--color-teal);
-}
-
-.navbar--light .lang-opt:not(.is-active):hover {
+.navbar--light .lang-trigger:hover {
   color: var(--color-dark);
+}
+
+.navbar--light .lang-menu {
+  background: var(--color-beige);
+  border-color: var(--border-dark);
+}
+
+.navbar--light .lang-option__code {
+  color: rgba(26, 26, 26, .5);
+}
+
+.navbar--light .lang-option:hover {
+  background: rgba(26, 26, 26, .06);
+}
+
+.navbar--light .lang-option:hover .lang-option__code {
+  color: var(--color-dark);
+}
+
+.navbar--light .lang-option.is-active .lang-option__code {
+  color: var(--color-teal);
 }
 
 /* ── Hamburger Button ───────────────────────────────────── */
 /* All visual properties live here so the icon always renders correctly.
-   display:none keeps it invisible on desktop; .navbar--mobile flips it to flex. */
+   display:none keeps it invisible on desktop; .navbar--mobile flips it to flex.
+   position:relative (not fixed) keeps the button inside the navbar's own stacking
+   context so z-index:9999 reliably wins over the overlay (z:200) on all browsers. */
 .navbar__burger {
   display: none;
   flex-direction: column;
@@ -291,9 +396,7 @@
   appearance: none;
   cursor: pointer;
   padding: .3rem;
-  position: fixed;
-  top: 1rem;
-  right: 2rem;
+  position: relative;
   z-index: 9999;
   flex-shrink: 0;
 }
@@ -395,13 +498,61 @@
   background: transparent;
 }
 
-.navbar--mobile .navbar__links .lang-btn {
-  padding: 1.1rem 0;
+/* Mobile overlay: show both lang options as a flat row — no nested dropdown */
+.navbar--mobile .navbar__links.is-open .lang-dropdown {
+  display: flex;
+  align-items: center;
   width: 100%;
+  padding: 1.1rem 0;
+}
+
+.navbar--mobile .navbar__links.is-open .lang-trigger {
+  display: none;
+}
+
+.navbar--mobile .navbar__links.is-open .lang-menu {
+  position: static;
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  transition: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 0;
+  min-width: 0;
+}
+
+.navbar--mobile .navbar__links.is-open .lang-option {
+  border: none;
+  padding: 0;
+  gap: .4rem;
+  align-items: center;
+}
+
+.navbar--mobile .navbar__links.is-open .lang-option__flag {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.navbar--mobile .navbar__links.is-open .lang-option__code {
+  font-size: .87rem;
+  line-height: 1;
 }
 
 .navbar--mobile .navbar__links .navbar__link--active::after {
   display: none;
+}
+
+/* Dropdown: stack trigger above submenu items */
+.navbar--mobile .navbar__dropdown {
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 /* Dropdown: remove hover zone and arrow — always expanded flat */
@@ -504,6 +655,12 @@
   color: var(--color-teal-mid);
 }
 
+/* Move the lang toggle to the top of the overlay so it's always visible
+   without scrolling, even on short screens (landscape orientation). */
+.navbar--mobile .navbar__links.is-open li:has(.lang-dropdown) {
+  order: -1;
+}
+
 body.menu-open {
   overflow: hidden;
 }
@@ -520,14 +677,25 @@ body.menu-open {
   background: none;
   border: 1px solid var(--border-light);
   cursor: pointer;
-  padding: .7rem 1.2rem .7rem .7rem;
+  padding: .7rem 1.2rem .7rem 1.1rem;
   color: rgba(245, 240, 232, .75);
-  transition: border-color .2s, color .2s;
+  transition: background .2s, border-color .2s, color .2s;
 }
 
 .nav-user__trigger:hover {
   border-color: rgba(245, 240, 232, .25);
   color: var(--color-beige);
+}
+
+.navbar--light .nav-user__trigger {
+  color: var(--color-teal);
+  border-color: var(--color-teal);
+}
+
+.navbar--light .nav-user__trigger:hover {
+  background: var(--color-teal);
+  color: var(--color-beige);
+  border-color: var(--color-teal);
 }
 
 .nav-user__avatar {
@@ -646,7 +814,7 @@ body.menu-open {
 .navbar--mobile .nav-user__trigger {
   width: 100%;
   border: none;
-  padding: 1.1rem 0;
+  padding: 1.1rem 0 1.1rem .45rem;
   gap: .65rem;
 }
 

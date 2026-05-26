@@ -1184,10 +1184,6 @@
               <span class="navbar__dropdown-item-label">Cloud VPS</span>
               <span class="navbar__dropdown-item-desc">CPU-optimised bare-metal</span>
             </a></li>
-            <li><a href="vpn-vps.html">
-              <span class="navbar__dropdown-item-label">VPS for VPN</span>
-              <span class="navbar__dropdown-item-desc">Private encrypted servers</span>
-            </a></li>
             <li><a href="dedicated-servers.html">
               <span class="navbar__dropdown-item-label">Dedicated Servers</span>
               <span class="navbar__dropdown-item-desc">GPU-accelerated clusters</span>
@@ -1198,11 +1194,23 @@
         <li><a href="about.html">about</a></li>
         <li><a href="index.html#contact">contact</a></li>
         <li>
-          <button class="lang-btn" id="langBtn" aria-label="Toggle language">
-            <span class="lang-opt" data-l="en">EN</span>
-
-            <span class="lang-opt is-active" data-l="th">ไทย</span>
-          </button>
+          <div class="lang-dropdown" id="langDropdown">
+            <button class="lang-trigger" id="langBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Select language">
+              <span class="lang-flag" id="langFlagEl">🇹🇭</span>
+              <span class="lang-code" id="langCodeEl">TH</span>
+              <span class="lang-chevron" aria-hidden="true">↓</span>
+            </button>
+            <ul class="lang-menu" id="langMenu" role="listbox">
+              <li class="lang-option" data-l="en" role="option" tabindex="-1">
+                <span class="lang-option__flag">🇬🇧</span>
+                <span class="lang-option__code">EN</span>
+              </li>
+              <li class="lang-option" data-l="th" role="option" tabindex="-1">
+                <span class="lang-option__flag">🇹🇭</span>
+                <span class="lang-option__code">TH</span>
+              </li>
+            </ul>
+          </div>
         </li>
         <li id="navAuthItem"><a href="login.html" class="navbar__cta" id="navAuthBtn">login →</a></li>
       </ul>
@@ -2042,19 +2050,22 @@
             el.textContent = text;
           }
         });
-        document.querySelectorAll('.lang-opt').forEach(function (opt) {
+        document.querySelectorAll('.lang-option').forEach(function (opt) {
           opt.classList.toggle('is-active', opt.dataset.l === lang);
         });
+        var flagMap = { en: '🇬🇧', th: '🇹🇭' };
+        var codeMap = { en: 'EN', th: 'TH' };
+        var flagEl = document.getElementById('langFlagEl');
+        var codeEl = document.getElementById('langCodeEl');
+        if (flagEl) flagEl.textContent = flagMap[lang] || '';
+        if (codeEl) codeEl.textContent = codeMap[lang] || lang.toUpperCase();
         if (typeof window._servaApplyPeriod === 'function') window._servaApplyPeriod();
         try { localStorage.setItem('serva-lang', lang); } catch (e) {}
       }
 
-      var btn = document.getElementById('langBtn');
-      if (btn) {
-        btn.addEventListener('click', function () {
-          applyLang(currentLang === 'en' ? 'th' : 'en');
-        });
-      }
+      document.addEventListener('lang-select', function (e) {
+        applyLang(e.detail.lang);
+      });
 
       try {
         var saved = localStorage.getItem('serva-lang');

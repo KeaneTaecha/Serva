@@ -134,19 +134,23 @@ if ('IntersectionObserver' in window) {
       }
     });
 
-    document.querySelectorAll('.lang-opt').forEach(function (opt) {
+    document.querySelectorAll('.lang-option').forEach(function (opt) {
       opt.classList.toggle('is-active', opt.dataset.l === lang);
     });
+
+    const flagMap = { en: '🇬🇧', th: '🇹🇭' };
+    const codeMap = { en: 'EN', th: 'TH' };
+    const flagEl = document.getElementById('langFlagEl');
+    const codeEl = document.getElementById('langCodeEl');
+    if (flagEl) flagEl.textContent = flagMap[lang] || '';
+    if (codeEl) codeEl.textContent = codeMap[lang] || lang.toUpperCase();
 
     try { localStorage.setItem('serva-lang', lang); } catch (e) {}
   }
 
-  const btn = document.getElementById('langBtn');
-  if (btn) {
-    btn.addEventListener('click', function () {
-      applyLang(currentLang === 'en' ? 'th' : 'en');
-    });
-  }
+  document.addEventListener('lang-select', function (e) {
+    applyLang(e.detail.lang);
+  });
 
   try {
     const saved = localStorage.getItem('serva-lang');

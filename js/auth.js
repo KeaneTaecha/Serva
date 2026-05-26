@@ -118,14 +118,13 @@ function updateNavAuth(session) {
       '<div class="nav-user">' +
         '<button class="nav-user__trigger" id="navUserTrigger" aria-haspopup="true" aria-expanded="false">' +
           (avatar
-            ? '<img class="nav-user__avatar" src="' + avatar + '" alt="' + first + '" />'
+            ? '<img class="nav-user__avatar" src="' + avatar + '" alt="' + first + '" referrerpolicy="no-referrer" />'
             : '<span class="nav-user__avatar nav-user__avatar--fallback">' + first.charAt(0).toUpperCase() + '</span>') +
           '<span class="nav-user__name">' + first + '</span>' +
           '<span class="nav-user__chevron" aria-hidden="true">↓</span>' +
         '</button>' +
         '<div class="nav-user__menu" id="navUserMenu">' +
           '<div class="nav-user__info">' +
-            (avatar ? '<img class="nav-user__menu-avatar" src="' + avatar + '" alt="' + first + '" />' : '') +
             '<span class="nav-user__email">' + session.user.email + '</span>' +
           '</div>' +
           '<button class="nav-user__signout" id="navUserSignout">sign out</button>' +

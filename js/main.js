@@ -92,8 +92,8 @@ if ('IntersectionObserver' in window) {
       'why.item3.desc':     "Our servers are deployed in JasTel's data center in Thailand.",
       'why.item4.title':    'GPU Available',
       'why.item4.desc':     'NVIDIA GPU hardware on-demand for AI training, inference, and high-throughput compute workloads.',
-      'why.item5.title':    'Customer Support',
-      'why.item5.desc':     'Dedicated team ready to assist with provisioning, troubleshooting, and ongoing project needs.',
+      'why.item5.title':    'Datacenter Support',
+      'why.item5.desc':     'Our datacenter partner provides infrastructure-level support — handling hardware issues, connectivity, and facility uptime around the clock.',
       'why.item6.title':    'Stable Network',
       'why.item6.desc':     'Enterprise-grade connectivity with consistent bandwidth, minimal packet loss, and low-latency routing.',
       'offerings.heading':  'Everything<br>on offer.',
@@ -170,8 +170,8 @@ if ('IntersectionObserver' in window) {
       'why.item3.desc':     'เซิร์ฟเวอร์ของเราติดตั้งอยู่ใน data center ของ JasTel ในประเทศไทย',
       'why.item4.title':    'GPU พร้อมใช้งาน',
       'why.item4.desc':     'NVIDIA GPU on-demand สำหรับการฝึก AI, inference และ compute workload ปริมาณสูง',
-      'why.item5.title':    'Customer Support',
-      'why.item5.desc':     'ทีมงานพร้อมช่วยเหลือด้านการ provision, troubleshooting และความต้องการของโปรเจกต์อย่างต่อเนื่อง',
+      'why.item5.title':    'Datacenter Support',
+      'why.item5.desc':     'ดาต้าเซ็นเตอร์ของเราให้การสนับสนุนระดับโครงสร้างพื้นฐาน — ดูแลปัญหา hardware การเชื่อมต่อ และ uptime ของศูนย์ข้อมูลตลอด 24 ชั่วโมง',
       'why.item6.title':    'Network ที่เสถียร',
       'why.item6.desc':     'การเชื่อมต่อระดับ enterprise ด้วย bandwidth สม่ำเสมอ packet loss น้อย และ routing latency ต่ำ',
       'offerings.heading':  'ทุกสิ่ง<br>ที่เรามี.',
@@ -230,22 +230,27 @@ if ('IntersectionObserver' in window) {
       }
     });
 
-    // Update toggle button indicators
-    document.querySelectorAll('.lang-opt').forEach(function (opt) {
+    // Update dropdown option active states
+    document.querySelectorAll('.lang-option').forEach(function (opt) {
       opt.classList.toggle('is-active', opt.dataset.l === lang);
     });
+
+    // Sync the trigger button label + flag
+    var flagMap = { en: '🇬🇧', th: '🇹🇭' };
+    var codeMap = { en: 'EN', th: 'TH' };
+    var flagEl = document.getElementById('langFlagEl');
+    var codeEl = document.getElementById('langCodeEl');
+    if (flagEl) flagEl.textContent = flagMap[lang] || '';
+    if (codeEl) codeEl.textContent = codeMap[lang] || lang.toUpperCase();
 
     // Persist preference
     try { localStorage.setItem('serva-lang', lang); } catch (e) {}
   }
 
-  // Button handler
-  var btn = document.getElementById('langBtn');
-  if (btn) {
-    btn.addEventListener('click', function () {
-      applyLang(currentLang === 'en' ? 'th' : 'en');
-    });
-  }
+  // Listen for selection from the nav dropdown (nav.js dispatches this)
+  document.addEventListener('lang-select', function (e) {
+    applyLang(e.detail.lang);
+  });
 
   // Restore preference on load
   try {
