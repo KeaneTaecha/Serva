@@ -146,7 +146,8 @@ a {
   }
 }
 
-:lang(th) .section-title {
+:lang(th) .section-title,
+:lang(th) .os-compat__heading {
   line-height: 1.45;
 }
 
