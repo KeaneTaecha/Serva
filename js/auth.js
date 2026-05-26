@@ -7,8 +7,18 @@ const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 const supabaseClient =
   supabaseUrl && supabaseAnonKey
-    ? createClient(supabaseUrl, supabaseAnonKey)
+    ? createClient(supabaseUrl, supabaseAnonKey, {
+        auth: {
+          flowType: 'pkce',
+          detectSessionInUrl: true,
+        },
+      })
     : null;
+
+/* OAuth callback target — must match Supabase Auth → URL Configuration */
+function getAuthRedirectUrl() {
+  return window.location.origin + '/';
+}
 
 /* ── Login page translations ─────────────────────────────── */
 var loginTranslations = {
@@ -283,7 +293,7 @@ export function initLoginPage() {
   /* Redirect away if already logged in */
   supabaseClient.auth.getSession().then(function (result) {
     if (result.data.session) {
-      window.location.href = 'index.html';
+      window.location.href = getAuthRedirectUrl();
     }
   });
 
@@ -317,7 +327,7 @@ export function initLoginPage() {
             showError(t('login.err.exists'));
             setLoading(false);
           } else if (result.data.user && result.data.session) {
-            window.location.href = 'index.html';
+            window.location.href = getAuthRedirectUrl();
           } else {
             showSuccess(t('login.success.confirm'));
             setLoading(false);
@@ -330,7 +340,7 @@ export function initLoginPage() {
             showError(result.error.message);
             setLoading(false);
           } else {
-            window.location.href = 'index.html';
+            window.location.href = getAuthRedirectUrl();
           }
         });
     }
@@ -344,7 +354,7 @@ export function initLoginPage() {
     supabaseClient.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: window.location.origin + '/index.html'
+        redirectTo: getAuthRedirectUrl(),
       }
     }).then(function (result) {
       if (result.error) {
