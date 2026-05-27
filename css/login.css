@@ -136,9 +136,51 @@
   color: var(--color-teal-mid);
 }
 
-.login-error.is-visible,
-.login-success.is-visible {
+.login-error.is-visible {
   display: block;
+}
+
+.login-success.is-visible {
+  display: flex;
+  align-items: flex-start;
+  gap: .65rem;
+  background: rgba(77, 182, 172, .1);
+  border: 1px solid rgba(77, 182, 172, .35);
+  color: var(--color-teal-mid);
+  font-size: .82rem;
+  padding: .85rem 1rem;
+  line-height: 1.5;
+}
+
+.login-success.is-visible::before {
+  content: '✓';
+  font-size: 1rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: .05rem;
+}
+
+.btn-resend {
+  background: none;
+  border: 1px solid rgba(77, 182, 172, .35);
+  color: var(--color-teal-mid);
+  font-family: var(--font-mono);
+  font-size: .78rem;
+  letter-spacing: .05em;
+  padding: .55rem 1rem;
+  cursor: pointer;
+  transition: background .2s, border-color .2s;
+  width: 100%;
+}
+
+.btn-resend:hover {
+  background: rgba(77, 182, 172, .08);
+  border-color: rgba(77, 182, 172, .6);
+}
+
+.btn-resend:disabled {
+  opacity: .5;
+  cursor: not-allowed;
 }
 
 .login-toggle {

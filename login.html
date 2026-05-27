@@ -44,6 +44,17 @@
         />
       </div>
 
+      <div class="login-field" id="usernameField" style="display:none;">
+        <label for="username" data-i18n="login.label.username">ชื่อผู้ใช้</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="your_username"
+          autocomplete="username"
+        />
+      </div>
+
       <div class="login-field">
         <label for="password" data-i18n="login.label.password">รหัสผ่าน</label>
         <input
@@ -69,6 +80,7 @@
 
       <p class="login-error" id="loginError" role="alert"></p>
       <p class="login-success" id="loginSuccess" role="status"></p>
+      <button type="button" class="btn-resend" id="btnResend" style="display:none;" data-i18n="login.btn.resend">resend email</button>
 
       <button type="submit" class="btn-login" id="btnEmailLogin" data-i18n="login.btn.signin">เข้าสู่ระบบ →</button>
     </form>

@@ -40,11 +40,17 @@ var loginTranslations = {
     'login.toggle.has_account':   'already have an account?',
     'login.toggle.signin':        'sign in',
     'login.back':                 '← back to serva.services',
+    'login.label.username':         'username',
     'login.label.confirm_password': 'confirm password',
     'login.err.empty':            'please enter your email and password.',
+    'login.err.empty_username':   'please enter a username.',
     'login.err.password_mismatch': 'passwords do not match.',
     'login.err.exists':           'an account with this email already exists. try signing in instead.',
     'login.success.confirm':      'check your email for a confirmation link.',
+    'login.btn.resend':           'resend email',
+    'login.btn.loading.resend':   'resending...',
+    'login.success.resent':       'confirmation email resent.',
+    'login.err.resend_cooldown':  'Please wait 45 seconds before requesting another email.',
   },
   th: {
     'login.heading.signin':       'ยินดีต้อนรับกลับ',
@@ -64,11 +70,17 @@ var loginTranslations = {
     'login.toggle.has_account':   'มีบัญชีอยู่แล้ว?',
     'login.toggle.signin':        'เข้าสู่ระบบ',
     'login.back':                 '← กลับสู่ serva.services',
+    'login.label.username':         'ชื่อผู้ใช้',
     'login.label.confirm_password': 'ยืนยันรหัสผ่าน',
     'login.err.empty':            'กรุณากรอกอีเมลและรหัสผ่าน',
+    'login.err.empty_username':   'กรุณากรอกชื่อผู้ใช้',
     'login.err.password_mismatch': 'รหัสผ่านไม่ตรงกัน',
     'login.err.exists':           'อีเมลนี้มีบัญชีอยู่แล้ว กรุณาเข้าสู่ระบบแทน',
     'login.success.confirm':      'กรุณาตรวจสอบอีเมลของคุณเพื่อยืนยันการสมัคร',
+    'login.btn.resend':           'ส่งอีเมลอีกครั้ง',
+    'login.btn.loading.resend':   'กำลังส่ง...',
+    'login.success.resent':       'ส่งอีเมลยืนยันอีกครั้งแล้ว',
+    'login.err.resend_cooldown':  'กรุณารอ 45 วินาทีก่อนขอส่งอีเมลอีกครั้ง',
   }
 };
 
@@ -111,7 +123,7 @@ function updateNavAuth(session) {
   if (session && session.user) {
     var meta   = session.user.user_metadata || {};
     var avatar = meta.avatar_url || meta.picture || '';
-    var full   = meta.full_name || meta.name || session.user.email || '';
+    var full   = meta.username || meta.full_name || meta.name || session.user.email || '';
     var first  = full.split(' ')[0];
 
     li.innerHTML =
@@ -195,9 +207,13 @@ export function initLoginPage() {
   var toggleBtn            = document.getElementById('toggleModeBtn');
   var toggleText           = document.getElementById('toggleText');
   var passwordInput        = document.getElementById('password');
+  var usernameField        = document.getElementById('usernameField');
+  var usernameInput        = document.getElementById('username');
   var confirmPasswordField = document.getElementById('confirmPasswordField');
   var confirmPasswordInput = document.getElementById('confirmPassword');
+  var resendBtn            = document.getElementById('btnResend');
   var langBtn              = document.getElementById('loginLangBtn');
+  var pendingEmail         = '';
 
   if (!form) return;
 
@@ -230,6 +246,8 @@ export function initLoginPage() {
     errorEl.classList.remove('is-visible');
     successEl.textContent = '';
     successEl.classList.remove('is-visible');
+    resendBtn.style.display = 'none';
+    resendBtn.textContent = t('login.btn.resend');
   }
 
   function setLoading(loading) {
@@ -252,6 +270,8 @@ export function initLoginPage() {
       passwordInput.autocomplete           = 'new-password';
       toggleText.textContent               = t('login.toggle.has_account');
       toggleBtn.textContent                = t('login.toggle.signin');
+      usernameField.style.display          = '';
+      usernameInput.required               = true;
       confirmPasswordField.style.display   = '';
       confirmPasswordInput.required        = true;
     } else {
@@ -261,6 +281,9 @@ export function initLoginPage() {
       passwordInput.autocomplete           = 'current-password';
       toggleText.textContent               = t('login.toggle.no_account');
       toggleBtn.textContent                = t('login.toggle.create');
+      usernameField.style.display          = 'none';
+      usernameInput.required               = false;
+      usernameInput.value                  = '';
       confirmPasswordField.style.display   = 'none';
       confirmPasswordInput.required        = false;
       confirmPasswordInput.value           = '';
@@ -303,9 +326,15 @@ export function initLoginPage() {
 
     var email    = document.getElementById('email').value.trim();
     var password = document.getElementById('password').value;
+    var username = usernameInput.value.trim();
 
     if (!email || !password) {
       showError(t('login.err.empty'));
+      return;
+    }
+
+    if (isSignUp && !username) {
+      showError(t('login.err.empty_username'));
       return;
     }
 
@@ -317,7 +346,7 @@ export function initLoginPage() {
     setLoading(true);
 
     if (isSignUp) {
-      supabaseClient.auth.signUp({ email: email, password: password })
+      supabaseClient.auth.signUp({ email: email, password: password, options: { data: { username: username } } })
         .then(function (result) {
           if (result.error) {
             showError(result.error.message);
@@ -328,7 +357,10 @@ export function initLoginPage() {
           } else if (result.data.user && result.data.session) {
             window.location.href = getAuthRedirectUrl();
           } else {
+            pendingEmail = email;
             showSuccess(t('login.success.confirm'));
+            resendBtn.textContent = t('login.btn.resend');
+            resendBtn.style.display = '';
             setLoading(false);
           }
         });
@@ -343,6 +375,24 @@ export function initLoginPage() {
           }
         });
     }
+  });
+
+  /* Resend confirmation email */
+  resendBtn.addEventListener('click', function () {
+    if (!pendingEmail) return;
+    resendBtn.disabled = true;
+    resendBtn.textContent = t('login.btn.loading.resend');
+    supabaseClient.auth.resend({ type: 'signup', email: pendingEmail })
+      .then(function (result) {
+        resendBtn.disabled = false;
+        resendBtn.textContent = t('login.btn.resend');
+        if (result.error) {
+          var isCooldown = /security purposes|only request this after/i.test(result.error.message);
+          showError(isCooldown ? t('login.err.resend_cooldown') : result.error.message);
+        } else {
+          showSuccess(t('login.success.resent'));
+        }
+      });
   });
 
   /* Google OAuth */

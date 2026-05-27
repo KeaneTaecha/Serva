@@ -65,6 +65,7 @@
   align-items: center;
   justify-content: center;
   margin-top: 4rem;
+  transform: translateX(3rem);
   z-index: 0; /* creates stacking context so shapes stay within */
 }
 

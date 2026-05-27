@@ -73,7 +73,7 @@ if ('IntersectionObserver' in window) {
       'process.step2.desc': 'We architect the pipeline or provision the hardware to spec. Every component chosen deliberately, with room to scale.',
       'process.step3.desc': 'We ship, monitor, and remain available. Ongoing support, performance reviews, and adjustments as your needs evolve.',
       'cta.heading':        "Get in touch.",
-      'cta.email':          'or email <a href="mailto:hello@serva.services">hello@serva.services</a>',
+      'cta.email':          'or email <a href="mailto:info@serva.services">info@serva.services</a>',
       'footer.statement':   'Built for teams that demand precision.',
       'footer.col1.title':  'services',
       'footer.col1.custom': 'Custom Projects',
@@ -86,7 +86,7 @@ if ('IntersectionObserver' in window) {
       'why.sub':            'Everything you need to deploy with confidence — from hardware to pipeline, from setup to ongoing support.',
       'why.item1.title':    'Full Pipeline Services',
       'why.item1.desc':     'From server setup to complete AI and data pipeline deployment — we handle the full stack end-to-end.',
-      'why.item2.title':    '99.99% Uptime',
+      'why.item2.title':    '99.97% Uptime',
       'why.item2.desc':     'Industry-leading uptime backed by redundant infrastructure and continuous 24/7 monitoring.',
       'why.item3.title':    'Secure Thai Data Center',
       'why.item3.desc':     "Our servers are deployed in JasTel's data center in Thailand.",
@@ -102,7 +102,7 @@ if ('IntersectionObserver' in window) {
       'off.vps.desc':       'Full root access, SSD storage, and flexible billing — monthly to yearly.',
       'off.vps.link':       'view plans →',
       'off.dedicated.name': 'GPU Dedicated Server',
-      'off.dedicated.desc': 'Full hardware access, 99.99% uptime SLA. NVIDIA GPU available for AI and compute workloads.',
+      'off.dedicated.desc': 'Full hardware access, 99.97% uptime SLA. NVIDIA GPU available for AI and compute workloads.',
       'off.dedicated.link': 'view configs →',
       'off.svc.label':      'Services',
       'off.pipeline.name':  'AI &amp; Data<br>Pipelines',
@@ -151,7 +151,7 @@ if ('IntersectionObserver' in window) {
       'process.step2.desc': 'เราออกแบบ pipeline หรือจัดเตรียม hardware ตามสเปก ทุก component ถูกเลือกอย่างมีเหตุผล พร้อมรองรับการขยายตัว',
       'process.step3.desc': 'เรา deploy ตรวจสอบ และพร้อมให้บริการตลอด การสนับสนุนต่อเนื่อง การตรวจสอบประสิทธิภาพ และการปรับแต่งตามความต้องการที่เปลี่ยนแปลง',
       'cta.heading':        'ติดต่อเรา',
-      'cta.email':          'หรือส่งอีเมลมาที่ <a href="mailto:hello@serva.services">hello@serva.services</a>',
+      'cta.email':          'หรือส่งอีเมลมาที่ <a href="mailto:info@serva.services">info@serva.services</a>',
       'footer.statement':   'สร้างขึ้นสำหรับทีมที่ไม่ยอมลดมาตรฐาน.',
       'footer.col1.title':  'บริการ',
       'footer.col1.custom': 'โปรเจกต์กำหนดเอง',
@@ -164,7 +164,7 @@ if ('IntersectionObserver' in window) {
       'why.sub':            'ทุกสิ่งที่คุณต้องการเพื่อ deploy อย่างมั่นใจ — ตั้งแต่ hardware ไปจนถึง pipeline ตั้งแต่การติดตั้งไปจนถึงการสนับสนุนต่อเนื่อง',
       'why.item1.title':    'บริการ Pipeline เต็มรูปแบบ',
       'why.item1.desc':     'จากการติดตั้ง server ไปจนถึงการ deploy AI และ data pipeline ครบวงจร — เราดูแลทุกขั้นตอน',
-      'why.item2.title':    'Uptime 99.99%',
+      'why.item2.title':    'Uptime 99.97%',
       'why.item2.desc':     'Uptime ระดับแนวหน้าของอุตสาหกรรม รองรับด้วย infrastructure แบบ redundant และการตรวจสอบ 24/7 ต่อเนื่อง',
       'why.item3.title':    'Data Center ไทยที่ปลอดภัย',
       'why.item3.desc':     'เซิร์ฟเวอร์ของเราติดตั้งอยู่ใน data center ของ JasTel ในประเทศไทย',
@@ -180,7 +180,7 @@ if ('IntersectionObserver' in window) {
       'off.vps.desc':       'เข้าถึง root ได้เต็มที่ พื้นที่เก็บข้อมูล SSD และการเรียกเก็บเงินที่ยืดหยุ่น — รายชั่วโมงหรือรายเดือน เปิดใช้งานได้ภายในไม่กี่นาที ขยายโดยไม่ต้องทำสัญญา',
       'off.vps.link':       'ดูแพ็กเกจ →',
       'off.dedicated.name': 'GPU Dedicated Server',
-      'off.dedicated.desc': 'เข้าถึง hardware เต็มที่ ไม่มีการรบกวนจากผู้เช่าอื่น SLA uptime 99.99% NVIDIA GPU พร้อมสำหรับ AI และ compute workload',
+      'off.dedicated.desc': 'เข้าถึง hardware เต็มที่ ไม่มีการรบกวนจากผู้เช่าอื่น SLA uptime 99.97% NVIDIA GPU พร้อมสำหรับ AI และ compute workload',
       'off.dedicated.link': 'ดู config →',
       'off.svc.label':      'บริการ',
       'off.pipeline.name':  'AI &amp; Data<br>Pipelines',
@@ -284,7 +284,7 @@ if ('IntersectionObserver' in window) {
     const uptime   = document.getElementById('stat-uptime');
     const latency  = document.getElementById('stat-latency');
 
-    if (uptime)   countUp(uptime,   99,  99.99, 2, '%', 1600);
+    if (uptime)   countUp(uptime,   99,  99.97, 2, '%', 1600);
     if (latency)  countUp(latency, 0,   6,    0, 'ms', 1200);
   }, 600);
 })();

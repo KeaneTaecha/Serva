@@ -27,6 +27,11 @@
 
   /* Compare and toggle .navbar--mobile. */
   function checkFit() {
+    /* Skip while the overlay is open — a resize or fonts.ready event while
+       the menu is open can flip wantMobile to false and call closeMenu(),
+       which makes the cross button and EN text vanish unexpectedly. */
+    if (links.classList.contains('is-open')) return;
+
     var logoEl  = navbar.querySelector('.navbar__logo');
     var ns      = getComputedStyle(navbar);
     var padH    = parseFloat(ns.paddingLeft) + parseFloat(ns.paddingRight);

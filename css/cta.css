@@ -9,7 +9,7 @@
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 6rem;
-  align-items: end;
+  align-items: center;
   position: relative;
   overflow: hidden;
 }
@@ -84,3 +84,28 @@
 .cta__email a:hover {
   color: var(--color-beige);
 }
+
+.cta__social {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+}
+
+.cta__social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  color: rgba(245, 240, 232, .4);
+  border: 1px solid rgba(245, 240, 232, .2);
+  transition: color .2s, border-color .2s;
+}
+
+.cta__social-btn:hover {
+  color: var(--color-beige);
+  border-color: rgba(245, 240, 232, .5);
+}
+
+.cta__social-btn--fb:hover  { color: #1877F2; border-color: #1877F2; }
+.cta__social-btn--line:hover { color: #06C755; border-color: #06C755; }
