@@ -1,33 +1,36 @@
 /* ============================================================
    RESPONSIVE — mobile-first breakpoints
+   The "html" prefix on every selector gives these rules
+   specificity 0,1,1 so they always win over component-level
+   desktop rules (0,1,0), regardless of CSS bundle load order.
    ============================================================ */
 
 /* ── Tablet (≤ 1024px) ──────────────────────────────────── */
 @media (max-width: 1024px) {
-  .services__intro {
+  html .services__intro {
     flex-direction: column;
     align-items: stretch;
     gap: 1.25rem;
     margin-bottom: 2rem;
   }
 
-  .services__title {
+  html .services__title {
     text-align: left;
   }
 
-  .services__sub {
+  html .services__sub {
     max-width: none;
     text-align: left;
   }
 
   /* Catalog */
-  .catalog__intro {
+  html .catalog__intro {
     grid-template-columns: 1fr;
     row-gap: 1.25rem;
     margin-bottom: 2rem;
   }
 
-  .catalog__sub {
+  html .catalog__sub {
     grid-column: 1;
     justify-self: start;
     text-align: left;
@@ -35,41 +38,41 @@
   }
 
   /* Why Serva */
-  .why__intro {
+  html .why__intro {
     flex-direction: column;
     align-items: flex-start;
     gap: 1.25rem;
     margin-bottom: 2rem;
   }
 
-  .why__sub {
+  html .why__sub {
     text-align: left;
     max-width: none;
   }
 
-  .why__grid {
+  html .why__grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
   /* Offerings */
-  .offerings__intro {
+  html .offerings__intro {
     flex-direction: column;
     align-items: flex-start;
     gap: 1.25rem;
     margin-bottom: 2rem;
   }
 
-  .offerings__sub {
+  html .offerings__sub {
     text-align: left;
     max-width: none;
   }
 
-  .offerings__cards--three {
+  html .offerings__cards--three {
     grid-template-columns: 1fr 1fr;
   }
 
   /* 2 cards visible on tablet */
-  .server-card {
+  html .server-card {
     flex: 0 0 calc(50% - 0.75rem);
   }
 }
@@ -77,7 +80,7 @@
 /* ── Mobile landscape / small tablet (≤ 900px) ──────────── */
 @media (max-width: 900px) {
   /* Hero */
-  .hero__visual {
+  html .hero__visual {
     width: 100%;
     height: 70%;
     top: 0;
@@ -85,143 +88,143 @@
     opacity: .35;
   }
 
-  .hero__visual::after,
-  .hero__visual::before {
+  html .hero__visual::after,
+  html .hero__visual::before {
     display: none;
   }
 
-  .hero__server-frame {
+  html .hero__server-frame {
     margin-top: 2rem;
   }
 
-  .hero__price-badge {
+  html .hero__price-badge {
     display: none;
   }
 
-  .hero__content {
+  html .hero__content {
     max-width: 100%;
   }
 
 /* Hero stats */
-  .hero__stats {
+  html .hero__stats {
     gap: 0;
     flex-wrap: wrap;
   }
 
-  .hero__stat {
+  html .hero__stat {
     padding-right: 1.75rem;
     margin-right: 1.75rem;
   }
 
   /* Catalog */
-  .catalog {
+  html .catalog {
     padding: 5.5rem 2rem;
   }
 
   /* Why Serva */
-  .why {
+  html .why {
     padding: 5.5rem 2rem;
   }
 
   /* Offerings */
-  .offerings {
+  html .offerings {
     padding: 5.5rem 2rem;
   }
 
-  .offerings__cards--two,
-  .offerings__cards--three {
+  html .offerings__cards--two,
+  html .offerings__cards--three {
     grid-template-columns: 1fr;
   }
 
-  .catalog__scroll-hint {
+  html .catalog__scroll-hint {
     display: none;
   }
 
   /* Hero */
-  .hero {
+  html .hero {
     padding: 0 2rem 4.5rem;
   }
 
-  .hero__heading {
+  html .hero__heading {
     font-size: clamp(3rem, 12vw, 5.5rem);
   }
 
-  .hero__bottom {
+  html .hero__bottom {
     flex-direction: column;
     align-items: flex-start;
   }
 
-  .hero__bottom .hero__cta {
+  html .hero__bottom .hero__cta {
     margin-left: 0;
   }
 
   /* Services */
-  .services {
+  html .services {
     padding: 5.5rem 2rem;
   }
 
-  .services__grid {
+  html .services__grid {
     grid-template-columns: 1fr;
   }
 
-  .service-card,
-  .service-card:last-child {
+  html .service-card,
+  html .service-card:last-child {
     padding: 2.5rem 0 3.5rem;
     margin-top: 0;
     border-right: none;
     border-bottom: 1px solid var(--border-dark);
   }
 
-  .service-card:last-child {
+  html .service-card:last-child {
     border-bottom: none;
   }
 
   /* Process */
-  .process {
+  html .process {
     padding: 5.5rem 2rem;
   }
 
-  .process__steps {
+  html .process__steps {
     grid-template-columns: 1fr;
   }
 
-  .process__step,
-  .process__step:not(:first-child) {
+  html .process__step,
+  html .process__step:not(:first-child) {
     border-right: none;
     border-bottom: 1px solid var(--border-light);
     padding: 2.5rem 0;
   }
 
-  .process__step:last-child {
+  html .process__step:last-child {
     border-bottom: none;
   }
 
   /* CTA */
-  .cta {
+  html .cta {
     grid-template-columns: 1fr;
     padding: 5.5rem 2rem;
     gap: 3rem;
   }
 
-  .cta__right {
+  html .cta__right {
     align-items: flex-start;
   }
 
   /* Footer */
-  .footer {
+  html .footer {
     padding: 4rem 2rem 3rem;
   }
 
-  .footer__top {
+  html .footer__top {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
 
-  .footer__nav {
+  html .footer__nav {
     gap: 3rem;
   }
 
-  .footer__bottom {
+  html .footer__bottom {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
@@ -230,18 +233,18 @@
 
 /* ── Mobile portrait (≤ 560px) ──────────────────────────── */
 @media (max-width: 560px) {
-  .why__grid {
+  html .why__grid {
     grid-template-columns: 1fr;
   }
 
   /* Hero stats: 2×2 grid on small screens */
-  .hero__stats {
+  html .hero__stats {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0;
   }
 
-  .hero__stat {
+  html .hero__stat {
     padding: 1.25rem 1.25rem;
     margin-right: 0;
     border-right: none;
@@ -249,25 +252,25 @@
     text-align: center;
   }
 
-  .hero__stat:nth-child(odd) {
+  html .hero__stat:nth-child(odd) {
     border-right: 1px solid var(--border-light);
   }
 
-  .hero__stat:nth-last-child(-n+2) {
+  html .hero__stat:nth-last-child(-n+2) {
     border-bottom: none;
   }
 
   /* Catalog: 1 card visible */
-  .server-card {
+  html .server-card {
     flex: 0 0 calc(100% - 0px);
   }
 
-  .catalog__toggle-btn {
+  html .catalog__toggle-btn {
     padding: .6rem 1rem;
     font-size: .7rem;
   }
 
-  .footer__nav {
+  html .footer__nav {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 1rem;
@@ -276,42 +279,42 @@
 
 /* ── Extra small (≤ 400px) ──────────────────────────────── */
 @media (max-width: 400px) {
-  .navbar {
+  html .navbar {
     padding: 1rem 1.25rem;
   }
 
-  .hero {
+  html .hero {
     padding: 0 1.25rem 3.5rem;
   }
 
-  .catalog,
-  .why,
-  .offerings,
-  .services,
-  .process {
+  html .catalog,
+  html .why,
+  html .offerings,
+  html .services,
+  html .process {
     padding-left: 1.25rem;
     padding-right: 1.25rem;
   }
 
-  .footer {
+  html .footer {
     padding-left: 1.25rem;
     padding-right: 1.25rem;
   }
 
   /* Page heroes (dedicated-servers, cloud-vps) */
-  .page-hero {
+  html .page-hero {
     padding-left: 1.25rem !important;
     padding-right: 1.25rem !important;
   }
 
   /* Services page hero */
-  .svc-hero {
+  html .svc-hero {
     padding-left: 1.25rem !important;
     padding-right: 1.25rem !important;
   }
 
   /* About hero */
-  .about-hero {
+  html .about-hero {
     padding-left: 1.25rem !important;
     padding-right: 1.25rem !important;
   }
