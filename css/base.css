@@ -146,6 +146,18 @@ a {
   }
 }
 
+:lang(th) .svc-hero__heading {
+  font-family: 'Sarabun', sans-serif;
+  letter-spacing: -.01em;
+  line-height: 1.4;
+}
+
+:lang(th) .about-hero__heading {
+  font-family: 'Sarabun', sans-serif;
+  letter-spacing: -.01em;
+  line-height: 1.4;
+}
+
 :lang(th) .section-title,
 :lang(th) .os-compat__heading {
   line-height: 1.45;
