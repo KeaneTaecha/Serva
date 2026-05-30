@@ -108,24 +108,6 @@
       border-color: rgba(42, 128, 128, .6);
     }
 
-    /* ── 3-col services grid override ───────────────────────── */
-    .services__grid--three {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .services__grid--three .service-card {
-      padding: 2.25rem 3rem 4rem 0;
-    }
-
-    .services__grid--three .service-card:not(:first-child) {
-      padding-left: 3rem;
-    }
-
-    .services__grid--three .service-card:last-child {
-      border-right: none;
-      padding-right: 0;
-    }
-
     /* Clawbot badge */
     .service-card__badge {
       display: inline-flex;
@@ -151,19 +133,6 @@
       }
       .svc-hero__right {
         max-width: none;
-      }
-      .services__grid--three {
-        grid-template-columns: 1fr;
-      }
-      .services__grid--three .service-card,
-      .services__grid--three .service-card:not(:first-child),
-      .services__grid--three .service-card:last-child {
-        padding: 2.5rem 0 3.5rem;
-        border-right: none;
-        border-bottom: 1px solid var(--border-dark);
-      }
-      .services__grid--three .service-card:last-child {
-        border-bottom: none;
       }
     }
 

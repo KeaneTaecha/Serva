@@ -219,15 +219,15 @@
     }
 
     /* ── Catalog override: hide toggle on this page ─────── */
-    .catalog {
+    html .catalog {
       padding-top: 6rem;
     }
 
-    .catalog__toggle {
+    html .catalog__toggle {
       display: none;
     }
 
-    .catalog__track--hidden {
+    html .catalog__track--hidden {
       display: none;
     }
 
@@ -472,7 +472,7 @@
     }
 
     /* ── Catalog intro: heading left, toggle right ────────── */
-    .catalog__intro {
+    html .catalog__intro {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -490,7 +490,7 @@
     }
 
     @media (max-width: 900px) {
-      .catalog__intro {
+      html .catalog__intro {
         flex-direction: column;
         align-items: flex-start;
         gap: 2rem;

@@ -35,6 +35,23 @@
   align-items: stretch;
 }
 
+.services__grid--three {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.services__grid--three .service-card {
+  padding: 2.25rem 3rem 4rem 0;
+}
+
+.services__grid--three .service-card:not(:first-child) {
+  padding-left: 3rem;
+}
+
+.services__grid--three .service-card:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
 /* ── Service Card ───────────────────────────────────────── */
 .service-card {
   position: relative;

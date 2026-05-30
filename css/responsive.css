@@ -71,6 +71,23 @@
     grid-template-columns: 1fr 1fr;
   }
 
+  /* Services page 3-col grid → stack on tablet */
+  html .services__grid--three {
+    grid-template-columns: 1fr;
+  }
+
+  html .services__grid--three .service-card,
+  html .services__grid--three .service-card:not(:first-child),
+  html .services__grid--three .service-card:last-child {
+    padding: 2.5rem 0 3.5rem;
+    border-right: none;
+    border-bottom: 1px solid var(--border-dark);
+  }
+
+  html .services__grid--three .service-card:last-child {
+    border-bottom: none;
+  }
+
   /* 2 cards visible on tablet */
   html .server-card {
     flex: 0 0 calc(50% - 0.75rem);
@@ -165,6 +182,22 @@
 
   html .services__grid {
     grid-template-columns: 1fr;
+  }
+
+  html .services__grid--three {
+    grid-template-columns: 1fr;
+  }
+
+  html .services__grid--three .service-card,
+  html .services__grid--three .service-card:not(:first-child),
+  html .services__grid--three .service-card:last-child {
+    padding: 2.5rem 0 3.5rem;
+    border-right: none;
+    border-bottom: 1px solid var(--border-dark);
+  }
+
+  html .services__grid--three .service-card:last-child {
+    border-bottom: none;
   }
 
   html .service-card,
