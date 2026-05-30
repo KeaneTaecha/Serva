@@ -1,3 +1,5 @@
+import logoUrl from '../assets/images/logo.png';
+
 const DBD_PARAM = '997B8891834D20B3ED922562390D363702889EA206134F629B657E88F2F28CEA';
 const DBD_BASE  = 'https://dbdregistered.dbd.go.th/api/public';
 
@@ -7,7 +9,7 @@ if (!root) throw new Error('footer: #site-footer not found');
 root.innerHTML = `
   <div class="footer__top">
     <div>
-      <img src="assets/images/logo.png" alt="Serva" class="footer__brand-logo" />
+      <img src="${logoUrl}" alt="Serva" class="footer__brand-logo" />
       <p class="footer__shop-name">Serva Services</p>
     </div>
     <div class="footer__right">
